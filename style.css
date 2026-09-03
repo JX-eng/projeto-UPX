@@ -1,0 +1,1384 @@
+/* ==========================================================
+   ECOENERGIA
+   CSS PRINCIPAL
+   ========================================================== */
+
+
+/* ==========================================================
+   RESET
+   ========================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #173b38;
+    background: #f4faf8;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+}
+
+button,
+input,
+select {
+    font-family: inherit;
+}
+
+
+/* ==========================================================
+   CORES
+   ========================================================== */
+
+:root {
+    --verde: #16a673;
+    --verde-escuro: #087a58;
+    --verde-claro: #e2f8ee;
+
+    --azul: #2196e0;
+    --azul-claro: #e5f5ff;
+
+    --amarelo: #ffc83d;
+    --amarelo-claro: #fff5d5;
+
+    --texto: #173b38;
+    --texto-secundario: #667c78;
+
+    --branco: #ffffff;
+
+    --borda: #e3eeea;
+
+    --sombra: 0 12px 35px rgba(16, 72, 61, 0.09);
+}
+
+
+/* ==========================================================
+   LINKS
+   ========================================================== */
+
+a {
+    color: var(--verde-escuro);
+    transition: 0.2s;
+}
+
+a:hover {
+    color: var(--verde);
+}
+
+
+/* ==========================================================
+   ==========================================================
+   LOGIN + CADASTRO
+   ==========================================================
+   ========================================================== */
+
+
+/* Fundo */
+
+body:has(main > aside) {
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(33, 150, 224, 0.12),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 90%,
+            rgba(22, 166, 115, 0.15),
+            transparent 30%
+        ),
+        #f3faf8;
+}
+
+
+/* Caixa principal */
+
+main:has(> aside) {
+    width: 92%;
+    max-width: 1100px;
+
+    min-height: 650px;
+
+    margin: 50px auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    background: var(--branco);
+
+    border-radius: 28px;
+
+    overflow: hidden;
+
+    box-shadow: 0 25px 70px rgba(16, 72, 61, 0.13);
+}
+
+
+/* ==========================================================
+   LOGIN/CADASTRO — HEADER
+   ========================================================== */
+
+main:has(> aside) > header {
+    grid-column: 1;
+
+    padding: 50px 55px 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #087a58,
+            #18a878
+        );
+
+    color: white;
+}
+
+
+/* Logo */
+
+main:has(> aside) > header > div {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+main:has(> aside) > header span {
+    font-size: 35px;
+}
+
+main:has(> aside) > header h1 {
+    font-size: 28px;
+
+    font-weight: 800;
+}
+
+main:has(> aside) > header p {
+    margin-top: 12px;
+
+    max-width: 400px;
+
+    color: rgba(255,255,255,0.85);
+
+    font-size: 14px;
+}
+
+
+/* ==========================================================
+   LOGIN/CADASTRO — FORMULÁRIO
+   ========================================================== */
+
+main:has(> aside) > section {
+    grid-column: 1;
+
+    padding: 20px 55px 50px;
+
+    background: white;
+}
+
+
+/* Título */
+
+main:has(> aside) > section > h2 {
+    font-size: 28px;
+
+    line-height: 1.2;
+
+    margin-bottom: 8px;
+
+    color: var(--texto);
+}
+
+main:has(> aside) > section > p {
+    color: var(--texto-secundario);
+
+    font-size: 14px;
+
+    margin-bottom: 25px;
+}
+
+
+/* Form */
+
+main:has(> aside) form {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 17px;
+}
+
+main:has(> aside) form > div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+
+/* Labels */
+
+main:has(> aside) label {
+    color: var(--texto);
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+
+/* Inputs */
+
+main:has(> aside) input[type="text"],
+main:has(> aside) input[type="email"],
+main:has(> aside) input[type="password"],
+main:has(> aside) select {
+    width: 100%;
+
+    height: 48px;
+
+    padding: 0 15px;
+
+    border: 2px solid var(--borda);
+
+    border-radius: 12px;
+
+    background: #fbfdfc;
+
+    color: var(--texto);
+
+    outline: none;
+
+    transition: 0.2s;
+}
+
+main:has(> aside) input:focus,
+main:has(> aside) select:focus {
+    border-color: var(--verde);
+
+    background: white;
+
+    box-shadow:
+        0 0 0 4px rgba(22,166,115,0.10);
+}
+
+main:has(> aside) input::placeholder {
+    color: #a3b2af;
+}
+
+
+/* Checkbox */
+
+main:has(> aside) input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+
+    accent-color: var(--verde);
+}
+
+main:has(> aside) form > div:has(input[type="checkbox"]) {
+    flex-direction: row;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
+}
+
+main:has(> aside) form > div:has(input[type="checkbox"]) label {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    font-weight: 500;
+}
+
+
+/* ==========================================================
+   BOTÃO LOGIN / CADASTRO
+   ========================================================== */
+
+main:has(> aside) button {
+    width: 100%;
+
+    height: 50px;
+
+    margin-top: 4px;
+
+    border: none;
+
+    border-radius: 13px;
+
+    background: var(--verde);
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: 800;
+
+    box-shadow:
+        0 8px 20px rgba(22,166,115,0.22);
+
+    transition: 0.2s;
+}
+
+main:has(> aside) button:hover {
+    background: var(--verde-escuro);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 25px rgba(22,166,115,0.28);
+}
+
+main:has(> aside) button:active {
+    transform: translateY(0);
+}
+
+
+/* ==========================================================
+   ESQUECI SENHA / VISITANTE
+   ========================================================== */
+
+main:has(> aside) form + div {
+    margin-top: 20px;
+
+    text-align: center;
+}
+
+main:has(> aside) form + div p {
+    color: #8a9a97;
+
+    margin-bottom: 7px;
+
+    font-size: 13px;
+}
+
+main:has(> aside) form + div a {
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+
+/* ==========================================================
+   FRASE LATERAL
+   ========================================================== */
+
+main:has(> aside) > aside {
+    grid-column: 2;
+
+    grid-row: 1 / span 2;
+
+    padding: 60px 55px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: flex-start;
+
+    position: relative;
+
+    overflow: hidden;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            150deg,
+            #168fcb,
+            #146bb5
+        );
+}
+
+
+/* Círculos decorativos */
+
+main:has(> aside) > aside::before {
+    content: "";
+
+    position: absolute;
+
+    width: 280px;
+    height: 280px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.08);
+
+    right: -90px;
+    top: -90px;
+}
+
+main:has(> aside) > aside::after {
+    content: "";
+
+    position: absolute;
+
+    width: 200px;
+    height: 200px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.06);
+
+    left: -80px;
+    bottom: -70px;
+}
+
+
+/* Ícones */
+
+main:has(> aside) > aside > div {
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    gap: 12px;
+
+    font-size: 38px;
+
+    margin-bottom: 30px;
+}
+
+
+/* Título */
+
+main:has(> aside) > aside h2 {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 400px;
+
+    font-size: 37px;
+
+    line-height: 1.15;
+
+    margin-bottom: 18px;
+}
+
+main:has(> aside) > aside p {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 390px;
+
+    color: rgba(255,255,255,0.85);
+
+    font-size: 15px;
+}
+
+
+/* ==========================================================
+   CADASTRO — AJUSTE
+   ========================================================== */
+
+main:has(#tipo) > section > p {
+    margin-bottom: 18px;
+}
+
+main:has(#tipo) > section {
+    padding-top: 20px;
+}
+
+
+/* ==========================================================
+   ==========================================================
+   PÁGINA PRINCIPAL
+   ==========================================================
+   ========================================================== */
+
+
+/* Header principal */
+
+body:not(:has(main > aside)) > header {
+    height: 76px;
+
+    padding: 0 6%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+
+    background: rgba(255,255,255,0.96);
+
+    border-bottom: 1px solid var(--borda);
+
+    backdrop-filter: blur(12px);
+}
+
+
+/* Logo */
+
+body:not(:has(main > aside)) > header > div:first-child {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+body:not(:has(main > aside)) > header > div:first-child span {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: var(--verde-claro);
+
+    border-radius: 12px;
+
+    font-size: 22px;
+}
+
+body:not(:has(main > aside)) > header h1 {
+    font-size: 22px;
+
+    color: var(--verde-escuro);
+}
+
+
+/* Navegação */
+
+body:not(:has(main > aside)) > header nav {
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+}
+
+body:not(:has(main > aside)) > header nav a {
+    padding: 9px 13px;
+
+    border-radius: 9px;
+
+    color: #55706c;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+body:not(:has(main > aside)) > header nav a:hover {
+    background: var(--verde-claro);
+
+    color: var(--verde-escuro);
+}
+
+
+/* Usuário */
+
+body:not(:has(main > aside)) > header > div:last-child {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    font-size: 13px;
+}
+
+body:not(:has(main > aside)) > header > div:last-child span {
+    font-weight: 600;
+}
+
+body:not(:has(main > aside)) > header > div:last-child a {
+    padding: 8px 13px;
+
+    border-radius: 9px;
+
+    background: #ffe9e9;
+
+    color: #d95353;
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+
+/* ==========================================================
+   MAIN DA HOME
+   ========================================================== */
+
+body:not(:has(main > aside)) > main {
+    width: 90%;
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 45px 0 70px;
+}
+
+
+/* ==========================================================
+   HERO
+   ========================================================== */
+
+body:not(:has(main > aside)) > main > section:first-child {
+    min-height: 410px;
+
+    padding: 50px;
+
+    display: grid;
+
+    grid-template-columns: 1.3fr 0.7fr;
+
+    align-items: center;
+
+    gap: 40px;
+
+    border-radius: 27px;
+
+    overflow: hidden;
+
+    position: relative;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            125deg,
+            #087a58,
+            #18a878
+        );
+
+    box-shadow: var(--sombra);
+}
+
+
+/* Círculo */
+
+body:not(:has(main > aside)) > main > section:first-child::after {
+    content: "";
+
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.07);
+
+    right: -100px;
+    top: -130px;
+}
+
+
+/* Conteúdo hero */
+
+body:not(:has(main > aside)) > main > section:first-child > div:first-child {
+    position: relative;
+
+    z-index: 2;
+}
+
+body:not(:has(main > aside)) > main > section:first-child > div:first-child > span {
+    display: inline-block;
+
+    padding: 7px 13px;
+
+    margin-bottom: 15px;
+
+    border-radius: 20px;
+
+    background: rgba(255,255,255,0.15);
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+body:not(:has(main > aside)) > main > section:first-child h2 {
+    max-width: 650px;
+
+    font-size: 42px;
+
+    line-height: 1.12;
+
+    margin-bottom: 18px;
+}
+
+body:not(:has(main > aside)) > main > section:first-child p {
+    max-width: 630px;
+
+    color: rgba(255,255,255,0.87);
+
+    font-size: 14px;
+
+    margin-bottom: 10px;
+}
+
+
+/* Botões hero */
+
+body:not(:has(main > aside)) > main > section:first-child > div:first-child > div {
+    display: flex;
+
+    gap: 12px;
+
+    margin-top: 25px;
+}
+
+body:not(:has(main > aside)) > main > section:first-child a {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 12px 18px;
+
+    border-radius: 11px;
+
+    background: white;
+
+    color: var(--verde-escuro);
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    transition: 0.2s;
+}
+
+body:not(:has(main > aside)) > main > section:first-child a:hover {
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+
+/* ==========================================================
+   ILUSTRAÇÃO HERO
+   ========================================================== */
+
+body:not(:has(main > aside)) > main > section:first-child > div:last-child {
+    position: relative;
+
+    z-index: 2;
+
+    min-height: 260px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+body:not(:has(main > aside)) > main > section:first-child > div:last-child > span {
+    font-size: 65px;
+
+    margin: -5px;
+
+    filter: drop-shadow(0 8px 10px rgba(0,0,0,0.08));
+}
+
+body:not(:has(main > aside)) > main > section:first-child > div:last-child p {
+    margin-top: 20px;
+
+    text-align: center;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    color: white;
+}
+
+
+/* ==========================================================
+   SEÇÕES
+   ========================================================== */
+
+body:not(:has(main > aside)) > main > section:not(:first-child) {
+    margin-top: 65px;
+}
+
+body:not(:has(main > aside)) > main > section:not(:first-child) > h2 {
+    font-size: 28px;
+
+    margin-bottom: 7px;
+}
+
+body:not(:has(main > aside)) > main > section:not(:first-child) > p {
+    color: var(--texto-secundario);
+
+    font-size: 14px;
+
+    margin-bottom: 25px;
+}
+
+
+/* ==========================================================
+   COMO FUNCIONA
+   ========================================================== */
+
+body:not(:has(main > aside)) > main > section:nth-child(2) {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+body:not(:has(main > aside)) > main > section:nth-child(2) > h2,
+body:not(:has(main > aside)) > main > section:nth-child(2) > p {
+    grid-column: 1 / -1;
+}
+
+body:not(:has(main > aside)) > main > section:nth-child(2) article {
+    padding: 28px;
+
+    background: white;
+
+    border: 1px solid var(--borda);
+
+    border-radius: 19px;
+
+    box-shadow: 0 6px 22px rgba(16,72,61,0.05);
+
+    transition: 0.25s;
+}
+
+body:not(:has(main > aside)) > main > section:nth-child(2) article:hover {
+    transform: translateY(-6px);
+
+    box-shadow: var(--sombra);
+}
+
+body:not(:has(main > aside)) > main > section:nth-child(2) article > span {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 18px;
+
+    border-radius: 12px;
+
+    background: var(--verde-claro);
+
+    color: var(--verde-escuro);
+
+    font-size: 13px;
+
+    font-weight: 800;
+}
+
+body:not(:has(main > aside)) > main > section:nth-child(2) article h3 {
+    font-size: 18px;
+
+    margin-bottom: 8px;
+}
+
+body:not(:has(main > aside)) > main > section:nth-child(2) article p {
+    color: var(--texto-secundario);
+
+    font-size: 13px;
+}
+
+
+/* ==========================================================
+   TESTE DE NÍVEL
+   ========================================================== */
+
+body:not(:has(main > aside)) > main > section#teste {
+    padding: 45px;
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e5f5ff,
+            #f0fbff
+        );
+
+    border: 1px solid #d6edf9;
+}
+
+body:not(:has(main > aside)) > main > section#teste > span {
+    display: inline-block;
+
+    margin-bottom: 12px;
+
+    color: var(--azul-escuro);
+
+    font-size: 12px;
+
+    font-weight: 800;
+}
+
+body:not(:has(main > aside)) > main > section#teste > h2 {
+    max-width: 650px;
+
+    font-size: 30px;
+
+    line-height: 1.2;
+}
+
+body:not(:has(main > aside)) > main > section#teste > p {
+    max-width: 700px;
+
+    margin-bottom: 25px;
+}
+
+
+/* Caixa do teste */
+
+body:not(:has(main > aside)) > main > section#teste > div {
+    max-width: 650px;
+
+    padding: 25px;
+
+    background: white;
+
+    border-radius: 18px;
+
+    box-shadow: 0 7px 25px rgba(20,90,120,0.07);
+}
+
+body:not(:has(main > aside)) > main > section#teste h3 {
+    font-size: 16px;
+
+    margin-bottom: 12px;
+}
+
+body:not(:has(main > aside)) > main > section#teste ul {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 8px;
+
+    margin-bottom: 20px;
+}
+
+body:not(:has(main > aside)) > main > section#teste li {
+    padding: 8px 10px;
+
+    border-radius: 8px;
+
+    background: #f5fafc;
+
+    color: #496c78;
+
+    font-size: 13px;
+}
+
+body:not(:has(main > aside)) > main > section#teste button,
+body:not(:has(main > aside)) > main > section#quiz button {
+    border: none;
+
+    padding: 13px 20px;
+
+    border-radius: 11px;
+
+    background: var(--azul);
+
+    color: white;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    transition: 0.2s;
+}
+
+body:not(:has(main > aside)) > main > section#teste button:hover,
+body:not(:has(main > aside)) > main > section#quiz button:hover {
+    background: #147abf;
+
+    transform: translateY(-2px);
+}
+
+
+/* ==========================================================
+   QUIZ
+   ========================================================== */
+
+body:not(:has(main > aside)) > main > section#quiz {
+    padding: 45px;
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff9df,
+            #fffdf3
+        );
+
+    border: 1px solid #f5e9b8;
+}
+
+body:not(:has(main > aside)) > main > section#quiz > span {
+    color: #9b7600;
+
+    font-size: 12px;
+
+    font-weight: 800;
+}
+
+body:not(:has(main > aside)) > main > section#quiz > h2 {
+    margin-top: 10px;
+
+    font-size: 30px;
+}
+
+body:not(:has(main > aside)) > main > section#quiz > div {
+    max-width: 700px;
+
+    margin-top: 25px;
+
+    padding: 25px;
+
+    background: white;
+
+    border-radius: 18px;
+
+    box-shadow: 0 7px 25px rgba(100,80,20,0.07);
+}
+
+body:not(:has(main > aside)) > main > section#quiz > div > span {
+    font-size: 35px;
+}
+
+body:not(:has(main > aside)) > main > section#quiz > div h3 {
+    margin-top: 10px;
+
+    font-size: 18px;
+}
+
+
+/* ==========================================================
+   SOBRE
+   ========================================================== */
+
+body:not(:has(main > aside)) > main > section#sobre {
+    max-width: 850px;
+
+    padding: 35px;
+
+    background: white;
+
+    border: 1px solid var(--borda);
+
+    border-radius: 20px;
+}
+
+body:not(:has(main > aside)) > main > section#sobre p {
+    line-height: 1.8;
+}
+
+
+/* ==========================================================
+   FOOTER
+   ========================================================== */
+
+body:not(:has(main > aside)) > footer {
+    background: #123d39;
+
+    color: white;
+
+    padding: 50px 6% 25px;
+}
+
+body:not(:has(main > aside)) > footer > div:first-child {
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 1.4fr 0.7fr 0.9fr 1.2fr;
+
+    gap: 45px;
+}
+
+body:not(:has(main > aside)) > footer h2 {
+    font-size: 21px;
+
+    margin-bottom: 7px;
+}
+
+body:not(:has(main > aside)) > footer h3 {
+    font-size: 14px;
+
+    margin-bottom: 15px;
+}
+
+body:not(:has(main > aside)) > footer p {
+    color: rgba(255,255,255,0.62);
+
+    font-size: 12px;
+
+    line-height: 1.7;
+}
+
+body:not(:has(main > aside)) > footer a {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: rgba(255,255,255,0.68);
+
+    font-size: 12px;
+}
+
+body:not(:has(main > aside)) > footer a:hover {
+    color: white;
+}
+
+
+/* Parte final */
+
+body:not(:has(main > aside)) > footer > div:last-child {
+    max-width: 1200px;
+
+    margin: 40px auto 0;
+
+    padding-top: 20px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+
+/* ==========================================================
+   RESPONSIVIDADE — TABLET
+   ========================================================== */
+
+@media (max-width: 900px) {
+
+    main:has(> aside) {
+        width: 94%;
+
+        grid-template-columns: 1fr;
+
+        margin: 25px auto;
+    }
+
+    main:has(> aside) > header {
+        grid-column: 1;
+    }
+
+    main:has(> aside) > section {
+        grid-column: 1;
+    }
+
+    main:has(> aside) > aside {
+        grid-column: 1;
+
+        grid-row: auto;
+
+        min-height: 300px;
+
+        padding: 45px;
+    }
+
+    body:not(:has(main > aside)) > header {
+        padding: 0 3%;
+    }
+
+    body:not(:has(main > aside)) > header nav {
+        display: none;
+    }
+
+    body:not(:has(main > aside)) > main > section:first-child {
+        grid-template-columns: 1fr;
+
+    }
+
+    body:not(:has(main > aside)) > main > section:first-child > div:last-child {
+        display: none;
+    }
+
+    body:not(:has(main > aside)) > main > section:nth-child(2) {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    body:not(:has(main > aside)) > footer > div:first-child {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+
+/* ==========================================================
+   RESPONSIVIDADE — CELULAR
+   ========================================================== */
+
+@media (max-width: 600px) {
+
+    /* LOGIN */
+
+    main:has(> aside) {
+        width: 94%;
+
+        margin: 15px auto;
+
+        border-radius: 20px;
+    }
+
+    main:has(> aside) > header {
+        padding: 35px 25px 20px;
+    }
+
+    main:has(> aside) > section {
+        padding: 25px;
+    }
+
+    main:has(> aside) > section > h2 {
+        font-size: 24px;
+    }
+
+    main:has(> aside) > aside {
+        padding: 35px 25px;
+
+        min-height: 280px;
+    }
+
+    main:has(> aside) > aside h2 {
+        font-size: 29px;
+    }
+
+
+    /* HOME */
+
+    body:not(:has(main > aside)) > header {
+        height: 65px;
+
+        padding: 0 18px;
+    }
+
+    body:not(:has(main > aside)) > header h1 {
+        font-size: 19px;
+    }
+
+    body:not(:has(main > aside)) > header > div:last-child span {
+        display: none;
+    }
+
+    body:not(:has(main > aside)) > main {
+        width: 92%;
+
+        padding-top: 25px;
+    }
+
+    body:not(:has(main > aside)) > main > section:first-child {
+        padding: 30px 25px;
+
+        min-height: auto;
+
+        border-radius: 20px;
+    }
+
+    body:not(:has(main > aside)) > main > section:first-child h2 {
+        font-size: 30px;
+    }
+
+    body:not(:has(main > aside)) > main > section:first-child p {
+        font-size: 13px;
+    }
+
+    body:not(:has(main > aside)) > main > section:first-child > div:first-child > div {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    body:not(:has(main > aside)) > main > section:first-child a {
+        width: 100%;
+    }
+
+
+    /* COMO FUNCIONA */
+
+    body:not(:has(main > aside)) > main > section:nth-child(2) {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* TESTE */
+
+    body:not(:has(main > aside)) > main > section#teste,
+    body:not(:has(main > aside)) > main > section#quiz {
+        padding: 28px 22px;
+    }
+
+    body:not(:has(main > aside)) > main > section#teste > h2,
+    body:not(:has(main > aside)) > main > section#quiz > h2 {
+        font-size: 25px;
+    }
+
+    body:not(:has(main > aside)) > main > section#teste ul {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* FOOTER */
+
+    body:not(:has(main > aside)) > footer {
+        padding: 40px 25px 20px;
+    }
+
+    body:not(:has(main > aside)) > footer > div:first-child {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    body:not(:has(main > aside)) > footer > div:last-child {
+        flex-direction: column;
+
+        gap: 5px;
+    }
+}
