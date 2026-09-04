@@ -3309,3 +3309,1317 @@ select:focus-visible {
         transform: translateY(0) scale(1);
     }
 }
+
+/* ==========================================================
+   RANKING — PÁGINA PRINCIPAL
+   ========================================================== */
+
+body:not(:has(main > aside))>main>section#ranking {
+    margin-top: 65px;
+
+    padding: 45px;
+
+    display: grid;
+
+    grid-template-columns: 1.15fr 0.85fr;
+
+    gap: 45px;
+
+    align-items: center;
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(135deg,
+            #fff8df,
+            #fffdf5);
+
+    border: 1px solid #f3e4ad;
+
+    box-shadow: var(--sombra);
+
+    overflow: hidden;
+
+    position: relative;
+}
+
+
+/* ==========================================================
+   CONTEÚDO
+   ========================================================== */
+
+.ranking-principal-conteudo {
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.ranking-principal-tag {
+    display: inline-block;
+
+    padding: 7px 13px;
+
+    margin-bottom: 14px;
+
+    border-radius: 20px;
+
+    background: var(--amarelo-claro);
+
+    color: #a47700;
+
+    font-size: 12px;
+
+    font-weight: 800;
+}
+
+
+.ranking-principal-conteudo h2 {
+    max-width: 600px;
+
+    font-size: 32px;
+
+    line-height: 1.2;
+
+    margin-bottom: 15px;
+
+    color: var(--texto);
+}
+
+
+.ranking-principal-conteudo>p {
+    max-width: 580px;
+
+    color: var(--texto-secundario);
+
+    font-size: 14px;
+
+    margin-bottom: 25px;
+}
+
+
+/* ==========================================================
+   ESTATÍSTICAS
+   ========================================================== */
+
+.ranking-principal-estatisticas {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 12px;
+
+    margin-bottom: 25px;
+}
+
+
+.ranking-principal-estatisticas>div {
+    padding: 16px 13px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+
+    background: rgba(255, 255, 255, 0.85);
+
+    border: 1px solid #eee5c8;
+
+    border-radius: 14px;
+}
+
+
+.ranking-principal-estatisticas span {
+    font-size: 22px;
+
+    margin-bottom: 3px;
+}
+
+
+.ranking-principal-estatisticas strong {
+    color: var(--texto);
+
+    font-size: 12px;
+}
+
+
+.ranking-principal-estatisticas small {
+    color: var(--texto-secundario);
+
+    font-size: 11px;
+
+    line-height: 1.4;
+}
+
+
+/* ==========================================================
+   BOTÃO RANKING
+   ========================================================== */
+
+.btn-ranking-principal {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 13px 21px;
+
+    border-radius: 11px;
+
+    background: var(--verde);
+
+    color: white !important;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    box-shadow:
+        0 8px 20px rgba(22, 166, 115, 0.20);
+
+    transition: 0.2s;
+}
+
+
+.btn-ranking-principal:hover {
+    background: var(--verde-escuro);
+
+    color: white !important;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 25px rgba(22, 166, 115, 0.27);
+}
+
+
+/* ==========================================================
+   ÁREA VISUAL DO RANKING
+   ========================================================== */
+
+.ranking-principal-visual {
+    min-height: 330px;
+
+    padding: 25px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.ranking-trofeu {
+    width: 85px;
+
+    height: 85px;
+
+    margin: 0 auto 8px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: white;
+
+    font-size: 43px;
+
+    box-shadow:
+        0 12px 30px rgba(16, 72, 61, 0.10);
+}
+
+
+/* ==========================================================
+   MINI CARDS
+   ========================================================== */
+
+.ranking-mini-card {
+    width: 100%;
+
+    padding: 13px 16px;
+
+    display: grid;
+
+    grid-template-columns: 35px 1fr auto;
+
+    align-items: center;
+
+    gap: 8px;
+
+    background: white;
+
+    border: 1px solid var(--borda);
+
+    border-radius: 13px;
+
+    box-shadow:
+        0 5px 16px rgba(16, 72, 61, 0.06);
+
+    transition: 0.2s;
+}
+
+
+.ranking-mini-card:hover {
+    transform: translateX(4px);
+
+    box-shadow:
+        0 8px 20px rgba(16, 72, 61, 0.09);
+}
+
+
+.ranking-mini-card>span {
+    font-size: 20px;
+
+    text-align: center;
+}
+
+
+.ranking-mini-card strong {
+    color: var(--texto);
+
+    font-size: 13px;
+}
+
+
+.ranking-mini-card b {
+    color: var(--verde-escuro);
+
+    font-size: 12px;
+}
+
+
+/* ==========================================================
+   DESTAQUE DO USUÁRIO
+   ========================================================== */
+
+.ranking-mini-card.ranking-mini-voce {
+    border: 2px solid var(--verde);
+
+    background:
+        linear-gradient(135deg,
+            #ffffff,
+            #ecfaf4);
+
+    box-shadow:
+        0 8px 22px rgba(22, 166, 115, 0.12);
+}
+
+
+.ranking-mini-card.ranking-mini-voce strong {
+    color: var(--verde-escuro);
+}
+
+
+/* ==========================================================
+   LEGENDA
+   ========================================================== */
+
+.ranking-mini-legenda {
+    margin-top: 5px;
+
+    text-align: center;
+
+    color: var(--verde-escuro);
+
+    font-size: 12px;
+
+    font-weight: 800;
+}
+
+
+/* ==========================================================
+   DECORAÇÃO
+   ========================================================== */
+
+body:not(:has(main > aside))>main>section#ranking::before {
+    content: "";
+
+    position: absolute;
+
+    width: 250px;
+
+    height: 250px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 200, 61, 0.08);
+
+    right: -100px;
+
+    bottom: -120px;
+}
+
+
+/* ==========================================================
+   RANKING NO MENU
+   ========================================================== */
+
+body:not(:has(main > aside))>header nav a.link-ranking {
+    color: var(--verde-escuro);
+
+    font-weight: 800;
+}
+
+
+body:not(:has(main > aside))>header nav a.link-ranking:hover {
+    background: var(--verde-claro);
+
+    color: var(--verde-escuro);
+}
+
+
+/* ==========================================================
+   RESPONSIVIDADE — TABLET
+   ========================================================== */
+
+@media (max-width: 900px) {
+
+    body:not(:has(main > aside))>main>section#ranking {
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+
+        padding: 35px 28px;
+    }
+
+
+    .ranking-principal-visual {
+        min-height: auto;
+
+        max-width: 520px;
+
+        width: 100%;
+
+        margin: auto;
+    }
+
+
+    .ranking-principal-estatisticas {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+
+
+/* ==========================================================
+   RESPONSIVIDADE — CELULAR
+   ========================================================== */
+
+@media (max-width: 600px) {
+
+    body:not(:has(main > aside))>main>section#ranking {
+        padding: 30px 20px;
+
+        border-radius: 22px;
+    }
+
+
+    .ranking-principal-conteudo h2 {
+        font-size: 25px;
+    }
+
+
+    .ranking-principal-estatisticas {
+        grid-template-columns: 1fr;
+    }
+
+
+    .ranking-principal-estatisticas>div {
+        display: grid;
+
+        grid-template-columns: 35px 1fr;
+
+        column-gap: 10px;
+
+        align-items: center;
+    }
+
+
+    .ranking-principal-estatisticas span {
+        grid-row: 1 / span 2;
+
+        text-align: center;
+
+        margin: 0;
+    }
+
+
+    .ranking-principal-estatisticas small {
+        grid-column: 2;
+    }
+
+
+    .btn-ranking-principal {
+        width: 100%;
+    }
+
+
+    .ranking-principal-visual {
+        padding: 10px 0;
+    }
+
+
+    .ranking-trofeu {
+        width: 75px;
+
+        height: 75px;
+
+        font-size: 36px;
+    }
+
+
+    .ranking-mini-card {
+        grid-template-columns: 32px 1fr auto;
+
+        padding: 12px;
+    }
+
+}
+
+/* ==========================================================
+   RANKING — PÁGINA COMPLETA
+   ========================================================== */
+
+body.pagina-ranking {
+    background: var(--fundo);
+    color: var(--texto);
+}
+
+/* ==========================================================
+   CABEÇALHO
+   ========================================================== */
+
+body.pagina-ranking .ranking-header {
+    width: min(1150px, 94%);
+    margin: 0 auto;
+    padding: 25px 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+body.pagina-ranking .ranking-logo {
+    color: var(--verde-escuro);
+    font-size: 21px;
+    font-weight: 900;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+body.pagina-ranking .ranking-nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+body.pagina-ranking .ranking-nav a {
+    padding: 10px 14px;
+    border-radius: 10px;
+
+    color: var(--texto-secundario);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+
+    transition: 0.2s ease;
+}
+
+body.pagina-ranking .ranking-nav a:hover {
+    background: var(--verde-claro);
+    color: var(--verde-escuro);
+}
+
+body.pagina-ranking .ranking-nav a.ativo {
+    background: var(--verde-claro);
+    color: var(--verde-escuro);
+    font-weight: 900;
+}
+
+/* ==========================================================
+   CONTEÚDO PRINCIPAL
+   ========================================================== */
+
+body.pagina-ranking main {
+    width: min(1050px, 92%);
+    margin: 0 auto;
+    padding-bottom: 70px;
+}
+
+/* ==========================================================
+   INTRODUÇÃO
+   ========================================================== */
+
+body.pagina-ranking .ranking-intro {
+    text-align: center;
+    padding: 55px 20px 35px;
+}
+
+body.pagina-ranking .ranking-tag {
+    display: inline-block;
+
+    padding: 7px 14px;
+    margin-bottom: 15px;
+
+    border-radius: 20px;
+
+    background: var(--amarelo-claro);
+    color: #a47700;
+
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.3px;
+}
+
+body.pagina-ranking .ranking-intro h1 {
+    margin: 0 0 12px;
+
+    color: var(--texto);
+
+    font-size: clamp(30px, 4vw, 43px);
+    line-height: 1.15;
+    font-weight: 900;
+}
+
+body.pagina-ranking .ranking-intro p {
+    margin: 0 auto;
+
+    color: var(--texto-secundario);
+
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* ==========================================================
+   CARDS DE RESUMO
+   ========================================================== */
+
+body.pagina-ranking .ranking-resumo {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+
+    margin-bottom: 25px;
+}
+
+body.pagina-ranking .ranking-card-resumo {
+    min-height: 95px;
+
+    padding: 18px;
+
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    background: #ffffff;
+    border: 1px solid var(--borda);
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 25px rgba(16, 72, 61, 0.06);
+
+    transition: 0.2s ease;
+}
+
+body.pagina-ranking .ranking-card-resumo:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 30px rgba(16, 72, 61, 0.10);
+}
+
+body.pagina-ranking .resumo-icone {
+    width: 45px;
+    height: 45px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 13px;
+
+    background: var(--verde-claro);
+
+    font-size: 22px;
+}
+
+body.pagina-ranking .ranking-card-resumo small {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: var(--texto-secundario);
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+body.pagina-ranking .ranking-card-resumo strong {
+    display: block;
+
+    color: var(--texto);
+
+    font-size: 16px;
+    font-weight: 900;
+}
+
+/* ==========================================================
+   LIGA
+   ========================================================== */
+
+body.pagina-ranking .liga-container {
+    padding: 30px;
+
+    margin-bottom: 25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #f0faf6
+        );
+
+    border: 1px solid var(--borda);
+    border-radius: 22px;
+
+    box-shadow:
+        0 12px 35px rgba(16, 72, 61, 0.07);
+}
+
+body.pagina-ranking .liga-topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 25px;
+
+    margin-bottom: 30px;
+}
+
+body.pagina-ranking .liga-topo > div:first-child {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+body.pagina-ranking .liga-icone {
+    width: 62px;
+    height: 62px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 18px;
+
+    background: var(--verde-claro);
+
+    font-size: 31px;
+
+    box-shadow:
+        0 8px 20px rgba(22, 166, 115, 0.10);
+}
+
+body.pagina-ranking .liga-label {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: var(--texto-secundario);
+
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.8px;
+}
+
+body.pagina-ranking .liga-topo h2 {
+    margin: 0;
+
+    color: var(--texto);
+
+    font-size: 22px;
+    font-weight: 900;
+}
+
+body.pagina-ranking .liga-contador {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 10px 14px;
+
+    border-radius: 13px;
+
+    background: #ffffff;
+    border: 1px solid var(--borda);
+}
+
+body.pagina-ranking .liga-contador > span {
+    font-size: 21px;
+}
+
+body.pagina-ranking .liga-contador small {
+    display: block;
+
+    color: var(--texto-secundario);
+
+    font-size: 10px;
+}
+
+body.pagina-ranking .liga-contador strong {
+    display: block;
+
+    margin-top: 2px;
+
+    color: var(--verde-escuro);
+
+    font-size: 14px;
+}
+
+/* ==========================================================
+   PROGRESSO DA LIGA
+   ========================================================== */
+
+body.pagina-ranking .liga-progresso {
+    padding-top: 5px;
+}
+
+body.pagina-ranking .progresso-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 9px;
+
+    color: var(--texto-secundario);
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+body.pagina-ranking .progresso-info strong {
+    color: var(--verde-escuro);
+    font-size: 13px;
+}
+
+body.pagina-ranking .barra-progresso {
+    width: 100%;
+    height: 13px;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    background: #e7f0ec;
+}
+
+body.pagina-ranking .barra-progresso-preenchida {
+    width: 65%;
+    height: 100%;
+
+    border-radius: inherit;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--verde),
+            #43c68f
+        );
+
+    transition: width 0.5s ease;
+}
+
+body.pagina-ranking .liga-progresso > small {
+    display: block;
+
+    margin-top: 9px;
+
+    color: var(--texto-secundario);
+
+    font-size: 11px;
+}
+
+/* ==========================================================
+   LISTA DO RANKING
+   ========================================================== */
+
+body.pagina-ranking .ranking-lista-container {
+    padding: 30px;
+
+    background: #ffffff;
+
+    border: 1px solid var(--borda);
+    border-radius: 22px;
+
+    box-shadow:
+        0 12px 35px rgba(16, 72, 61, 0.06);
+}
+
+body.pagina-ranking .ranking-lista-topo {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 22px;
+}
+
+body.pagina-ranking .ranking-lista-tag {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: var(--verde-escuro);
+
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.6px;
+}
+
+body.pagina-ranking .ranking-lista-topo h2 {
+    margin: 0;
+
+    color: var(--texto);
+
+    font-size: 24px;
+    font-weight: 900;
+}
+
+body.pagina-ranking .jogadores-count {
+    padding: 7px 11px;
+
+    border-radius: 10px;
+
+    background: var(--verde-claro);
+
+    color: var(--verde-escuro);
+
+    font-size: 11px;
+    font-weight: 800;
+}
+
+/* ==========================================================
+   LINHAS GERADAS PELO ranking.js
+   ========================================================== */
+
+body.pagina-ranking .ranking-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+body.pagina-ranking .ranking-item {
+    min-height: 67px;
+
+    padding: 11px 16px;
+
+    display: grid;
+    grid-template-columns: 42px 45px 1fr auto;
+
+    align-items: center;
+    gap: 10px;
+
+    background: #fbfdfc;
+
+    border: 1px solid var(--borda);
+    border-radius: 15px;
+
+    transition: 0.2s ease;
+}
+
+body.pagina-ranking .ranking-item:hover {
+    transform: translateX(4px);
+
+    background: #ffffff;
+
+    box-shadow:
+        0 7px 20px rgba(16, 72, 61, 0.07);
+}
+
+/* posição */
+
+body.pagina-ranking .ranking-posicao {
+    text-align: center;
+
+    color: var(--texto-secundario);
+
+    font-size: 14px;
+    font-weight: 900;
+}
+
+/* avatar */
+
+body.pagina-ranking .ranking-avatar {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: var(--verde-claro);
+
+    font-size: 20px;
+}
+
+/* nome */
+
+body.pagina-ranking .ranking-nome {
+    color: var(--texto);
+
+    font-size: 14px;
+    font-weight: 800;
+}
+
+/* XP */
+
+body.pagina-ranking .ranking-xp {
+    color: var(--verde-escuro);
+
+    font-size: 13px;
+    font-weight: 900;
+}
+
+/* ==========================================================
+   PRIMEIROS COLOCADOS
+   ========================================================== */
+
+body.pagina-ranking .ranking-item:nth-child(1) {
+    border-color: #f0d36a;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fffdf4,
+            #ffffff
+        );
+}
+
+body.pagina-ranking .ranking-item:nth-child(2) {
+    background:
+        linear-gradient(
+            135deg,
+            #fafafa,
+            #ffffff
+        );
+}
+
+body.pagina-ranking .ranking-item:nth-child(3) {
+    background:
+        linear-gradient(
+            135deg,
+            #fff9f3,
+            #ffffff
+        );
+}
+
+/* ==========================================================
+   USUÁRIO ATUAL
+   ========================================================== */
+
+body.pagina-ranking .ranking-item.usuario-atual,
+body.pagina-ranking .ranking-item.ranking-voce {
+    border: 2px solid var(--verde);
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #ecfaf4
+        );
+
+    box-shadow:
+        0 8px 24px rgba(22, 166, 115, 0.12);
+}
+
+body.pagina-ranking .ranking-item.usuario-atual .ranking-nome,
+body.pagina-ranking .ranking-item.ranking-voce .ranking-nome {
+    color: var(--verde-escuro);
+}
+
+/* ==========================================================
+   AVISO DE PROMOÇÃO
+   ========================================================== */
+
+body.pagina-ranking .ranking-aviso {
+    margin-top: 20px;
+    padding: 17px 20px;
+
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    border-radius: 15px;
+
+    background: #fff9e7;
+    border: 1px solid #f2e1a6;
+}
+
+body.pagina-ranking .ranking-aviso > span {
+    font-size: 25px;
+}
+
+body.pagina-ranking .ranking-aviso strong {
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: #8a6900;
+
+    font-size: 13px;
+}
+
+body.pagina-ranking .ranking-aviso p {
+    margin: 0;
+
+    color: #907d38;
+
+    font-size: 11px;
+}
+
+/* ==========================================================
+   ÁREA DE AÇÃO
+   ========================================================== */
+
+body.pagina-ranking .ranking-acao {
+    margin-top: 25px;
+    padding: 35px 25px;
+
+    text-align: center;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eaf9f2,
+            #f5fcf9
+        );
+
+    border: 1px solid #ccebdd;
+}
+
+body.pagina-ranking .ranking-acao h2 {
+    margin: 0 0 8px;
+
+    color: var(--texto);
+
+    font-size: 22px;
+    font-weight: 900;
+}
+
+body.pagina-ranking .ranking-acao p {
+    margin: 0 0 20px;
+
+    color: var(--texto-secundario);
+
+    font-size: 13px;
+}
+
+body.pagina-ranking .btn-ranking {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 13px 23px;
+
+    border-radius: 11px;
+
+    background: var(--verde);
+    color: white !important;
+
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 900;
+
+    box-shadow:
+        0 8px 20px rgba(22, 166, 115, 0.20);
+
+    transition: 0.2s ease;
+}
+
+body.pagina-ranking .btn-ranking:hover {
+    background: var(--verde-escuro);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 25px rgba(22, 166, 115, 0.28);
+}
+
+/* ==========================================================
+   RODAPÉ
+   ========================================================== */
+
+body.pagina-ranking + footer {
+    text-align: center;
+
+    padding: 25px 20px;
+
+    border-top: 1px solid var(--borda);
+
+    color: var(--texto-secundario);
+
+    font-size: 11px;
+}
+
+body.pagina-ranking + footer p {
+    margin: 0;
+}
+
+/* ==========================================================
+   RESPONSIVO — TABLET
+   ========================================================== */
+
+@media (max-width: 900px) {
+
+    body.pagina-ranking .ranking-resumo {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    body.pagina-ranking .ranking-header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    body.pagina-ranking .ranking-nav {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
+/* ==========================================================
+   RESPONSIVO — CELULAR
+   ========================================================== */
+
+@media (max-width: 600px) {
+
+    body.pagina-ranking main {
+        width: 92%;
+    }
+
+    body.pagina-ranking .ranking-header {
+        padding: 20px 0;
+    }
+
+    body.pagina-ranking .ranking-logo {
+        font-size: 19px;
+    }
+
+    body.pagina-ranking .ranking-nav {
+        gap: 4px;
+    }
+
+    body.pagina-ranking .ranking-nav a {
+        padding: 8px 9px;
+        font-size: 11px;
+    }
+
+    body.pagina-ranking .ranking-intro {
+        padding: 35px 10px 25px;
+    }
+
+    body.pagina-ranking .ranking-intro h1 {
+        font-size: 29px;
+    }
+
+    body.pagina-ranking .ranking-intro p {
+        font-size: 13px;
+    }
+
+    body.pagina-ranking .ranking-resumo {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    body.pagina-ranking .ranking-card-resumo {
+        min-height: 80px;
+        padding: 13px;
+        gap: 9px;
+    }
+
+    body.pagina-ranking .resumo-icone {
+        width: 38px;
+        height: 38px;
+        font-size: 18px;
+    }
+
+    body.pagina-ranking .ranking-card-resumo strong {
+        font-size: 13px;
+    }
+
+    body.pagina-ranking .liga-container,
+    body.pagina-ranking .ranking-lista-container {
+        padding: 20px 16px;
+        border-radius: 18px;
+    }
+
+    body.pagina-ranking .liga-topo {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    body.pagina-ranking .liga-contador {
+        width: 100%;
+        justify-content: center;
+    }
+
+    body.pagina-ranking .ranking-lista-topo {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    body.pagina-ranking .ranking-item {
+        grid-template-columns: 30px 38px 1fr auto;
+        padding: 10px;
+        gap: 7px;
+    }
+
+    body.pagina-ranking .ranking-avatar {
+        width: 34px;
+        height: 34px;
+        font-size: 17px;
+    }
+
+    body.pagina-ranking .ranking-nome {
+        font-size: 12px;
+    }
+
+    body.pagina-ranking .ranking-xp {
+        font-size: 11px;
+    }
+
+    body.pagina-ranking .ranking-aviso {
+        padding: 14px;
+    }
+
+    body.pagina-ranking .ranking-acao {
+        padding: 28px 18px;
+    }
+
+    body.pagina-ranking .btn-ranking {
+        width: 100%;
+    }
+}
