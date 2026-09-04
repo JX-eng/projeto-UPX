@@ -1,43 +1,12 @@
-/* =========================================================
+/* ==========================================================
    ECOENERGIA
-   CSS COMPLETO
-   ========================================================= */
+   CSS PRINCIPAL
+   ========================================================== */
 
 
-/* =========================================================
-   VARIÁVEIS
-   ========================================================= */
-
-:root {
-    --azul: #2196e0;
-    --azul-escuro: #1269a8;
-    --azul-claro: #eaf7ff;
-
-    --verde: #35b86b;
-    --verde-escuro: #23884d;
-    --verde-claro: #eafff1;
-
-    --amarelo: #ffd447;
-    --laranja: #ff9f43;
-
-    --roxo: #8e6de8;
-    --vermelho: #ef5350;
-
-    --branco: #ffffff;
-    --cinza-claro: #f5f8fa;
-    --cinza: #687783;
-    --cinza-escuro: #263238;
-
-    --sombra: 0 10px 30px rgba(0, 0, 0, 0.08);
-    --sombra-forte: 0 15px 40px rgba(33, 150, 224, 0.18);
-
-    --raio: 18px;
-}
-
-
-/* =========================================================
+/* ==========================================================
    RESET
-   ========================================================= */
+   ========================================================== */
 
 * {
     margin: 0;
@@ -50,283 +19,394 @@ html {
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: var(--cinza-claro);
-    color: var(--cinza-escuro);
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #173b38;
+    background: #f4faf8;
     line-height: 1.6;
-}
-
-button,
-a,
-input,
-select {
-    font-family: inherit;
 }
 
 a {
     text-decoration: none;
 }
 
-
-/* =========================================================
-   ANIMAÇÃO GERAL
-   ========================================================= */
-
-body {
-    opacity: 1;
-    transition: opacity 0.5s ease;
+button,
+input,
+select {
+    font-family: inherit;
 }
 
-body:not(.pagina-carregada) {
-    opacity: 0;
+
+/* ==========================================================
+   CORES
+   ========================================================== */
+
+:root {
+    --verde: #16a673;
+    --verde-escuro: #087a58;
+    --verde-claro: #e2f8ee;
+
+    --azul: #2196e0;
+    --azul-claro: #e5f5ff;
+
+    --amarelo: #ffc83d;
+    --amarelo-claro: #fff5d5;
+
+    --texto: #173b38;
+    --texto-secundario: #667c78;
+
+    --branco: #ffffff;
+    --borda: #e3eeea;
+
+    --sombra: 0 12px 35px rgba(16, 72, 61, 0.09);
 }
 
-body.pagina-carregada {
-    opacity: 1;
+
+/* ==========================================================
+   LINKS
+   ========================================================== */
+
+a {
+    color: var(--verde-escuro);
+    transition: 0.2s;
 }
 
-.animar-scroll {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
+a:hover {
+    color: var(--verde);
 }
 
-.animar-scroll.visivel {
-    opacity: 1;
+
+/* ==========================================================
+   ==========================================================
+   LOGIN + CADASTRO
+   ==========================================================
+   ========================================================== */
+
+
+/* Fundo */
+
+body:has(main > aside) {
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(33, 150, 224, 0.12),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 90%,
+            rgba(22, 166, 115, 0.15),
+            transparent 30%
+        ),
+        #f3faf8;
+}
+
+
+/* Caixa principal */
+
+main:has(> aside) {
+    width: 92%;
+    max-width: 1100px;
+    min-height: 650px;
+
+    margin: 50px auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    background: var(--branco);
+
+    border-radius: 28px;
+    overflow: hidden;
+
+    box-shadow:
+        0 25px 70px rgba(16, 72, 61, 0.13);
+}
+
+
+/* ==========================================================
+   LOGIN/CADASTRO — HEADER
+   ========================================================== */
+
+main:has(> aside) > header {
+    grid-column: 1;
+
+    padding: 50px 55px 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #087a58,
+            #18a878
+        );
+
+    color: white;
+}
+
+
+/* Logo */
+
+main:has(> aside) > header > div {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+main:has(> aside) > header span {
+    font-size: 35px;
+}
+
+main:has(> aside) > header h1 {
+    font-size: 28px;
+    font-weight: 800;
+}
+
+main:has(> aside) > header p {
+    margin-top: 12px;
+
+    max-width: 400px;
+
+    color: rgba(255,255,255,0.85);
+
+    font-size: 14px;
+}
+
+
+/* ==========================================================
+   LOGIN/CADASTRO — FORMULÁRIO
+   ========================================================== */
+
+main:has(> aside) > section {
+    grid-column: 1;
+
+    padding: 20px 55px 50px;
+
+    background: white;
+}
+
+
+/* Título */
+
+main:has(> aside) > section > h2 {
+    font-size: 28px;
+
+    line-height: 1.2;
+
+    margin-bottom: 8px;
+
+    color: var(--texto);
+}
+
+main:has(> aside) > section > p {
+    color: var(--texto-secundario);
+
+    font-size: 14px;
+
+    margin-bottom: 25px;
+}
+
+
+/* Form */
+
+main:has(> aside) form {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+}
+
+main:has(> aside) form > div {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+
+/* Labels */
+
+main:has(> aside) label {
+    color: var(--texto);
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+
+/* Inputs */
+
+main:has(> aside) input[type="text"],
+main:has(> aside) input[type="email"],
+main:has(> aside) input[type="password"],
+main:has(> aside) select {
+    width: 100%;
+
+    height: 48px;
+
+    padding: 0 15px;
+
+    border: 2px solid var(--borda);
+
+    border-radius: 12px;
+
+    background: #fbfdfc;
+
+    color: var(--texto);
+
+    outline: none;
+
+    transition: 0.2s;
+}
+
+main:has(> aside) input:focus,
+main:has(> aside) select:focus {
+    border-color: var(--verde);
+
+    background: white;
+
+    box-shadow:
+        0 0 0 4px rgba(22,166,115,0.10);
+}
+
+main:has(> aside) input::placeholder {
+    color: #a3b2af;
+}
+
+
+/* Checkbox */
+
+main:has(> aside) input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+
+    accent-color: var(--verde);
+}
+
+main:has(> aside) form > div:has(input[type="checkbox"]) {
+    flex-direction: row;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
+}
+
+main:has(> aside) form > div:has(input[type="checkbox"]) label {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    font-weight: 500;
+}
+
+
+/* ==========================================================
+   BOTÃO LOGIN / CADASTRO
+   ========================================================== */
+
+main:has(> aside) button {
+    width: 100%;
+
+    height: 50px;
+
+    margin-top: 4px;
+
+    border: none;
+
+    border-radius: 13px;
+
+    background: var(--verde);
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: 800;
+
+    box-shadow:
+        0 8px 20px rgba(22,166,115,0.22);
+
+    transition: 0.2s;
+
+    cursor: pointer;
+}
+
+main:has(> aside) button:hover {
+    background: var(--verde-escuro);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 25px rgba(22,166,115,0.28);
+}
+
+main:has(> aside) button:active {
     transform: translateY(0);
 }
 
 
-/* =========================================================
-   HEADER
-   ========================================================= */
+/* ==========================================================
+   ESQUECI SENHA / VISITANTE
+   ========================================================== */
 
-header {
-    width: 100%;
-    background: var(--branco);
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
-    position: relative;
-    z-index: 20;
+main:has(> aside) form + div {
+    margin-top: 20px;
+
+    text-align: center;
 }
 
-header > div {
-    max-width: 1200px;
-    margin: auto;
-    padding: 18px 30px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-}
+main:has(> aside) form + div p {
+    color: #8a9a97;
 
-.logo,
-header h1,
-header h2 {
-    color: var(--azul-escuro);
-}
+    margin-bottom: 7px;
 
-header h1 {
-    font-size: 25px;
-    font-weight: 900;
-}
-
-header p {
-    color: var(--cinza);
     font-size: 13px;
 }
 
-nav {
-    display: flex;
-    align-items: center;
-    gap: 25px;
-}
+main:has(> aside) form + div a {
+    font-size: 13px;
 
-nav a {
-    color: var(--cinza-escuro);
-    font-size: 14px;
     font-weight: 700;
-    transition: 0.25s;
-}
-
-nav a:hover {
-    color: var(--azul);
-    transform: translateY(-2px);
 }
 
 
-/* =========================================================
-   BOTÕES GERAIS
-   ========================================================= */
+/* ==========================================================
+   FRASE LATERAL
+   ========================================================== */
 
-button,
-.btn,
-.btn-principal,
-.btn-secundario {
-    border: none;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
+main:has(> aside) > aside {
+    grid-column: 2;
 
-    min-height: 48px;
-    padding: 13px 24px;
+    grid-row: 1 / span 2;
 
-    border-radius: 14px;
+    padding: 60px 55px;
 
-    font-size: 14px;
-    font-weight: 800;
-
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease,
-        background 0.25s ease;
-}
-
-button:hover,
-.btn:hover,
-.btn-principal:hover,
-.btn-secundario:hover {
-    transform: translateY(-3px);
-}
-
-button:active,
-.btn:active,
-.btn-principal:active,
-.btn-secundario:active {
-    transform: scale(0.96);
-}
-
-
-/* =========================================================
-   PÁGINA INICIAL
-   ========================================================= */
-
-body:not(.pagina-teste):not(.pagina-quiz) > main {
-    width: 100%;
-}
-
-body:not(.pagina-teste):not(.pagina-quiz) > main > section {
-    max-width: 1200px;
-    margin: auto;
-    padding: 80px 30px;
-}
-
-
-/* =========================================================
-   HERO
-   ========================================================= */
-
-.hero {
-    min-height: 620px;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 50px;
-}
 
-.hero-content {
-    max-width: 620px;
-}
+    flex-direction: column;
 
-.hero-tag {
-    display: inline-block;
-    padding: 8px 14px;
-    border-radius: 50px;
-
-    background: var(--verde-claro);
-    color: var(--verde-escuro);
-
-    font-size: 13px;
-    font-weight: 800;
-
-    margin-bottom: 18px;
-}
-
-.hero h2 {
-    font-size: clamp(38px, 5vw, 64px);
-    line-height: 1.05;
-    margin-bottom: 25px;
-    color: var(--cinza-escuro);
-}
-
-.hero h2 span {
-    color: var(--azul);
-}
-
-.hero p {
-    color: var(--cinza);
-    font-size: 17px;
-    margin-bottom: 15px;
-}
-
-.hero-buttons {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-    margin-top: 30px;
-}
-
-
-/* =========================================================
-   BOTÕES DO HERO
-   ========================================================= */
-
-.hero-buttons a {
-    display: inline-flex;
-    align-items: center;
     justify-content: center;
 
-    min-height: 52px;
-    padding: 14px 25px;
+    align-items: flex-start;
 
-    border-radius: 15px;
+    position: relative;
 
-    font-size: 14px;
-    font-weight: 800;
+    overflow: hidden;
 
-    transition: 0.25s;
-}
-
-.hero-buttons a:first-child {
-    background: linear-gradient(135deg, var(--azul), var(--azul-escuro));
     color: white;
 
-    box-shadow: 0 10px 25px rgba(33, 150, 224, 0.25);
-}
-
-.hero-buttons a:last-child {
-    background: var(--branco);
-    color: var(--verde-escuro);
-
-    border: 2px solid var(--verde);
-
-    box-shadow: var(--sombra);
-}
-
-.hero-buttons a:hover {
-    transform: translateY(-4px);
+    background:
+        linear-gradient(
+            150deg,
+            #168fcb,
+            #146bb5
+        );
 }
 
 
-/* =========================================================
-   VISUAL DO HERO
-   ========================================================= */
+/* Círculos decorativos */
 
-.hero-visual,
-.visual {
-    min-width: 300px;
-    min-height: 300px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    position: relative;
-}
-
-.hero-visual::before,
-.visual::before {
+main:has(> aside) > aside::before {
     content: "";
 
     position: absolute;
@@ -336,517 +416,1739 @@ body:not(.pagina-teste):not(.pagina-quiz) > main > section {
 
     border-radius: 50%;
 
-    background: linear-gradient(
-        135deg,
-        var(--azul-claro),
-        var(--verde-claro)
-    );
+    background: rgba(255,255,255,0.08);
 
-    z-index: 0;
+    right: -90px;
+    top: -90px;
 }
 
-.hero-visual-content,
-.visual-content {
+main:has(> aside) > aside::after {
+    content: "";
+
+    position: absolute;
+
+    width: 200px;
+    height: 200px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.06);
+
+    left: -80px;
+    bottom: -70px;
+}
+
+
+/* Ícones */
+
+main:has(> aside) > aside > div {
     position: relative;
-    z-index: 1;
 
-    text-align: center;
+    z-index: 2;
+
+    display: flex;
+
+    gap: 12px;
+
+    font-size: 38px;
+
+    margin-bottom: 30px;
 }
 
-.hero-visual-content .emoji,
-.visual-content .emoji {
-    font-size: 65px;
-    display: inline-block;
-    margin: 5px;
+
+/* Título */
+
+main:has(> aside) > aside h2 {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 400px;
+
+    font-size: 37px;
+
+    line-height: 1.15;
+
+    margin-bottom: 18px;
 }
 
-.hero-visual-content p,
-.visual-content p {
-    margin-top: 15px;
-    font-weight: 800;
+main:has(> aside) > aside p {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 390px;
+
+    color: rgba(255,255,255,0.85);
+
+    font-size: 15px;
+}
+
+
+/* ==========================================================
+   CADASTRO — AJUSTE
+   ========================================================== */
+
+main:has(#tipo) > section > p {
+    margin-bottom: 18px;
+}
+
+main:has(#tipo) > section {
+    padding-top: 20px;
+}
+
+
+/* ==========================================================
+   ==========================================================
+   PÁGINA PRINCIPAL
+   ==========================================================
+   ========================================================== */
+
+
+/* Header principal */
+
+body:not(:has(main > aside)) > header {
+    height: 76px;
+
+    padding: 0 6%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+
+    background: rgba(255,255,255,0.96);
+
+    border-bottom: 1px solid var(--borda);
+
+    backdrop-filter: blur(12px);
+}
+
+
+/* Logo */
+
+body:not(:has(main > aside)) > header > div:first-child {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+body:not(:has(main > aside)) > header > div:first-child span {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: var(--verde-claro);
+
+    border-radius: 12px;
+
+    font-size: 22px;
+}
+
+body:not(:has(main > aside)) > header h1 {
+    font-size: 22px;
+
     color: var(--verde-escuro);
 }
 
 
-/* =========================================================
-   COMO FUNCIONA
-   ========================================================= */
+/* Navegação */
 
-#como-funciona {
-    text-align: center;
-}
-
-#como-funciona > h2 {
-    font-size: 35px;
-    margin-bottom: 12px;
-}
-
-#como-funciona > p {
-    color: var(--cinza);
-    margin-bottom: 40px;
-}
-
-.cards,
-.cards-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-}
-
-.card,
-.cards article {
-    background: white;
-    border-radius: var(--raio);
-    padding: 30px;
-
-    box-shadow: var(--sombra);
-
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-}
-
-.card:hover,
-.cards article:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--sombra-forte);
-}
-
-.card-number {
-    display: inline-flex;
-
-    width: 42px;
-    height: 42px;
+body:not(:has(main > aside)) > header nav {
+    display: flex;
 
     align-items: center;
-    justify-content: center;
 
-    border-radius: 12px;
-
-    background: var(--azul-claro);
-    color: var(--azul-escuro);
-
-    font-weight: 900;
-
-    margin-bottom: 18px;
+    gap: 5px;
 }
 
-.card h3 {
-    margin-bottom: 10px;
-}
+body:not(:has(main > aside)) > header nav a {
+    padding: 9px 13px;
 
-.card p {
-    color: var(--cinza);
-    font-size: 14px;
-}
+    border-radius: 9px;
 
+    color: #55706c;
 
-/* =========================================================
-   SEÇÃO TESTE DA HOME
-   ========================================================= */
-
-#teste {
-    text-align: center;
-    background: linear-gradient(
-        135deg,
-        #f1fbff,
-        #f0fff5
-    );
-
-    border-radius: 30px;
-}
-
-#teste h2 {
-    font-size: 38px;
-    margin-bottom: 15px;
-}
-
-#teste p {
-    max-width: 700px;
-    margin: 0 auto 25px;
-    color: var(--cinza);
-}
-
-
-/* BOTÃO TESTE */
-
-#teste > a,
-#teste > button {
-    display: inline-flex;
-
-    align-items: center;
-    justify-content: center;
-
-    gap: 8px;
-
-    min-height: 52px;
-
-    padding: 15px 28px;
-
-    border: none;
-    border-radius: 16px;
-
-    background: linear-gradient(
-        135deg,
-        var(--azul),
-        var(--azul-escuro)
-    );
-
-    color: white;
-
-    font-size: 15px;
-    font-weight: 900;
-
-    box-shadow:
-        0 10px 25px rgba(33, 150, 224, 0.25);
-
-    transition: 0.25s;
-}
-
-#teste > a:hover,
-#teste > button:hover {
-    transform: translateY(-5px) scale(1.02);
-
-    box-shadow:
-        0 15px 30px rgba(33, 150, 224, 0.32);
-}
-
-
-/* =========================================================
-   SEÇÃO QUIZ DA HOME
-   ========================================================= */
-
-#quiz {
-    text-align: center;
-}
-
-#quiz h2 {
-    font-size: 38px;
-    margin-bottom: 15px;
-}
-
-#quiz p {
-    max-width: 700px;
-    margin: 0 auto 25px;
-    color: var(--cinza);
-}
-
-
-/* BOTÃO QUIZ */
-
-#quiz > a,
-#quiz > button {
-    display: inline-flex;
-
-    align-items: center;
-    justify-content: center;
-
-    min-height: 52px;
-
-    padding: 15px 30px;
-
-    border-radius: 16px;
-
-    border: none;
-
-    background: linear-gradient(
-        135deg,
-        var(--amarelo),
-        var(--laranja)
-    );
-
-    color: #553900;
-
-    font-size: 15px;
-    font-weight: 900;
-
-    box-shadow:
-        0 10px 25px rgba(255, 159, 67, 0.25);
-
-    transition: 0.25s;
-}
-
-#quiz > a:hover,
-#quiz > button:hover {
-    transform: translateY(-5px) rotate(-1deg);
-
-    box-shadow:
-        0 15px 30px rgba(255, 159, 67, 0.35);
-}
-
-
-/* =========================================================
-   SOBRE
-   ========================================================= */
-
-#sobre {
-    text-align: center;
-}
-
-#sobre h2 {
-    font-size: 35px;
-    margin-bottom: 20px;
-}
-
-#sobre p {
-    max-width: 800px;
-    margin: auto;
-    color: var(--cinza);
-}
-
-
-/* =========================================================
-   FOOTER
-   ========================================================= */
-
-footer {
-    background: #102a3a;
-    color: white;
-
-    padding: 45px 30px;
-
-    text-align: center;
-}
-
-footer p {
-    color: #c8d6df;
     font-size: 13px;
-    margin: 6px;
+
+    font-weight: 600;
 }
 
-footer a {
-    color: white;
+body:not(:has(main > aside)) > header nav a:hover {
+    background: var(--verde-claro);
+
+    color: var(--verde-escuro);
+}
+
+
+/* Usuário */
+
+body:not(:has(main > aside)) > header > div:last-child {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    font-size: 13px;
+}
+
+body:not(:has(main > aside)) > header > div:last-child span {
+    font-weight: 600;
+}
+
+body:not(:has(main > aside)) > header > div:last-child a {
+    padding: 8px 13px;
+
+    border-radius: 9px;
+
+    background: #ffe9e9;
+
+    color: #d95353;
+
+    font-size: 12px;
+
     font-weight: 700;
 }
 
-footer a:hover {
-    color: var(--amarelo);
+
+/* ==========================================================
+   MAIN DA HOME
+   ========================================================== */
+
+body:not(:has(main > aside)) > main {
+    width: 90%;
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 45px 0 70px;
 }
 
 
-/* =========================================================
-   LOGIN E CADASTRO
-   ========================================================= */
+/* ==========================================================
+   HERO
+   ========================================================== */
 
-.pagina-login,
-.pagina-cadastro {
-    min-height: 100vh;
+body:not(:has(main > aside)) > main > section:first-child {
+    min-height: 410px;
 
-    display: flex;
+    padding: 50px;
+
+    display: grid;
+
+    grid-template-columns: 1.3fr 0.7fr;
+
     align-items: center;
-    justify-content: center;
 
-    padding: 30px;
+    gap: 40px;
+
+    border-radius: 27px;
+
+    overflow: hidden;
+
+    position: relative;
+
+    color: white;
 
     background:
-        radial-gradient(
-            circle at top left,
-            #e5f8ff,
-            transparent 40%
-        ),
-        radial-gradient(
-            circle at bottom right,
-            #e8fff1,
-            transparent 40%
-        ),
-        #f5f8fa;
+        linear-gradient(
+            125deg,
+            #087a58,
+            #18a878
+        );
+
+    box-shadow: var(--sombra);
 }
 
-.login-container,
-.cadastro-container {
-    width: 100%;
-    max-width: 450px;
 
-    background: white;
+/* Círculo */
 
-    border-radius: 25px;
+body:not(:has(main > aside)) > main > section:first-child::after {
+    content: "";
 
-    padding: 40px;
+    position: absolute;
 
-    box-shadow:
-        0 20px 50px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    height: 350px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.07);
+
+    right: -100px;
+    top: -130px;
 }
 
-.login-container h1,
-.cadastro-container h1 {
-    text-align: center;
-    color: var(--azul-escuro);
-    margin-bottom: 10px;
+
+/* Conteúdo hero */
+
+body:not(:has(main > aside)) > main > section:first-child > div:first-child {
+    position: relative;
+
+    z-index: 2;
 }
 
-.login-container > p,
-.cadastro-container > p {
-    text-align: center;
-    color: var(--cinza);
-    margin-bottom: 30px;
+body:not(:has(main > aside)) > main > section:first-child > div:first-child > span {
+    display: inline-block;
+
+    padding: 7px 13px;
+
+    margin-bottom: 15px;
+
+    border-radius: 20px;
+
+    background: rgba(255,255,255,0.15);
+
+    font-size: 12px;
+
+    font-weight: 700;
 }
 
-.form-group {
+body:not(:has(main > aside)) > main > section:first-child h2 {
+    max-width: 650px;
+
+    font-size: 42px;
+
+    line-height: 1.12;
+
     margin-bottom: 18px;
 }
 
-.form-group label {
-    display: block;
-    margin-bottom: 7px;
+body:not(:has(main > aside)) > main > section:first-child p {
+    max-width: 630px;
 
-    font-size: 13px;
-    font-weight: 800;
+    color: rgba(255,255,255,0.87);
+
+    font-size: 14px;
+
+    margin-bottom: 10px;
 }
 
-.form-group input,
-.form-group select {
-    width: 100%;
 
-    padding: 13px 15px;
+/* Botões hero */
 
-    border: 2px solid #e2e9ed;
+body:not(:has(main > aside)) > main > section:first-child > div:first-child > div {
+    display: flex;
 
-    border-radius: 12px;
+    gap: 12px;
 
-    outline: none;
+    margin-top: 25px;
+}
+
+body:not(:has(main > aside)) > main > section:first-child a {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 12px 18px;
+
+    border-radius: 11px;
+
+    background: white;
+
+    color: var(--verde-escuro);
+
+    font-size: 13px;
+
+    font-weight: 800;
 
     transition: 0.2s;
 }
 
-.form-group input:focus,
-.form-group select:focus {
-    border-color: var(--azul);
+body:not(:has(main > aside)) > main > section:first-child a:hover {
+    transform: translateY(-2px);
 
     box-shadow:
-        0 0 0 4px rgba(33, 150, 224, 0.1);
+        0 8px 20px rgba(0,0,0,0.12);
 }
 
-.form-button {
-    width: 100%;
 
-    background: linear-gradient(
-        135deg,
-        var(--azul),
-        var(--azul-escuro)
-    );
+/* ==========================================================
+   ILUSTRAÇÃO HERO
+   ========================================================== */
 
-    color: white;
+body:not(:has(main > aside)) > main > section:first-child > div:last-child {
+    position: relative;
 
-    margin-top: 10px;
+    z-index: 2;
+
+    min-height: 260px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
 }
 
-.login-link,
-.cadastro-link {
-    display: block;
+body:not(:has(main > aside)) > main > section:first-child > div:last-child > span {
+    font-size: 65px;
+
+    margin: -5px;
+
+    filter:
+        drop-shadow(
+            0 8px 10px rgba(0,0,0,0.08)
+        );
+}
+
+body:not(:has(main > aside)) > main > section:first-child > div:last-child p {
+    margin-top: 20px;
 
     text-align: center;
 
-    margin-top: 20px;
+    font-size: 14px;
+
+    font-weight: 700;
+
+    color: white;
+}
+
+
+/* ==========================================================
+   SEÇÕES
+   ========================================================== */
+
+body:not(:has(main > aside)) > main > section:not(:first-child) {
+    margin-top: 65px;
+}
+
+body:not(:has(main > aside)) > main > section:not(:first-child) > h2 {
+    font-size: 28px;
+
+    margin-bottom: 7px;
+}
+
+body:not(:has(main > aside)) > main > section:not(:first-child) > p {
+    color: var(--texto-secundario);
+
+    font-size: 14px;
+
+    margin-bottom: 25px;
+}
+
+
+/* ==========================================================
+   COMO FUNCIONA
+   ========================================================== */
+
+body:not(:has(main > aside)) > main > section:nth-child(2) {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+body:not(:has(main > aside)) > main > section:nth-child(2) > h2,
+body:not(:has(main > aside)) > main > section:nth-child(2) > p {
+    grid-column: 1 / -1;
+}
+
+body:not(:has(main > aside)) > main > section:nth-child(2) article {
+    padding: 28px;
+
+    background: white;
+
+    border: 1px solid var(--borda);
+
+    border-radius: 19px;
+
+    box-shadow:
+        0 6px 22px rgba(16,72,61,0.05);
+
+    transition: 0.25s;
+}
+
+body:not(:has(main > aside)) > main > section:nth-child(2) article:hover {
+    transform: translateY(-6px);
+
+    box-shadow: var(--sombra);
+}
+
+body:not(:has(main > aside)) > main > section:nth-child(2) article > span {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 18px;
+
+    border-radius: 12px;
+
+    background: var(--verde-claro);
+
+    color: var(--verde-escuro);
+
+    font-size: 13px;
+
+    font-weight: 800;
+}
+
+body:not(:has(main > aside)) > main > section:nth-child(2) article h3 {
+    font-size: 18px;
+
+    margin-bottom: 8px;
+}
+
+body:not(:has(main > aside)) > main > section:nth-child(2) article p {
+    color: var(--texto-secundario);
+
+    font-size: 13px;
+}
+
+
+/* ==========================================================
+   TESTE DE NÍVEL — HOME
+   ========================================================== */
+
+body:not(:has(main > aside)) > main > section#teste {
+    padding: 45px;
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e5f5ff,
+            #f0fbff
+        );
+
+    border: 1px solid #d6edf9;
+}
+
+body:not(:has(main > aside)) > main > section#teste > span {
+    display: inline-block;
+
+    margin-bottom: 12px;
 
     color: var(--azul-escuro);
 
+    font-size: 12px;
+
+    font-weight: 800;
+}
+
+body:not(:has(main > aside)) > main > section#teste > h2 {
+    max-width: 650px;
+
+    font-size: 30px;
+
+    line-height: 1.2;
+}
+
+body:not(:has(main > aside)) > main > section#teste > p {
+    max-width: 700px;
+
+    margin-bottom: 25px;
+}
+
+
+/* Caixa do teste */
+
+body:not(:has(main > aside)) > main > section#teste > div {
+    max-width: 650px;
+
+    padding: 25px;
+
+    background: white;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 7px 25px rgba(20,90,120,0.07);
+}
+
+body:not(:has(main > aside)) > main > section#teste h3 {
+    font-size: 16px;
+
+    margin-bottom: 12px;
+}
+
+body:not(:has(main > aside)) > main > section#teste ul {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 8px;
+
+    margin-bottom: 20px;
+}
+
+body:not(:has(main > aside)) > main > section#teste li {
+    padding: 8px 10px;
+
+    border-radius: 8px;
+
+    background: #f5fafc;
+
+    color: #496c78;
+
     font-size: 13px;
-    font-weight: 700;
-}
-
-.login-link:hover,
-.cadastro-link:hover {
-    color: var(--verde);
 }
 
 
-/* =========================================================
-   =========================================================
+/* BOTÃO TESTE CORRIGIDO */
+
+body:not(:has(main > aside)) > main > section#teste button,
+body:not(:has(main > aside)) > main > section#teste a {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 48px;
+
+    padding: 13px 22px;
+
+    border: none;
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2196e0,
+            #147abf
+        );
+
+    color: white;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 20px rgba(33,150,224,0.22);
+
+    transition: 0.25s;
+}
+
+body:not(:has(main > aside)) > main > section#teste button:hover,
+body:not(:has(main > aside)) > main > section#teste a:hover {
+    color: white;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 25px rgba(33,150,224,0.30);
+}
+
+
+/* ==========================================================
+   QUIZ — HOME
+   ========================================================== */
+
+body:not(:has(main > aside)) > main > section#quiz {
+    padding: 45px;
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff9df,
+            #fffdf3
+        );
+
+    border: 1px solid #f5e9b8;
+}
+
+body:not(:has(main > aside)) > main > section#quiz > span {
+    color: #9b7600;
+
+    font-size: 12px;
+
+    font-weight: 800;
+}
+
+body:not(:has(main > aside)) > main > section#quiz > h2 {
+    margin-top: 10px;
+
+    font-size: 30px;
+}
+
+body:not(:has(main > aside)) > main > section#quiz > div {
+    max-width: 700px;
+
+    margin-top: 25px;
+
+    padding: 25px;
+
+    background: white;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 7px 25px rgba(100,80,20,0.07);
+}
+
+body:not(:has(main > aside)) > main > section#quiz > div > span {
+    font-size: 35px;
+}
+
+body:not(:has(main > aside)) > main > section#quiz > div h3 {
+    margin-top: 10px;
+
+    font-size: 18px;
+}
+
+
+/* BOTÃO QUIZ CORRIGIDO */
+
+body:not(:has(main > aside)) > main > section#quiz button,
+body:not(:has(main > aside)) > main > section#quiz a {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 48px;
+
+    margin-top: 18px;
+
+    padding: 13px 24px;
+
+    border: none;
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffc83d,
+            #f2a900
+        );
+
+    color: #684d00;
+
+    font-size: 13px;
+
+    font-weight: 900;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 20px rgba(255,200,61,0.28);
+
+    transition: 0.25s;
+}
+
+body:not(:has(main > aside)) > main > section#quiz button:hover,
+body:not(:has(main > aside)) > main > section#quiz a:hover {
+    color: #684d00;
+
+    transform:
+        translateY(-3px)
+        rotate(-1deg);
+
+    box-shadow:
+        0 13px 25px rgba(255,200,61,0.35);
+}
+
+
+/* ==========================================================
+   SOBRE
+   ========================================================== */
+
+body:not(:has(main > aside)) > main > section#sobre {
+    max-width: 850px;
+
+    padding: 35px;
+
+    background: white;
+
+    border: 1px solid var(--borda);
+
+    border-radius: 20px;
+}
+
+body:not(:has(main > aside)) > main > section#sobre p {
+    line-height: 1.8;
+}
+
+
+/* ==========================================================
+   FOOTER
+   ========================================================== */
+
+body:not(:has(main > aside)) > footer {
+    background: #123d39;
+
+    color: white;
+
+    padding: 50px 6% 25px;
+}
+
+body:not(:has(main > aside)) > footer > div:first-child {
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        1.4fr
+        0.7fr
+        0.9fr
+        1.2fr;
+
+    gap: 45px;
+}
+
+body:not(:has(main > aside)) > footer h2 {
+    font-size: 21px;
+
+    margin-bottom: 7px;
+}
+
+body:not(:has(main > aside)) > footer h3 {
+    font-size: 14px;
+
+    margin-bottom: 15px;
+}
+
+body:not(:has(main > aside)) > footer p {
+    color: rgba(255,255,255,0.62);
+
+    font-size: 12px;
+
+    line-height: 1.7;
+}
+
+body:not(:has(main > aside)) > footer a {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: rgba(255,255,255,0.68);
+
+    font-size: 12px;
+}
+
+body:not(:has(main > aside)) > footer a:hover {
+    color: white;
+}
+
+
+/* Parte final */
+
+body:not(:has(main > aside)) > footer > div:last-child {
+    max-width: 1200px;
+
+    margin: 40px auto 0;
+
+    padding-top: 20px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    border-top:
+        1px solid rgba(255,255,255,0.1);
+}
+
+
+/* ==========================================================
+   ==========================================================
    TESTE DE NÍVEL
-   =========================================================
-   ========================================================= */
+   ==========================================================
+   ========================================================== */
+
+
+/* Página */
 
 body.pagina-teste {
     min-height: 100vh;
 
+    display: flex;
+
+    flex-direction: column;
+
     background:
-        radial-gradient(
-            circle at 10% 10%,
-            #e6f8ff,
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 90% 90%,
-            #eafff1,
-            transparent 30%
-        ),
-        #f6fafc;
+        linear-gradient(
+            135deg,
+            #f4fff8 0%,
+            #eefaff 50%,
+            #ffffff 100%
+        );
 }
 
 
-/* HEADER DO TESTE */
+/* Header */
 
 body.pagina-teste .teste-header {
     width: 100%;
 
-    background: white;
+    padding: 20px 7%;
 
-    box-shadow:
-        0 3px 20px rgba(0, 0, 0, 0.06);
+    display: flex;
 
-    padding: 20px 30px;
+    align-items: center;
 
-    position: relative;
-    z-index: 10;
+    justify-content: space-between;
+
+    background:
+        rgba(255,255,255,0.9);
+
+    backdrop-filter: blur(12px);
+
+    border-bottom:
+        1px solid rgba(0,0,0,0.06);
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
 }
 
-.teste-header h1 {
-    max-width: 1100px;
-    margin: auto;
+body.pagina-teste .teste-header .logo {
+    text-decoration: none;
 
-    color: var(--azul-escuro);
+    color: #12372a;
 
-    font-size: 24px;
+    font-size: 1.5rem;
+
+    font-weight: 800;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+body.pagina-teste .voltar-inicio {
+    text-decoration: none;
+
+    color: #256d4d;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+body.pagina-teste .voltar-inicio:hover {
+    color: #087a58;
+
+    transform: translateX(-4px);
 }
 
 
-/* CONTAINER */
+/* Container */
 
 body.pagina-teste .teste-container {
-    width: 100%;
-    max-width: 900px;
+    width: min(900px, 92%);
 
-    margin: 0 auto;
+    margin: 60px auto;
 
-    padding: 60px 25px 80px;
+    flex: 1;
 }
 
 
-/* INTRO */
+/* Introdução */
 
-.teste-intro {
+body.pagina-teste .teste-intro {
     text-align: center;
 
-    margin-bottom: 35px;
+    background: #ffffff;
+
+    padding: 55px 50px;
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 20px 60px rgba(28,94,67,0.12);
+
+    border:
+        1px solid rgba(28,94,67,0.08);
+
+    animation:
+        testeEntrada 0.7s ease;
 }
 
-.teste-icone {
+body.pagina-teste .teste-icone {
     width: 90px;
     height: 90px;
 
     margin: 0 auto 20px;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
-    border-radius: 25px;
+    font-size: 3rem;
 
-    background: linear-gradient(
-        135deg,
-        var(--azul),
-        var(--verde)
-    );
+    background: #effbf4;
 
-    font-size: 45px;
+    border-radius: 50%;
 
-    box-shadow:
-        0 12px 30px rgba(33, 150, 224, 0.2);
-
-    animation: flutuar 3s ease-in-out infinite;
+    animation:
+        flutuarTeste 3s ease-in-out infinite;
 }
 
-@keyframes flutuar {
+body.pagina-teste .teste-tag {
+    display: inline-block;
+
+    color: #25805a;
+
+    font-size: 0.8rem;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+    margin-bottom: 12px;
+}
+
+body.pagina-teste .teste-intro h1 {
+    color: #12372a;
+
+    font-size:
+        clamp(2rem, 5vw, 3.2rem);
+
+    line-height: 1.1;
+
+    margin: 0 auto 18px;
+
+    max-width: 650px;
+}
+
+body.pagina-teste .teste-intro h1 span {
+    display: block;
+
+    color: #299765;
+}
+
+body.pagina-teste .teste-intro > p {
+    max-width: 620px;
+
+    margin: 0 auto 35px;
+
+    color: #66756d;
+
+    font-size: 1.05rem;
+
+    line-height: 1.7;
+}
+
+
+/* Regras */
+
+body.pagina-teste .regras-teste {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+
+    margin: 30px 0 35px;
+}
+
+body.pagina-teste .regra {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    text-align: left;
+
+    padding: 18px;
+
+    border-radius: 18px;
+
+    background: #f7fbf9;
+
+    border: 1px solid #e6f0eb;
+
+    transition: 0.25s;
+}
+
+body.pagina-teste .regra:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 8px 20px rgba(28,94,67,0.08);
+}
+
+body.pagina-teste .regra > span {
+    font-size: 1.7rem;
+}
+
+body.pagina-teste .regra strong {
+    display: block;
+
+    color: #183d2f;
+
+    font-size: 0.9rem;
+
+    margin-bottom: 3px;
+}
+
+body.pagina-teste .regra small {
+    color: #78867f;
+
+    font-size: 0.75rem;
+}
+
+
+/* Botão principal */
+
+body.pagina-teste .btn-teste-principal {
+    border: none;
+
+    cursor: pointer;
+
+    padding: 17px 35px;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #299765,
+            #197a4d
+        );
+
+    color: white;
+
+    font-size: 1rem;
+
+    font-weight: 800;
+
+    box-shadow:
+        0 12px 25px rgba(41,151,101,0.25);
+
+    transition: all 0.3s ease;
+}
+
+body.pagina-teste .btn-teste-principal:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 16px 30px rgba(41,151,101,0.32);
+}
+
+body.pagina-teste .btn-teste-principal:active {
+    transform: translateY(-1px);
+}
+
+
+/* Área do teste */
+
+body.pagina-teste .area-teste {
+    animation:
+        testeEntrada 0.6s ease;
+}
+
+
+/* Status */
+
+body.pagina-teste .teste-status {
+    background: white;
+
+    padding: 20px 25px;
+
+    border-radius: 20px;
+
+    margin-bottom: 20px;
+
+    box-shadow:
+        0 10px 30px rgba(28,94,67,0.08);
+}
+
+body.pagina-teste .status-texto {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 12px;
+
+    color: #617069;
+
+    font-size: 0.9rem;
+}
+
+body.pagina-teste .status-texto strong {
+    color: #299765;
+}
+
+
+/* Barra de progresso */
+
+body.pagina-teste .barra-progresso {
+    width: 100%;
+
+    height: 9px;
+
+    background: #e7f0eb;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+body.pagina-teste .progresso-preenchido {
+    width: 0%;
+
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #299765,
+            #4fc98a
+        );
+
+    border-radius: 20px;
+
+    transition: width 0.5s ease;
+}
+
+
+/* Pergunta */
+
+body.pagina-teste .pergunta-container {
+    background: white;
+
+    padding: 45px;
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 20px 55px rgba(28,94,67,0.1);
+}
+
+body.pagina-teste .categoria-pergunta {
+    display: inline-block;
+
+    padding: 8px 13px;
+
+    border-radius: 30px;
+
+    background: #eff9f3;
+
+    color: #25805a;
+
+    font-size: 0.75rem;
+
+    font-weight: 800;
+
+    letter-spacing: 0.5px;
+
+    margin-bottom: 18px;
+}
+
+body.pagina-teste .pergunta-container h2 {
+    color: #173c2e;
+
+    font-size:
+        clamp(1.4rem, 3vw, 2rem);
+
+    line-height: 1.35;
+
+    margin: 0 0 30px;
+}
+
+
+/* ==========================================================
+   ALTERNATIVAS DO TESTE
+   ========================================================== */
+
+body.pagina-teste .alternativas {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 13px;
+}
+
+body.pagina-teste .alternativa {
+    width: 100%;
+
+    border: 2px solid #e5eee9;
+
+    background: white;
+
+    border-radius: 16px;
+
+    padding: 17px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    color: #33483e;
+
+    font-size: 0.95rem;
+
+    font-weight: 600;
+
+    transition: all 0.25s ease;
+}
+
+body.pagina-teste .alternativa:hover:not(:disabled) {
+    border-color: #62b98e;
+
+    background: #f5fcf8;
+
+    transform: translateX(5px);
+
+    box-shadow:
+        0 6px 18px rgba(22,166,115,0.08);
+}
+
+body.pagina-teste .letra-alternativa {
+    min-width: 35px;
+
+    height: 35px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: #edf5f0;
+
+    color: #287653;
+
+    font-weight: 800;
+}
+
+body.pagina-teste .alternativa.correta {
+    border-color: #35a76c;
+
+    background: #ecfaf2;
+
+    color: #1c6843;
+}
+
+body.pagina-teste .alternativa.correta .letra-alternativa {
+    background: #35a76c;
+
+    color: white;
+}
+
+body.pagina-teste .alternativa.incorreta {
+    border-color: #e76f6f;
+
+    background: #fff1f1;
+
+    color: #9b3f3f;
+}
+
+body.pagina-teste .alternativa.incorreta .letra-alternativa {
+    background: #e76f6f;
+
+    color: white;
+}
+
+body.pagina-teste .alternativa:disabled {
+    cursor: default;
+}
+
+
+/* Feedback */
+
+body.pagina-teste .feedback {
+    margin-top: 20px;
+
+    padding: 15px 18px;
+
+    border-radius: 13px;
+
+    font-size: 0.9rem;
+
+    font-weight: 600;
+}
+
+body.pagina-teste .feedback-correto {
+    background: #ecfaf2;
+
+    color: #23734a;
+
+    border: 1px solid #bce5ce;
+}
+
+body.pagina-teste .feedback-erro {
+    background: #fff4f4;
+
+    color: #a14343;
+
+    border: 1px solid #f0c7c7;
+}
+
+
+/* Botão próxima */
+
+body.pagina-teste .btn-proxima {
+    display: block;
+
+    margin: 25px 0 0 auto;
+
+    border: none;
+
+    cursor: pointer;
+
+    padding: 14px 25px;
+
+    border-radius: 13px;
+
+    background: #247f53;
+
+    color: white;
+
+    font-weight: 800;
+
+    transition: 0.3s;
+}
+
+body.pagina-teste .btn-proxima:hover {
+    transform: translateX(4px);
+
+    background: #1c6944;
+}
+
+
+/* ==========================================================
+   RESULTADO DO TESTE
+   ========================================================== */
+
+body.pagina-teste .resultado-teste {
+    text-align: center;
+
+    background: white;
+
+    padding: 50px;
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 20px 60px rgba(28,94,67,0.12);
+
+    animation:
+        resultadoEntrada 0.8s ease;
+}
+
+body.pagina-teste .resultado-emoji {
+    font-size: 4rem;
+
+    margin-bottom: 10px;
+
+    animation:
+        resultadoPulo 1s ease;
+}
+
+body.pagina-teste .resultado-tag {
+    color: #299765;
+
+    font-size: 0.75rem;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+}
+
+body.pagina-teste .resultado-teste h1 {
+    color: #12372a;
+
+    font-size: 2.7rem;
+
+    margin: 8px 0;
+}
+
+body.pagina-teste .resultado-subtitulo {
+    color: #77857e;
+
+    margin-bottom: 25px;
+}
+
+
+/* Pontuação */
+
+body.pagina-teste .pontuacao {
+    display: flex;
+
+    align-items: baseline;
+
+    justify-content: center;
+
+    margin: 20px 0 5px;
+}
+
+body.pagina-teste .pontuacao-numero {
+    color: #299765;
+
+    font-size: 5rem;
+
+    line-height: 1;
+
+    font-weight: 900;
+}
+
+body.pagina-teste .pontuacao-total {
+    color: #9aaba2;
+
+    font-size: 2rem;
+
+    font-weight: 700;
+}
+
+body.pagina-teste .texto-acertos {
+    color: #66756d;
+
+    margin-bottom: 28px;
+}
+
+
+/* Nível */
+
+body.pagina-teste .nivel-resultado {
+    max-width: 480px;
+
+    margin: 0 auto 20px;
+
+    padding: 20px 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    text-align: left;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #effaf4,
+            #f3fbff
+        );
+
+    border:
+        1px solid #dceee5;
+}
+
+body.pagina-teste .nivel-resultado > span {
+    font-size: 3rem;
+}
+
+body.pagina-teste .nivel-resultado small {
+    color: #718079;
+
+    font-size: 0.7rem;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+body.pagina-teste .nivel-resultado h2 {
+    color: #24774f;
+
+    font-size: 1.8rem;
+
+    margin: 3px 0 0;
+}
+
+body.pagina-teste .nivel-descricao {
+    max-width: 600px;
+
+    margin: 0 auto 30px;
+
+    color: #617068;
+
+    line-height: 1.6;
+}
+
+
+/* Ações */
+
+body.pagina-teste .acoes-resultado {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+}
+
+body.pagina-teste .btn-refazer,
+body.pagina-teste .btn-continuar {
+    padding: 14px 22px;
+
+    border-radius: 13px;
+
+    font-weight: 800;
+
+    font-size: 0.9rem;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+body.pagina-teste .btn-refazer {
+    border: 2px solid #dce8e2;
+
+    background: white;
+
+    color: #4c6258;
+}
+
+body.pagina-teste .btn-refazer:hover {
+    border-color: #299765;
+
+    color: #24774f;
+}
+
+body.pagina-teste .btn-continuar {
+    text-decoration: none;
+
+    background: #247f53;
+
+    color: white;
+
+    border: 2px solid #247f53;
+}
+
+body.pagina-teste .btn-continuar:hover {
+    color: white;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 22px rgba(36,127,83,0.22);
+}
+
+
+/* Footer teste */
+
+body.pagina-teste .teste-footer {
+    text-align: center;
+
+    padding: 25px;
+
+    color: #75847c;
+
+    font-size: 0.8rem;
+}
+
+body.pagina-teste .teste-footer p {
+    margin-bottom: 5px;
+}
+
+
+/* Controle */
+
+.escondido {
+    display: none !important;
+}
+
+
+/* ==========================================================
+   ANIMAÇÕES DO TESTE
+   ========================================================== */
+
+@keyframes testeEntrada {
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+@keyframes resultadoEntrada {
+    from {
+        opacity: 0;
+
+        transform:
+            scale(0.94)
+            translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            scale(1)
+            translateY(0);
+    }
+}
+
+@keyframes resultadoPulo {
+    0% {
+        transform: scale(0.5);
+
+        opacity: 0;
+    }
+
+    70% {
+        transform: scale(1.15);
+    }
+
+    100% {
+        transform: scale(1);
+
+        opacity: 1;
+    }
+}
+
+@keyframes flutuarTeste {
     0%,
     100% {
         transform: translateY(0);
@@ -857,266 +2159,365 @@ body.pagina-teste .teste-container {
     }
 }
 
-.teste-tag {
-    display: inline-block;
+.trocar-pergunta {
+    animation:
+        trocarPergunta 0.4s ease;
+}
 
-    padding: 7px 14px;
+@keyframes trocarPergunta {
+    from {
+        opacity: 0;
 
-    background: var(--verde-claro);
+        transform:
+            translateX(20px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateX(0);
+    }
+}
+
+
+/* ==========================================================
+   ==========================================================
+   QUIZ — PÁGINA DE PERGUNTAS
+   ==========================================================
+   ========================================================== */
+
+body.pagina-quiz {
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 5% 10%,
+            rgba(33,150,224,0.12),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 95% 90%,
+            rgba(22,166,115,0.12),
+            transparent 25%
+        ),
+        #f6fbfa;
+}
+
+
+/* Header */
+
+body.pagina-quiz .quiz-header {
+    width: 100%;
+
+    padding: 20px 7%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    background: rgba(255,255,255,0.94);
+
+    border-bottom:
+        1px solid var(--borda);
+
+    box-shadow:
+        0 5px 20px rgba(16,72,61,0.05);
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+}
+
+body.pagina-quiz .quiz-header h1 {
     color: var(--verde-escuro);
 
-    border-radius: 50px;
-
-    font-size: 12px;
-    font-weight: 900;
-
-    margin-bottom: 12px;
+    font-size: 1.4rem;
 }
 
-.teste-intro h2 {
-    font-size: clamp(30px, 5vw, 45px);
+body.pagina-quiz .quiz-header a {
+    color: #52706a;
 
-    line-height: 1.1;
+    font-weight: 700;
 
-    margin-bottom: 15px;
+    font-size: 13px;
 }
 
-.teste-intro p {
-    max-width: 650px;
-
-    margin: auto;
-
-    color: var(--cinza);
+body.pagina-quiz .quiz-header a:hover {
+    color: var(--verde);
 }
 
 
-/* =========================================================
-   REGRAS
-   ========================================================= */
+/* Container */
 
-.regras-teste {
-    display: grid;
+body.pagina-quiz .quiz-container {
+    width: min(900px, 92%);
 
-    grid-template-columns:
-        repeat(3, 1fr);
+    margin: 50px auto;
 
-    gap: 15px;
-
-    margin: 30px 0;
+    min-height: calc(100vh - 150px);
 }
 
-.regra {
-    background: white;
 
-    padding: 20px;
+/* Introdução */
 
-    border-radius: 18px;
-
-    box-shadow: var(--sombra);
-
+body.pagina-quiz .quiz-intro {
     text-align: center;
 
-    transition: 0.25s;
+    margin-bottom: 25px;
 }
 
-.regra:hover {
-    transform: translateY(-5px);
+body.pagina-quiz .quiz-intro .quiz-icone {
+    width: 75px;
+    height: 75px;
+
+    margin: 0 auto 15px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffc83d,
+            #ffad1f
+        );
+
+    font-size: 2.4rem;
+
+    box-shadow:
+        0 10px 25px rgba(255,200,61,0.25);
+
+    animation:
+        flutuarQuiz 3s ease-in-out infinite;
 }
 
-.regra span {
-    font-size: 28px;
+body.pagina-quiz .quiz-intro h2 {
+    color: #173b38;
 
-    display: block;
+    font-size:
+        clamp(1.8rem, 4vw, 2.7rem);
+
+    line-height: 1.15;
 
     margin-bottom: 8px;
 }
 
-.regra p {
-    font-size: 13px;
-    color: var(--cinza);
+body.pagina-quiz .quiz-intro p {
+    color: var(--texto-secundario);
+
+    font-size: 14px;
 }
 
 
-/* BOTÃO PRINCIPAL */
+/* Status */
 
-.btn-teste-principal {
-    display: flex;
-
-    margin: 25px auto;
-
-    background: linear-gradient(
-        135deg,
-        var(--verde),
-        var(--verde-escuro)
-    );
-
-    color: white;
-
-    box-shadow:
-        0 12px 28px rgba(53, 184, 107, 0.25);
-
-    min-width: 220px;
-}
-
-.btn-teste-principal:hover {
-    box-shadow:
-        0 18px 35px rgba(53, 184, 107, 0.35);
-}
-
-
-/* =========================================================
-   ÁREA DO TESTE
-   ========================================================= */
-
-.area-teste {
-    margin-top: 40px;
-}
-
-
-/* STATUS */
-
-.teste-status {
+body.pagina-quiz .quiz-status {
     display: flex;
 
     align-items: center;
+
     justify-content: space-between;
 
-    gap: 20px;
+    gap: 15px;
 
-    margin-bottom: 12px;
+    margin-bottom: 10px;
+
+    color: #617069;
 
     font-size: 13px;
-    font-weight: 800;
+
+    font-weight: 700;
 }
 
-.teste-status span:last-child {
+body.pagina-quiz .quiz-status strong {
     color: var(--azul);
 }
 
 
-/* BARRA */
+/* Progresso */
 
-.barra-progresso {
+body.pagina-quiz .quiz-progresso {
     width: 100%;
-    height: 12px;
 
-    background: #dfe9ee;
+    height: 10px;
 
-    border-radius: 50px;
+    margin-bottom: 20px;
 
     overflow: hidden;
 
-    margin-bottom: 30px;
+    border-radius: 20px;
+
+    background: #e2ece8;
 }
 
-.progresso-preenchido {
-    height: 100%;
-
+body.pagina-quiz .quiz-progresso-preenchido {
     width: 0%;
 
-    background: linear-gradient(
-        90deg,
-        var(--azul),
-        var(--verde)
-    );
+    height: 100%;
 
-    border-radius: inherit;
+    border-radius: 20px;
 
-    transition: width 0.5s ease;
+    background:
+        linear-gradient(
+            90deg,
+            #2196e0,
+            #16a673
+        );
+
+    transition:
+        width 0.45s ease;
 }
 
 
-/* =========================================================
-   CARD DA PERGUNTA
-   ========================================================= */
+/* ==========================================================
+   CARD DAS PERGUNTAS DO QUIZ
+   ========================================================== */
 
-.pergunta-container {
-    background: white;
-
-    border-radius: 25px;
-
-    padding: 35px;
-
-    box-shadow:
-        0 15px 45px rgba(0, 0, 0, 0.08);
-
+body.pagina-quiz .quiz-card {
     position: relative;
 
     overflow: hidden;
+
+    padding: 40px;
+
+    background: white;
+
+    border-radius: 28px;
+
+    border:
+        1px solid rgba(22,166,115,0.08);
+
+    box-shadow:
+        0 20px 55px rgba(16,72,61,0.10);
+
+    animation:
+        quizEntrada 0.5s ease;
 }
 
-.pergunta-container::before {
+
+/* decoração */
+
+body.pagina-quiz .quiz-card::before {
     content: "";
 
     position: absolute;
 
-    width: 120px;
-    height: 120px;
+    width: 130px;
+    height: 130px;
 
     border-radius: 50%;
 
-    background: var(--azul-claro);
+    background:
+        rgba(33,150,224,0.06);
 
-    right: -40px;
-    top: -40px;
+    right: -55px;
+
+    top: -55px;
 }
 
-.categoria-pergunta {
+body.pagina-quiz .quiz-card::after {
+    content: "🌱";
+
+    position: absolute;
+
+    right: 20px;
+
+    bottom: 12px;
+
+    font-size: 30px;
+
+    opacity: 0.15;
+
+    transform: rotate(-15deg);
+}
+
+
+/* Categoria */
+
+body.pagina-quiz .quiz-categoria {
     display: inline-block;
 
     padding: 7px 12px;
 
-    border-radius: 50px;
+    margin-bottom: 15px;
 
-    background: var(--verde-claro);
-    color: var(--verde-escuro);
+    border-radius: 30px;
+
+    background: var(--amarelo-claro);
+
+    color: #947000;
 
     font-size: 11px;
 
     font-weight: 900;
 
-    margin-bottom: 15px;
+    letter-spacing: 0.5px;
 }
 
-.pergunta-container h3 {
+
+/* Pergunta */
+
+body.pagina-quiz .quiz-pergunta {
     position: relative;
 
-    font-size: clamp(20px, 3vw, 28px);
+    z-index: 2;
 
-    line-height: 1.3;
+    color: var(--texto);
+
+    font-size:
+        clamp(1.35rem, 3vw, 1.9rem);
+
+    line-height: 1.35;
 
     margin-bottom: 25px;
 }
 
 
-/* =========================================================
-   ALTERNATIVAS
-   ========================================================= */
+/* ==========================================================
+   OPÇÕES DO QUIZ
+   ========================================================== */
 
-.alternativas {
-    display: grid;
+body.pagina-quiz .quiz-opcoes {
+    position: relative;
 
-    gap: 13px;
+    z-index: 2;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
 }
 
-.alternativa {
+body.pagina-quiz .quiz-opcao {
     width: 100%;
+
+    min-height: 62px;
 
     display: flex;
 
     align-items: center;
 
-    gap: 14px;
+    gap: 13px;
 
-    padding: 17px 18px;
+    padding: 12px 15px;
 
-    border: 3px solid #e7eef2;
+    border: 2px solid #e3ece8;
 
     border-radius: 16px;
 
     background: white;
 
-    color: var(--cinza-escuro);
+    color: #33483e;
 
     text-align: left;
 
@@ -1133,102 +2534,270 @@ body.pagina-teste .teste-container {
         box-shadow 0.2s ease;
 }
 
-.alternativa::before {
-    content: "";
 
-    width: 25px;
-    height: 25px;
+/* Letra */
 
-    min-width: 25px;
+body.pagina-quiz .quiz-letra {
+    min-width: 38px;
 
-    border-radius: 50%;
+    width: 38px;
 
-    border: 3px solid #ccd9df;
+    height: 38px;
 
-    background: white;
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 11px;
+
+    background: #eef6f2;
+
+    color: var(--verde-escuro);
+
+    font-size: 14px;
+
+    font-weight: 900;
 
     transition: 0.2s;
 }
 
-.alternativa:hover {
-    transform: translateX(5px);
 
+/* Hover */
+
+body.pagina-quiz .quiz-opcao:hover:not(:disabled) {
     border-color: var(--azul);
 
-    background: #f5fbff;
+    background: #f4fbff;
+
+    transform: translateX(6px);
 
     box-shadow:
-        0 6px 15px rgba(33, 150, 224, 0.08);
+        0 7px 18px rgba(33,150,224,0.09);
 }
 
-.alternativa:hover::before {
-    border-color: var(--azul);
-}
-
-
-/* CORRETA */
-
-.alternativa.correta {
-    border-color: var(--verde);
-
-    background: var(--verde-claro);
-
-    color: var(--verde-escuro);
-
-    animation: respostaCorreta 0.4s ease;
-}
-
-.alternativa.correta::before {
-    content: "✓";
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    background: var(--verde);
-
-    border-color: var(--verde);
+body.pagina-quiz .quiz-opcao:hover:not(:disabled) .quiz-letra {
+    background: var(--azul);
 
     color: white;
-
-    font-size: 13px;
-
-    font-weight: 900;
 }
 
 
-/* INCORRETA */
+/* Correta */
 
-.alternativa.incorreta {
-    border-color: var(--vermelho);
+body.pagina-quiz .quiz-opcao.correta {
+    border-color: #35a76c;
+
+    background: #ecfaf2;
+
+    color: #1c6843;
+
+    animation:
+        respostaCorreta 0.4s ease;
+}
+
+body.pagina-quiz .quiz-opcao.correta .quiz-letra {
+    background: #35a76c;
+
+    color: white;
+}
+
+
+/* Errada */
+
+body.pagina-quiz .quiz-opcao.incorreta {
+    border-color: #e76f6f;
 
     background: #fff1f1;
 
-    color: #b52c29;
+    color: #9b3f3f;
 
-    animation: respostaErrada 0.4s ease;
+    animation:
+        respostaErrada 0.4s ease;
 }
 
-.alternativa.incorreta::before {
-    content: "×";
+body.pagina-quiz .quiz-opcao.incorreta .quiz-letra {
+    background: #e76f6f;
 
-    display: flex;
+    color: white;
+}
 
-    align-items: center;
-    justify-content: center;
+body.pagina-quiz .quiz-opcao:disabled {
+    cursor: default;
+}
 
-    background: var(--vermelho);
 
-    border-color: var(--vermelho);
+/* Feedback */
+
+body.pagina-quiz .quiz-feedback {
+    position: relative;
+
+    z-index: 2;
+
+    margin-top: 18px;
+
+    padding: 15px 18px;
+
+    border-radius: 14px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+body.pagina-quiz .quiz-feedback.correto {
+    background: #ecfaf2;
+
+    border:
+        1px solid #bce5ce;
+
+    color: #23734a;
+}
+
+body.pagina-quiz .quiz-feedback.errado {
+    background: #fff4f4;
+
+    border:
+        1px solid #f0c7c7;
+
+    color: #a14343;
+}
+
+
+/* Botão próximo */
+
+body.pagina-quiz .quiz-proximo {
+    position: relative;
+
+    z-index: 2;
+
+    display: block;
+
+    width: 100%;
+
+    margin-top: 22px;
+
+    padding: 15px 22px;
+
+    border: none;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2196e0,
+            #147abf
+        );
 
     color: white;
 
-    font-size: 15px;
+    font-size: 14px;
+
+    font-weight: 900;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 9px 22px rgba(33,150,224,0.20);
+
+    transition: 0.25s;
+}
+
+body.pagina-quiz .quiz-proximo:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 13px 28px rgba(33,150,224,0.30);
+}
+
+
+/* ==========================================================
+   RESULTADO DO QUIZ
+   ========================================================== */
+
+body.pagina-quiz .quiz-resultado {
+    padding: 45px 35px;
+
+    text-align: center;
+
+    background: white;
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 20px 60px rgba(16,72,61,0.11);
+
+    animation:
+        resultadoEntrada 0.7s ease;
+}
+
+body.pagina-quiz .quiz-resultado-emoji {
+    font-size: 4rem;
+
+    margin-bottom: 8px;
+}
+
+body.pagina-quiz .quiz-resultado h1 {
+    color: var(--verde-escuro);
+
+    font-size: 2.4rem;
+
+    margin-bottom: 8px;
+}
+
+body.pagina-quiz .quiz-pontuacao {
+    margin: 20px 0;
+
+    color: var(--azul);
+
+    font-size: 4.5rem;
+
+    line-height: 1;
 
     font-weight: 900;
 }
 
+body.pagina-quiz .quiz-resultado p {
+    color: var(--texto-secundario);
+
+    margin-bottom: 25px;
+}
+
+
+/* ==========================================================
+   ANIMAÇÕES QUIZ
+   ========================================================== */
+
+@keyframes flutuarQuiz {
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform:
+            translateY(-7px)
+            rotate(2deg);
+    }
+}
+
+@keyframes quizEntrada {
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
 
 @keyframes respostaCorreta {
     0% {
@@ -1260,713 +2829,333 @@ body.pagina-teste .teste-container {
 }
 
 
-/* =========================================================
-   FEEDBACK
-   ========================================================= */
-
-.feedback {
-    margin-top: 20px;
-
-    padding: 15px 18px;
-
-    border-radius: 15px;
-
-    background: #f5f8fa;
-
-    font-size: 14px;
-
-    font-weight: 700;
-}
-
-.feedback.correto {
-    background: var(--verde-claro);
-    color: var(--verde-escuro);
-}
-
-.feedback.errado {
-    background: #fff1f1;
-    color: #b52c29;
-}
-
-
-/* =========================================================
-   BOTÃO PRÓXIMA
-   ========================================================= */
-
-.btn-proxima {
-    width: 100%;
-
-    margin-top: 22px;
-
-    background: linear-gradient(
-        135deg,
-        var(--azul),
-        var(--azul-escuro)
-    );
-
-    color: white;
-
-    box-shadow:
-        0 10px 25px rgba(33, 150, 224, 0.2);
-}
-
-.btn-proxima:hover {
-    box-shadow:
-        0 15px 30px rgba(33, 150, 224, 0.3);
-}
-
-
-/* =========================================================
-   RESULTADO
-   ========================================================= */
-
-.resultado-teste {
-    background: white;
-
-    border-radius: 30px;
-
-    padding: 45px 30px;
-
-    text-align: center;
-
-    box-shadow:
-        0 20px 50px rgba(0, 0, 0, 0.1);
-
-    animation: aparecerResultado 0.6s ease;
-}
-
-@keyframes aparecerResultado {
-    from {
-        opacity: 0;
-        transform: scale(0.9) translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-    }
-}
-
-.resultado-teste h2 {
-    font-size: 32px;
-
-    margin-bottom: 10px;
-}
-
-.resultado-teste > p {
-    color: var(--cinza);
-
-    margin-bottom: 20px;
-}
-
-.pontuacao {
-    display: inline-flex;
-
-    align-items: center;
-    justify-content: center;
-
-    min-width: 150px;
-    min-height: 90px;
-
-    padding: 15px 25px;
-
-    border-radius: 22px;
-
-    background: linear-gradient(
-        135deg,
-        var(--azul-claro),
-        var(--verde-claro)
-    );
-
-    color: var(--azul-escuro);
-
-    font-size: 32px;
-
-    font-weight: 900;
-
-    margin: 15px auto;
-}
-
-.nivel-resultado {
-    margin: 15px auto 25px;
-
-    padding: 16px 22px;
-
-    max-width: 550px;
-
-    border-radius: 18px;
-
-    background: #fff9df;
-
-    border: 2px solid var(--amarelo);
-
-    color: #765a00;
-
-    font-size: 18px;
-
-    font-weight: 900;
-}
-
-
-/* =========================================================
-   AÇÕES DO RESULTADO
-   ========================================================= */
-
-.acoes-resultado {
-    display: flex;
-
-    justify-content: center;
-
-    gap: 15px;
-
-    flex-wrap: wrap;
-
-    margin-top: 25px;
-}
-
-.btn-refazer {
-    background: white;
-
-    color: var(--azul-escuro);
-
-    border: 2px solid var(--azul);
-}
-
-.btn-continuar {
-    background: linear-gradient(
-        135deg,
-        var(--verde),
-        var(--verde-escuro)
-    );
-
-    color: white;
-
-    box-shadow:
-        0 10px 25px rgba(53, 184, 107, 0.2);
-}
-
-.btn-refazer:hover {
-    background: var(--azul-claro);
-}
-
-.btn-continuar:hover {
-    box-shadow:
-        0 15px 30px rgba(53, 184, 107, 0.3);
-}
-
-
-/* =========================================================
-   FOOTER DO TESTE
-   ========================================================= */
-
-body.pagina-teste .teste-footer {
-    margin-top: 0;
-
-    background: #102a3a;
-
-    color: white;
-
-    padding: 30px;
-
-    text-align: center;
-}
-
-
-/* =========================================================
-   ESCONDIDO
-   ========================================================= */
-
-.escondido {
-    display: none !important;
-}
-
-
-/* =========================================================
-   =========================================================
-   QUIZ
-   =========================================================
-   ========================================================= */
-
-body.pagina-quiz {
-    min-height: 100vh;
-
-    background:
-        radial-gradient(
-            circle at 10% 10%,
-            #fff5cf,
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 90% 90%,
-            #e5fff0,
-            transparent 30%
-        ),
-        #f7fafb;
-}
-
-
-/* HEADER QUIZ */
-
-body.pagina-quiz .quiz-header {
-    background: white;
-
-    padding: 20px 30px;
-
-    box-shadow:
-        0 3px 20px rgba(0, 0, 0, 0.06);
-}
-
-.quiz-header h1 {
-    max-width: 1000px;
-
-    margin: auto;
-
-    color: var(--azul-escuro);
-}
-
-
-/* CONTAINER QUIZ */
-
-body.pagina-quiz .quiz-container {
-    width: 100%;
-
-    max-width: 900px;
-
-    margin: auto;
-
-    padding: 60px 25px 80px;
-}
-
-
-/* TÍTULO */
-
-.quiz-intro {
-    text-align: center;
-
-    margin-bottom: 35px;
-}
-
-.quiz-intro h2 {
-    font-size: clamp(32px, 5vw, 48px);
-
-    line-height: 1.1;
-
-    margin-bottom: 12px;
-}
-
-.quiz-intro p {
-    color: var(--cinza);
-}
-
-
-/* CARD QUIZ */
-
-.quiz-card {
-    background: white;
-
-    border-radius: 28px;
-
-    padding: 35px;
-
-    box-shadow:
-        0 15px 45px rgba(0, 0, 0, 0.08);
-}
-
-
-/* PERGUNTA QUIZ */
-
-.quiz-question {
-    font-size: 26px;
-
-    line-height: 1.3;
-
-    margin-bottom: 25px;
-}
-
-
-/* OPÇÕES */
-
-.quiz-options {
-    display: grid;
-
-    gap: 13px;
-}
-
-.quiz-option {
-    width: 100%;
-
-    padding: 17px;
-
-    border: 3px solid #e6edf1;
-
-    border-radius: 16px;
-
-    background: white;
-
-    color: var(--cinza-escuro);
-
-    text-align: left;
-
-    font-size: 14px;
-
-    font-weight: 800;
-
-    cursor: pointer;
-
-    transition: 0.25s;
-}
-
-.quiz-option:hover {
-    border-color: var(--laranja);
-
-    background: #fffaf0;
-
-    transform: translateX(5px);
-}
-
-.quiz-option.correct {
-    background: var(--verde-claro);
-
-    border-color: var(--verde);
-
-    color: var(--verde-escuro);
-}
-
-.quiz-option.wrong {
-    background: #fff1f1;
-
-    border-color: var(--vermelho);
-
-    color: #b52c29;
-}
-
-
-/* BOTÃO PRÓXIMO QUIZ */
-
-.quiz-next {
-    width: 100%;
-
-    margin-top: 22px;
-
-    background: linear-gradient(
-        135deg,
-        var(--laranja),
-        #f07820
-    );
-
-    color: white;
-}
-
-
-/* RESULTADO QUIZ */
-
-.quiz-result {
-    background: white;
-
-    border-radius: 30px;
-
-    padding: 45px 30px;
-
-    text-align: center;
-
-    box-shadow: var(--sombra-forte);
-}
-
-.quiz-result h2 {
-    font-size: 35px;
-
-    margin-bottom: 15px;
-}
-
-.quiz-result p {
-    color: var(--cinza);
-}
-
-
-/* =========================================================
-   BOTÃO VOLTAR AO TOPO
-   ========================================================= */
-
-#btn-topo {
-    position: fixed;
-
-    right: 20px;
-    bottom: 20px;
-
-    width: 48px;
-    height: 48px;
-
-    border-radius: 50%;
-
-    background: var(--azul);
-
-    color: white;
-
-    box-shadow:
-        0 10px 25px rgba(33, 150, 224, 0.25);
-
-    z-index: 100;
-
-    display: none;
-
-    align-items: center;
-    justify-content: center;
-
-    font-size: 20px;
-}
-
-#btn-topo.mostrar {
-    display: flex;
-}
-
-#btn-topo:hover {
-    background: var(--azul-escuro);
-
-    transform: translateY(-4px);
-}
-
-
-/* =========================================================
-   CONFETES
-   ========================================================= */
-
-.confete {
-    position: fixed;
-
-    top: -20px;
-
-    width: 10px;
-    height: 10px;
-
-    z-index: 9999;
-
-    animation:
-        cairConfete 2.5s linear forwards;
-}
-
-@keyframes cairConfete {
-    to {
-        transform:
-            translateY(110vh)
-            rotate(720deg);
-
-        opacity: 0;
-    }
-}
-
-
-/* =========================================================
-   RESPONSIVIDADE
-   ========================================================= */
+/* ==========================================================
+   RESPONSIVIDADE — TABLET
+   ========================================================== */
 
 @media (max-width: 900px) {
 
-    .hero {
-        flex-direction: column;
+    /* LOGIN */
 
-        text-align: center;
+    main:has(> aside) {
+        width: 94%;
 
-        padding-top: 50px;
+        grid-template-columns: 1fr;
+
+        margin: 25px auto;
     }
 
-    .hero-content {
-        max-width: 750px;
+    main:has(> aside) > header {
+        grid-column: 1;
     }
 
-    .hero-buttons {
-        justify-content: center;
+    main:has(> aside) > section {
+        grid-column: 1;
     }
 
-    .cards,
-    .cards-container {
+    main:has(> aside) > aside {
+        grid-column: 1;
+
+        grid-row: auto;
+
+        min-height: 300px;
+
+        padding: 45px;
+    }
+
+
+    /* HOME */
+
+    body:not(:has(main > aside)) > header {
+        padding: 0 3%;
+    }
+
+    body:not(:has(main > aside)) > header nav {
+        display: none;
+    }
+
+    body:not(:has(main > aside)) > main > section:first-child {
         grid-template-columns: 1fr;
     }
 
-    .hero-visual {
-        min-height: 250px;
+    body:not(:has(main > aside)) > main > section:first-child > div:last-child {
+        display: none;
     }
 
-    .regras-teste {
+    body:not(:has(main > aside)) > main > section:nth-child(2) {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    body:not(:has(main > aside)) > footer > div:first-child {
+        grid-template-columns: 1fr 1fr;
+    }
+
+
+    /* TESTE */
+
+    body.pagina-teste .regras-teste {
         grid-template-columns: 1fr;
     }
 }
 
 
-/* =========================================================
-   TABLET
-   ========================================================= */
+/* ==========================================================
+   RESPONSIVIDADE — CELULAR
+   ========================================================== */
 
-@media (max-width: 700px) {
+@media (max-width: 600px) {
 
-    header > div {
-        flex-direction: column;
+    /* LOGIN */
 
-        text-align: center;
+    main:has(> aside) {
+        width: 94%;
 
-        padding: 15px 20px;
-    }
-
-    nav {
-        flex-wrap: wrap;
-
-        justify-content: center;
-
-        gap: 15px;
-    }
-
-    body:not(.pagina-teste):not(.pagina-quiz) > main > section {
-        padding: 60px 20px;
-    }
-
-    .hero h2 {
-        font-size: 40px;
-    }
-
-    .hero-visual::before,
-    .visual::before {
-        width: 220px;
-        height: 220px;
-    }
-
-    .pergunta-container,
-    .quiz-card {
-        padding: 25px 20px;
-    }
-
-    .teste-container,
-    .quiz-container {
-        padding-left: 18px;
-        padding-right: 18px;
-    }
-
-    .acoes-resultado {
-        flex-direction: column;
-    }
-
-    .acoes-resultado button,
-    .acoes-resultado a {
-        width: 100%;
-    }
-}
-
-
-/* =========================================================
-   CELULAR
-   ========================================================= */
-
-@media (max-width: 500px) {
-
-    .login-container,
-    .cadastro-container {
-        padding: 28px 20px;
+        margin: 15px auto;
 
         border-radius: 20px;
     }
 
-    .hero {
+    main:has(> aside) > header {
+        padding: 35px 25px 20px;
+    }
+
+    main:has(> aside) > section {
+        padding: 25px;
+    }
+
+    main:has(> aside) > section > h2 {
+        font-size: 24px;
+    }
+
+    main:has(> aside) > aside {
+        padding: 35px 25px;
+
+        min-height: 280px;
+    }
+
+    main:has(> aside) > aside h2 {
+        font-size: 29px;
+    }
+
+
+    /* HOME */
+
+    body:not(:has(main > aside)) > header {
+        height: 65px;
+
+        padding: 0 18px;
+    }
+
+    body:not(:has(main > aside)) > header h1 {
+        font-size: 19px;
+    }
+
+    body:not(:has(main > aside)) > header > div:last-child span {
+        display: none;
+    }
+
+    body:not(:has(main > aside)) > main {
+        width: 92%;
+
+        padding-top: 25px;
+    }
+
+    body:not(:has(main > aside)) > main > section:first-child {
+        padding: 30px 25px;
+
         min-height: auto;
+
+        border-radius: 20px;
     }
 
-    .hero h2 {
-        font-size: 34px;
-    }
-
-    .hero p {
-        font-size: 15px;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-
-        width: 100%;
-    }
-
-    .hero-buttons a {
-        width: 100%;
-    }
-
-    #teste h2,
-    #quiz h2 {
+    body:not(:has(main > aside)) > main > section:first-child h2 {
         font-size: 30px;
     }
 
-    .teste-intro h2 {
-        font-size: 32px;
+    body:not(:has(main > aside)) > main > section:first-child p {
+        font-size: 13px;
     }
 
-    .teste-icone {
-        width: 75px;
-        height: 75px;
+    body:not(:has(main > aside)) > main > section:first-child > div:first-child > div {
+        flex-direction: column;
 
-        font-size: 36px;
+        align-items: stretch;
     }
 
-    .teste-status {
-        font-size: 12px;
+    body:not(:has(main > aside)) > main > section:first-child a {
+        width: 100%;
     }
 
-    .pergunta-container {
-        padding: 22px 16px;
+
+    /* COMO FUNCIONA */
+
+    body:not(:has(main > aside)) > main > section:nth-child(2) {
+        grid-template-columns: 1fr;
     }
 
-    .pergunta-container h3 {
-        font-size: 20px;
+
+    /* TESTE E QUIZ */
+
+    body:not(:has(main > aside)) > main > section#teste,
+    body:not(:has(main > aside)) > main > section#quiz {
+        padding: 28px 22px;
     }
 
-    .alternativa {
-        padding: 14px;
+    body:not(:has(main > aside)) > main > section#teste > h2,
+    body:not(:has(main > aside)) > main > section#quiz > h2 {
+        font-size: 25px;
+    }
+
+    body:not(:has(main > aside)) > main > section#teste ul {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* FOOTER */
+
+    body:not(:has(main > aside)) > footer {
+        padding: 40px 25px 20px;
+    }
+
+    body:not(:has(main > aside)) > footer > div:first-child {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+    }
+
+    body:not(:has(main > aside)) > footer > div:last-child {
+        flex-direction: column;
+
+        gap: 5px;
+    }
+
+
+    /* ======================================================
+       TESTE
+       ====================================================== */
+
+    body.pagina-teste .teste-header {
+        padding: 17px 5%;
+    }
+
+    body.pagina-teste .teste-container {
+        width: 94%;
+
+        margin: 30px auto;
+    }
+
+    body.pagina-teste .teste-intro {
+        padding: 35px 22px;
+    }
+
+    body.pagina-teste .pergunta-container {
+        padding: 28px 20px;
+    }
+
+    body.pagina-teste .resultado-teste {
+        padding: 35px 20px;
+    }
+
+    body.pagina-teste .resultado-teste h1 {
+        font-size: 2.2rem;
+    }
+
+    body.pagina-teste .pontuacao-numero {
+        font-size: 4rem;
+    }
+
+    body.pagina-teste .nivel-resultado {
+        text-align: left;
+    }
+
+    body.pagina-teste .acoes-resultado {
+        flex-direction: column;
+    }
+
+    body.pagina-teste .btn-refazer,
+    body.pagina-teste .btn-continuar {
+        width: 100%;
+
+        text-align: center;
+    }
+
+
+    /* ======================================================
+       QUIZ
+       ====================================================== */
+
+    body.pagina-quiz .quiz-header {
+        padding: 16px 5%;
+    }
+
+    body.pagina-quiz .quiz-header h1 {
+        font-size: 1.1rem;
+    }
+
+    body.pagina-quiz .quiz-container {
+        width: 94%;
+
+        margin: 30px auto;
+    }
+
+    body.pagina-quiz .quiz-card {
+        padding: 25px 18px;
+
+        border-radius: 22px;
+    }
+
+    body.pagina-quiz .quiz-pergunta {
+        font-size: 1.3rem;
+    }
+
+    body.pagina-quiz .quiz-opcao {
+        min-height: 58px;
+
+        padding: 10px 12px;
 
         font-size: 13px;
     }
 
-    .alternativa::before {
-        width: 22px;
-        height: 22px;
+    body.pagina-quiz .quiz-letra {
+        min-width: 34px;
 
-        min-width: 22px;
+        width: 34px;
+
+        height: 34px;
     }
 
-    .resultado-teste {
+    body.pagina-quiz .quiz-resultado {
         padding: 35px 20px;
     }
 
-    .resultado-teste h2 {
-        font-size: 27px;
+    body.pagina-quiz .quiz-resultado h1 {
+        font-size: 2rem;
     }
 
-    .pontuacao {
-        font-size: 27px;
-
-        min-height: 75px;
-    }
-
-    .nivel-resultado {
-        font-size: 15px;
-    }
-
-    .quiz-question {
-        font-size: 21px;
+    body.pagina-quiz .quiz-pontuacao {
+        font-size: 3.7rem;
     }
 }
 
 
-/* =========================================================
+/* ==========================================================
    ACESSIBILIDADE
-   ========================================================= */
+   ========================================================== */
 
 button:focus-visible,
 a:focus-visible,
 input:focus-visible,
 select:focus-visible {
-    outline: 4px solid rgba(33, 150, 224, 0.25);
+    outline:
+        3px solid rgba(33,150,224,0.35);
 
     outline-offset: 3px;
 }
 
 
-/* =========================================================
+/* ==========================================================
    REDUZIR ANIMAÇÕES
-   ========================================================= */
+   ========================================================== */
 
 @media (prefers-reduced-motion: reduce) {
 
@@ -1980,5 +3169,102 @@ select:focus-visible {
         scroll-behavior: auto !important;
 
         transition-duration: 0.01ms !important;
+    }
+}
+
+/* ==========================================================
+   TESTE — LAYOUT HORIZONTAL NO NOTEBOOK / DESKTOP
+   NÃO ALTERA CELULAR
+   ========================================================== */
+
+@media (min-width: 901px) {
+
+    body.pagina-teste .area-teste {
+        width: min(1150px, 94%);
+        margin: 40px auto;
+    }
+
+    /* Caixa principal da pergunta */
+    body.pagina-teste .pergunta-container {
+        display: grid;
+
+        grid-template-columns: 0.9fr 1.1fr;
+
+        grid-template-areas:
+            "categoria categoria"
+            "pergunta alternativas"
+            "feedback feedback"
+            "proxima proxima";
+
+        column-gap: 50px;
+        align-items: center;
+
+        padding: 45px;
+        min-height: 420px;
+
+        background: #ffffff;
+        border-radius: 28px;
+        box-shadow: 0 20px 55px rgba(16, 72, 61, 0.10);
+    }
+
+    /* Categoria */
+    body.pagina-teste .categoria-pergunta {
+        grid-area: categoria;
+        width: fit-content;
+        margin-bottom: 10px;
+    }
+
+    /* Pergunta — lado esquerdo */
+    body.pagina-teste .pergunta-container h2 {
+        grid-area: pergunta;
+
+        margin: 0;
+
+        max-width: 500px;
+
+        font-size: clamp(1.5rem, 2.5vw, 2rem);
+        line-height: 1.35;
+    }
+
+    /* Alternativas — lado direito */
+    body.pagina-teste .alternativas {
+        grid-area: alternativas;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+        gap: 15px;
+
+        width: 100%;
+    }
+
+    /* Cada alternativa */
+    body.pagina-teste .alternativas button {
+        min-height: 75px;
+
+        padding: 15px 18px;
+
+        border-radius: 16px;
+
+        text-align: left;
+
+        font-size: 14px;
+    }
+
+    /* Feedback */
+    body.pagina-teste .feedback {
+        grid-area: feedback;
+
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    /* Botão próxima */
+    body.pagina-teste .btn-proxima {
+        grid-area: proxima;
+
+        width: 220px;
+
+        margin: 25px auto 0;
     }
 }
