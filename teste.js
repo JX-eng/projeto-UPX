@@ -3,7 +3,6 @@
    TESTE DE NÍVEL
 ========================================= */
 
-
 /* =========================================
    PERGUNTAS
 ========================================= */
@@ -232,14 +231,65 @@ let respondeu = false;
 
 
 /* =========================================
+   XP DO RANKING
+========================================= */
+
+function obterXP() {
+    return Number(localStorage.getItem("ecoXP")) || 0;
+}
+
+
+function salvarXP(xp) {
+    localStorage.setItem("ecoXP", xp);
+}
+
+
+function adicionarXP(valor) {
+    const xpAtual = obterXP();
+    salvarXP(xpAtual + valor);
+}
+
+
+function calcularXP(pergunta) {
+
+    const categoria = pergunta.categoria.toUpperCase();
+
+    if (categoria.includes("MUITO FÁCIL")) {
+        return 10;
+    }
+
+    if (categoria.includes("MÉDIA")) {
+        return 20;
+    }
+
+    if (categoria.includes("DIFÍCIL")) {
+        return 30;
+    }
+
+    if (categoria.includes("IMPOSSÍVEL")) {
+        return 40;
+    }
+
+    if (categoria.includes("TÉCNICO AVANÇADO")) {
+        return 50;
+    }
+
+    return 10;
+}
+
+
+/* =========================================
    ELEMENTOS HTML
 ========================================= */
 
-const introducao = document.getElementById("introducao-teste");
+const introducao =
+    document.getElementById("introducao-teste");
 
-const areaTeste = document.getElementById("area-teste");
+const areaTeste =
+    document.getElementById("area-teste");
 
-const resultado = document.getElementById("resultado-teste");
+const resultado =
+    document.getElementById("resultado-teste");
 
 const btnIniciar =
     document.getElementById("btn-iniciar-teste");
@@ -282,9 +332,7 @@ btnIniciar.addEventListener("click", iniciarTeste);
 function iniciarTeste() {
 
     perguntaAtual = 0;
-
     acertos = 0;
-
     respondeu = false;
 
     introducao.classList.add("escondido");
@@ -305,7 +353,8 @@ function mostrarPergunta() {
 
     respondeu = false;
 
-    const pergunta = perguntas[perguntaAtual];
+    const pergunta =
+        perguntas[perguntaAtual];
 
 
     /* Número da pergunta */
@@ -323,7 +372,7 @@ function mostrarPergunta() {
     /* Barra de progresso */
 
     const progresso =
-        ((perguntaAtual) / perguntas.length) * 100;
+        (perguntaAtual / perguntas.length) * 100;
 
     progressoElemento.style.width =
         `${progresso}%`;
@@ -378,10 +427,12 @@ function mostrarPergunta() {
                 </span>
             `;
 
+
             botao.addEventListener(
                 "click",
                 () => selecionarResposta(indice)
             );
+
 
             alternativasElemento.appendChild(botao);
         }
@@ -390,17 +441,21 @@ function mostrarPergunta() {
 
     /* Animação */
 
-    document
-        .getElementById("pergunta-container")
-        .classList.remove("trocar-pergunta");
+    const perguntaContainer =
+        document.getElementById("pergunta-container");
 
-    void document
-        .getElementById("pergunta-container")
-        .offsetWidth;
+    if (perguntaContainer) {
 
-    document
-        .getElementById("pergunta-container")
-        .classList.add("trocar-pergunta");
+        perguntaContainer.classList.remove(
+            "trocar-pergunta"
+        );
+
+        void perguntaContainer.offsetWidth;
+
+        perguntaContainer.classList.add(
+            "trocar-pergunta"
+        );
+    }
 }
 
 
@@ -416,8 +471,10 @@ function selecionarResposta(indiceEscolhido) {
 
     respondeu = true;
 
+
     const pergunta =
         perguntas[perguntaAtual];
+
 
     const botoes =
         document.querySelectorAll(".alternativa");
@@ -442,12 +499,24 @@ function selecionarResposta(indiceEscolhido) {
 
         acertos++;
 
+
+        /* ================================
+           GANHAR XP
+        ================================ */
+
+        const xpGanho =
+            calcularXP(pergunta);
+
+        adicionarXP(xpGanho);
+
+
         botoes[indiceEscolhido]
             .classList.add("correta");
 
+
         mostrarFeedback(
             true,
-            "🎉 Muito bem! Você acertou!"
+            `🎉 Muito bem! Você acertou! +${xpGanho} XP`
         );
 
     } else {
@@ -457,6 +526,7 @@ function selecionarResposta(indiceEscolhido) {
 
         botoes[respostaCorreta]
             .classList.add("correta");
+
 
         mostrarFeedback(
             false,
@@ -494,12 +564,15 @@ function mostrarFeedback(acertou, mensagem) {
 
     feedbackElemento.classList.remove("escondido");
 
+
     feedbackElemento.className =
         acertou
             ? "feedback feedback-correto"
             : "feedback feedback-erro";
 
-    feedbackElemento.innerHTML = mensagem;
+
+    feedbackElemento.innerHTML =
+        mensagem;
 }
 
 
@@ -547,13 +620,15 @@ function finalizarTeste() {
 
     /* Barra completa */
 
-    progressoElemento.style.width = "100%";
+    progressoElemento.style.width =
+        "100%";
 
 
     /* Mostrar pontuação */
 
     document.getElementById("pontuacao")
-        .textContent = acertos;
+        .textContent =
+        acertos;
 
 
     document.getElementById("texto-acertos")
@@ -563,25 +638,32 @@ function finalizarTeste() {
 
     /* Descobrir nível */
 
-    const nivel = descobrirNivel(acertos);
+    const nivel =
+        descobrirNivel(acertos);
 
 
     /* Mostrar nível */
 
     document.getElementById("nivel-icone")
-        .textContent = nivel.icone;
+        .textContent =
+        nivel.icone;
+
 
     document.getElementById("nivel-nome")
-        .textContent = nivel.nome;
+        .textContent =
+        nivel.nome;
+
 
     document.getElementById("nivel-descricao")
-        .textContent = nivel.descricao;
+        .textContent =
+        nivel.descricao;
 
 
     /* Emoji */
 
     document.getElementById("resultado-emoji")
-        .textContent = nivel.emoji;
+        .textContent =
+        nivel.emoji;
 
 
     /* Salvar resultado */
@@ -607,7 +689,6 @@ function finalizarTeste() {
     /* Confetes */
 
     if (typeof comemorar === "function") {
-
         comemorar();
     }
 }
@@ -715,6 +796,7 @@ function refazerTeste() {
 
     respondeu = false;
 
+
     resultado.classList.add("escondido");
 
     introducao.classList.remove("escondido");
@@ -722,7 +804,6 @@ function refazerTeste() {
     areaTeste.classList.add("escondido");
 
 
-    /* Remover resultado salvo */
-
-    localStorage.removeItem("ecoNivel");
+    /* O XP continua salvo.
+       Ele não é apagado ao refazer o teste. */
 }
