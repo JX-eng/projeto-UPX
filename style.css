@@ -1,12 +1,43 @@
-/* ==========================================================
+/* =========================================================
    ECOENERGIA
-   CSS PRINCIPAL
-   ========================================================== */
+   CSS COMPLETO
+   ========================================================= */
 
 
-/* ==========================================================
+/* =========================================================
+   VARIÁVEIS
+   ========================================================= */
+
+:root {
+    --azul: #2196e0;
+    --azul-escuro: #1269a8;
+    --azul-claro: #eaf7ff;
+
+    --verde: #35b86b;
+    --verde-escuro: #23884d;
+    --verde-claro: #eafff1;
+
+    --amarelo: #ffd447;
+    --laranja: #ff9f43;
+
+    --roxo: #8e6de8;
+    --vermelho: #ef5350;
+
+    --branco: #ffffff;
+    --cinza-claro: #f5f8fa;
+    --cinza: #687783;
+    --cinza-escuro: #263238;
+
+    --sombra: 0 10px 30px rgba(0, 0, 0, 0.08);
+    --sombra-forte: 0 15px 40px rgba(33, 150, 224, 0.18);
+
+    --raio: 18px;
+}
+
+
+/* =========================================================
    RESET
-   ========================================================== */
+   ========================================================= */
 
 * {
     margin: 0;
@@ -19,402 +50,283 @@ html {
 }
 
 body {
-    font-family: "Segoe UI", Arial, sans-serif;
-    color: #173b38;
-    background: #f4faf8;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--cinza-claro);
+    color: var(--cinza-escuro);
     line-height: 1.6;
+}
+
+button,
+a,
+input,
+select {
+    font-family: inherit;
 }
 
 a {
     text-decoration: none;
 }
 
-button,
-input,
-select {
-    font-family: inherit;
+
+/* =========================================================
+   ANIMAÇÃO GERAL
+   ========================================================= */
+
+body {
+    opacity: 1;
+    transition: opacity 0.5s ease;
 }
 
-
-/* ==========================================================
-   CORES
-   ========================================================== */
-
-:root {
-    --verde: #16a673;
-    --verde-escuro: #087a58;
-    --verde-claro: #e2f8ee;
-
-    --azul: #2196e0;
-    --azul-claro: #e5f5ff;
-
-    --amarelo: #ffc83d;
-    --amarelo-claro: #fff5d5;
-
-    --texto: #173b38;
-    --texto-secundario: #667c78;
-
-    --branco: #ffffff;
-
-    --borda: #e3eeea;
-
-    --sombra: 0 12px 35px rgba(16, 72, 61, 0.09);
+body:not(.pagina-carregada) {
+    opacity: 0;
 }
 
-
-/* ==========================================================
-   LINKS
-   ========================================================== */
-
-a {
-    color: var(--verde-escuro);
-    transition: 0.2s;
+body.pagina-carregada {
+    opacity: 1;
 }
 
-a:hover {
-    color: var(--verde);
+.animar-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
-
-/* ==========================================================
-   ==========================================================
-   LOGIN + CADASTRO
-   ==========================================================
-   ========================================================== */
-
-
-/* Fundo */
-
-body:has(main > aside) {
-    background:
-        radial-gradient(
-            circle at 10% 10%,
-            rgba(33, 150, 224, 0.12),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 90% 90%,
-            rgba(22, 166, 115, 0.15),
-            transparent 30%
-        ),
-        #f3faf8;
-}
-
-
-/* Caixa principal */
-
-main:has(> aside) {
-    width: 92%;
-    max-width: 1100px;
-
-    min-height: 650px;
-
-    margin: 50px auto;
-
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    background: var(--branco);
-
-    border-radius: 28px;
-
-    overflow: hidden;
-
-    box-shadow: 0 25px 70px rgba(16, 72, 61, 0.13);
-}
-
-
-/* ==========================================================
-   LOGIN/CADASTRO — HEADER
-   ========================================================== */
-
-main:has(> aside) > header {
-    grid-column: 1;
-
-    padding: 50px 55px 20px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #087a58,
-            #18a878
-        );
-
-    color: white;
-}
-
-
-/* Logo */
-
-main:has(> aside) > header > div {
-    display: flex;
-
-    align-items: center;
-
-    gap: 12px;
-}
-
-main:has(> aside) > header span {
-    font-size: 35px;
-}
-
-main:has(> aside) > header h1 {
-    font-size: 28px;
-
-    font-weight: 800;
-}
-
-main:has(> aside) > header p {
-    margin-top: 12px;
-
-    max-width: 400px;
-
-    color: rgba(255,255,255,0.85);
-
-    font-size: 14px;
-}
-
-
-/* ==========================================================
-   LOGIN/CADASTRO — FORMULÁRIO
-   ========================================================== */
-
-main:has(> aside) > section {
-    grid-column: 1;
-
-    padding: 20px 55px 50px;
-
-    background: white;
-}
-
-
-/* Título */
-
-main:has(> aside) > section > h2 {
-    font-size: 28px;
-
-    line-height: 1.2;
-
-    margin-bottom: 8px;
-
-    color: var(--texto);
-}
-
-main:has(> aside) > section > p {
-    color: var(--texto-secundario);
-
-    font-size: 14px;
-
-    margin-bottom: 25px;
-}
-
-
-/* Form */
-
-main:has(> aside) form {
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 17px;
-}
-
-main:has(> aside) form > div {
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 7px;
-}
-
-
-/* Labels */
-
-main:has(> aside) label {
-    color: var(--texto);
-
-    font-size: 13px;
-
-    font-weight: 700;
-}
-
-
-/* Inputs */
-
-main:has(> aside) input[type="text"],
-main:has(> aside) input[type="email"],
-main:has(> aside) input[type="password"],
-main:has(> aside) select {
-    width: 100%;
-
-    height: 48px;
-
-    padding: 0 15px;
-
-    border: 2px solid var(--borda);
-
-    border-radius: 12px;
-
-    background: #fbfdfc;
-
-    color: var(--texto);
-
-    outline: none;
-
-    transition: 0.2s;
-}
-
-main:has(> aside) input:focus,
-main:has(> aside) select:focus {
-    border-color: var(--verde);
-
-    background: white;
-
-    box-shadow:
-        0 0 0 4px rgba(22,166,115,0.10);
-}
-
-main:has(> aside) input::placeholder {
-    color: #a3b2af;
-}
-
-
-/* Checkbox */
-
-main:has(> aside) input[type="checkbox"] {
-    width: 16px;
-    height: 16px;
-
-    accent-color: var(--verde);
-}
-
-main:has(> aside) form > div:has(input[type="checkbox"]) {
-    flex-direction: row;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    gap: 10px;
-}
-
-main:has(> aside) form > div:has(input[type="checkbox"]) label {
-    display: flex;
-
-    align-items: center;
-
-    gap: 8px;
-
-    font-weight: 500;
-}
-
-
-/* ==========================================================
-   BOTÃO LOGIN / CADASTRO
-   ========================================================== */
-
-main:has(> aside) button {
-    width: 100%;
-
-    height: 50px;
-
-    margin-top: 4px;
-
-    border: none;
-
-    border-radius: 13px;
-
-    background: var(--verde);
-
-    color: white;
-
-    font-size: 15px;
-
-    font-weight: 800;
-
-    box-shadow:
-        0 8px 20px rgba(22,166,115,0.22);
-
-    transition: 0.2s;
-}
-
-main:has(> aside) button:hover {
-    background: var(--verde-escuro);
-
-    transform: translateY(-2px);
-
-    box-shadow:
-        0 12px 25px rgba(22,166,115,0.28);
-}
-
-main:has(> aside) button:active {
+.animar-scroll.visivel {
+    opacity: 1;
     transform: translateY(0);
 }
 
 
-/* ==========================================================
-   ESQUECI SENHA / VISITANTE
-   ========================================================== */
+/* =========================================================
+   HEADER
+   ========================================================= */
 
-main:has(> aside) form + div {
-    margin-top: 20px;
-
-    text-align: center;
+header {
+    width: 100%;
+    background: var(--branco);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+    position: relative;
+    z-index: 20;
 }
 
-main:has(> aside) form + div p {
-    color: #8a9a97;
-
-    margin-bottom: 7px;
-
-    font-size: 13px;
-}
-
-main:has(> aside) form + div a {
-    font-size: 13px;
-
-    font-weight: 700;
-}
-
-
-/* ==========================================================
-   FRASE LATERAL
-   ========================================================== */
-
-main:has(> aside) > aside {
-    grid-column: 2;
-
-    grid-row: 1 / span 2;
-
-    padding: 60px 55px;
-
+header > div {
+    max-width: 1200px;
+    margin: auto;
+    padding: 18px 30px;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
 
-    flex-direction: column;
+.logo,
+header h1,
+header h2 {
+    color: var(--azul-escuro);
+}
 
+header h1 {
+    font-size: 25px;
+    font-weight: 900;
+}
+
+header p {
+    color: var(--cinza);
+    font-size: 13px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+nav a {
+    color: var(--cinza-escuro);
+    font-size: 14px;
+    font-weight: 700;
+    transition: 0.25s;
+}
+
+nav a:hover {
+    color: var(--azul);
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   BOTÕES GERAIS
+   ========================================================= */
+
+button,
+.btn,
+.btn-principal,
+.btn-secundario {
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    min-height: 48px;
+    padding: 13px 24px;
+
+    border-radius: 14px;
+
+    font-size: 14px;
+    font-weight: 800;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+button:hover,
+.btn:hover,
+.btn-principal:hover,
+.btn-secundario:hover {
+    transform: translateY(-3px);
+}
+
+button:active,
+.btn:active,
+.btn-principal:active,
+.btn-secundario:active {
+    transform: scale(0.96);
+}
+
+
+/* =========================================================
+   PÁGINA INICIAL
+   ========================================================= */
+
+body:not(.pagina-teste):not(.pagina-quiz) > main {
+    width: 100%;
+}
+
+body:not(.pagina-teste):not(.pagina-quiz) > main > section {
+    max-width: 1200px;
+    margin: auto;
+    padding: 80px 30px;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+    min-height: 620px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.hero-content {
+    max-width: 620px;
+}
+
+.hero-tag {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 50px;
+
+    background: var(--verde-claro);
+    color: var(--verde-escuro);
+
+    font-size: 13px;
+    font-weight: 800;
+
+    margin-bottom: 18px;
+}
+
+.hero h2 {
+    font-size: clamp(38px, 5vw, 64px);
+    line-height: 1.05;
+    margin-bottom: 25px;
+    color: var(--cinza-escuro);
+}
+
+.hero h2 span {
+    color: var(--azul);
+}
+
+.hero p {
+    color: var(--cinza);
+    font-size: 17px;
+    margin-bottom: 15px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+
+/* =========================================================
+   BOTÕES DO HERO
+   ========================================================= */
+
+.hero-buttons a {
+    display: inline-flex;
+    align-items: center;
     justify-content: center;
 
-    align-items: flex-start;
+    min-height: 52px;
+    padding: 14px 25px;
 
-    position: relative;
+    border-radius: 15px;
 
-    overflow: hidden;
+    font-size: 14px;
+    font-weight: 800;
 
+    transition: 0.25s;
+}
+
+.hero-buttons a:first-child {
+    background: linear-gradient(135deg, var(--azul), var(--azul-escuro));
     color: white;
 
-    background:
-        linear-gradient(
-            150deg,
-            #168fcb,
-            #146bb5
-        );
+    box-shadow: 0 10px 25px rgba(33, 150, 224, 0.25);
+}
+
+.hero-buttons a:last-child {
+    background: var(--branco);
+    color: var(--verde-escuro);
+
+    border: 2px solid var(--verde);
+
+    box-shadow: var(--sombra);
+}
+
+.hero-buttons a:hover {
+    transform: translateY(-4px);
 }
 
 
-/* Círculos decorativos */
+/* =========================================================
+   VISUAL DO HERO
+   ========================================================= */
 
-main:has(> aside) > aside::before {
+.hero-visual,
+.visual {
+    min-width: 300px;
+    min-height: 300px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+}
+
+.hero-visual::before,
+.visual::before {
     content: "";
 
     position: absolute;
@@ -424,961 +336,1649 @@ main:has(> aside) > aside::before {
 
     border-radius: 50%;
 
-    background: rgba(255,255,255,0.08);
+    background: linear-gradient(
+        135deg,
+        var(--azul-claro),
+        var(--verde-claro)
+    );
 
-    right: -90px;
-    top: -90px;
+    z-index: 0;
 }
 
-main:has(> aside) > aside::after {
-    content: "";
-
-    position: absolute;
-
-    width: 200px;
-    height: 200px;
-
-    border-radius: 50%;
-
-    background: rgba(255,255,255,0.06);
-
-    left: -80px;
-    bottom: -70px;
-}
-
-
-/* Ícones */
-
-main:has(> aside) > aside > div {
+.hero-visual-content,
+.visual-content {
     position: relative;
+    z-index: 1;
 
-    z-index: 2;
+    text-align: center;
+}
 
-    display: flex;
+.hero-visual-content .emoji,
+.visual-content .emoji {
+    font-size: 65px;
+    display: inline-block;
+    margin: 5px;
+}
 
-    gap: 12px;
-
-    font-size: 38px;
-
-    margin-bottom: 30px;
+.hero-visual-content p,
+.visual-content p {
+    margin-top: 15px;
+    font-weight: 800;
+    color: var(--verde-escuro);
 }
 
 
-/* Título */
+/* =========================================================
+   COMO FUNCIONA
+   ========================================================= */
 
-main:has(> aside) > aside h2 {
-    position: relative;
-
-    z-index: 2;
-
-    max-width: 400px;
-
-    font-size: 37px;
-
-    line-height: 1.15;
-
-    margin-bottom: 18px;
+#como-funciona {
+    text-align: center;
 }
 
-main:has(> aside) > aside p {
-    position: relative;
-
-    z-index: 2;
-
-    max-width: 390px;
-
-    color: rgba(255,255,255,0.85);
-
-    font-size: 15px;
+#como-funciona > h2 {
+    font-size: 35px;
+    margin-bottom: 12px;
 }
 
-
-/* ==========================================================
-   CADASTRO — AJUSTE
-   ========================================================== */
-
-main:has(#tipo) > section > p {
-    margin-bottom: 18px;
+#como-funciona > p {
+    color: var(--cinza);
+    margin-bottom: 40px;
 }
 
-main:has(#tipo) > section {
-    padding-top: 20px;
+.cards,
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
 }
 
+.card,
+.cards article {
+    background: white;
+    border-radius: var(--raio);
+    padding: 30px;
 
-/* ==========================================================
-   ==========================================================
-   PÁGINA PRINCIPAL
-   ==========================================================
-   ========================================================== */
+    box-shadow: var(--sombra);
 
-
-/* Header principal */
-
-body:not(:has(main > aside)) > header {
-    height: 76px;
-
-    padding: 0 6%;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    position: sticky;
-
-    top: 0;
-
-    z-index: 100;
-
-    background: rgba(255,255,255,0.96);
-
-    border-bottom: 1px solid var(--borda);
-
-    backdrop-filter: blur(12px);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
-
-/* Logo */
-
-body:not(:has(main > aside)) > header > div:first-child {
-    display: flex;
-
-    align-items: center;
-
-    gap: 10px;
+.card:hover,
+.cards article:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--sombra-forte);
 }
 
-body:not(:has(main > aside)) > header > div:first-child span {
+.card-number {
+    display: inline-flex;
+
     width: 42px;
     height: 42px;
-
-    display: flex;
 
     align-items: center;
     justify-content: center;
 
-    background: var(--verde-claro);
-
     border-radius: 12px;
 
-    font-size: 22px;
-}
+    background: var(--azul-claro);
+    color: var(--azul-escuro);
 
-body:not(:has(main > aside)) > header h1 {
-    font-size: 22px;
-
-    color: var(--verde-escuro);
-}
-
-
-/* Navegação */
-
-body:not(:has(main > aside)) > header nav {
-    display: flex;
-
-    align-items: center;
-
-    gap: 5px;
-}
-
-body:not(:has(main > aside)) > header nav a {
-    padding: 9px 13px;
-
-    border-radius: 9px;
-
-    color: #55706c;
-
-    font-size: 13px;
-
-    font-weight: 600;
-}
-
-body:not(:has(main > aside)) > header nav a:hover {
-    background: var(--verde-claro);
-
-    color: var(--verde-escuro);
-}
-
-
-/* Usuário */
-
-body:not(:has(main > aside)) > header > div:last-child {
-    display: flex;
-
-    align-items: center;
-
-    gap: 15px;
-
-    font-size: 13px;
-}
-
-body:not(:has(main > aside)) > header > div:last-child span {
-    font-weight: 600;
-}
-
-body:not(:has(main > aside)) > header > div:last-child a {
-    padding: 8px 13px;
-
-    border-radius: 9px;
-
-    background: #ffe9e9;
-
-    color: #d95353;
-
-    font-size: 12px;
-
-    font-weight: 700;
-}
-
-
-/* ==========================================================
-   MAIN DA HOME
-   ========================================================== */
-
-body:not(:has(main > aside)) > main {
-    width: 90%;
-
-    max-width: 1200px;
-
-    margin: auto;
-
-    padding: 45px 0 70px;
-}
-
-
-/* ==========================================================
-   HERO
-   ========================================================== */
-
-body:not(:has(main > aside)) > main > section:first-child {
-    min-height: 410px;
-
-    padding: 50px;
-
-    display: grid;
-
-    grid-template-columns: 1.3fr 0.7fr;
-
-    align-items: center;
-
-    gap: 40px;
-
-    border-radius: 27px;
-
-    overflow: hidden;
-
-    position: relative;
-
-    color: white;
-
-    background:
-        linear-gradient(
-            125deg,
-            #087a58,
-            #18a878
-        );
-
-    box-shadow: var(--sombra);
-}
-
-
-/* Círculo */
-
-body:not(:has(main > aside)) > main > section:first-child::after {
-    content: "";
-
-    position: absolute;
-
-    width: 350px;
-    height: 350px;
-
-    border-radius: 50%;
-
-    background: rgba(255,255,255,0.07);
-
-    right: -100px;
-    top: -130px;
-}
-
-
-/* Conteúdo hero */
-
-body:not(:has(main > aside)) > main > section:first-child > div:first-child {
-    position: relative;
-
-    z-index: 2;
-}
-
-body:not(:has(main > aside)) > main > section:first-child > div:first-child > span {
-    display: inline-block;
-
-    padding: 7px 13px;
-
-    margin-bottom: 15px;
-
-    border-radius: 20px;
-
-    background: rgba(255,255,255,0.15);
-
-    font-size: 12px;
-
-    font-weight: 700;
-}
-
-body:not(:has(main > aside)) > main > section:first-child h2 {
-    max-width: 650px;
-
-    font-size: 42px;
-
-    line-height: 1.12;
+    font-weight: 900;
 
     margin-bottom: 18px;
 }
 
-body:not(:has(main > aside)) > main > section:first-child p {
-    max-width: 630px;
-
-    color: rgba(255,255,255,0.87);
-
-    font-size: 14px;
-
+.card h3 {
     margin-bottom: 10px;
 }
 
-
-/* Botões hero */
-
-body:not(:has(main > aside)) > main > section:first-child > div:first-child > div {
-    display: flex;
-
-    gap: 12px;
-
-    margin-top: 25px;
+.card p {
+    color: var(--cinza);
+    font-size: 14px;
 }
 
-body:not(:has(main > aside)) > main > section:first-child a {
+
+/* =========================================================
+   SEÇÃO TESTE DA HOME
+   ========================================================= */
+
+#teste {
+    text-align: center;
+    background: linear-gradient(
+        135deg,
+        #f1fbff,
+        #f0fff5
+    );
+
+    border-radius: 30px;
+}
+
+#teste h2 {
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+#teste p {
+    max-width: 700px;
+    margin: 0 auto 25px;
+    color: var(--cinza);
+}
+
+
+/* BOTÃO TESTE */
+
+#teste > a,
+#teste > button {
     display: inline-flex;
 
     align-items: center;
     justify-content: center;
 
-    padding: 12px 18px;
+    gap: 8px;
 
-    border-radius: 11px;
+    min-height: 52px;
+
+    padding: 15px 28px;
+
+    border: none;
+    border-radius: 16px;
+
+    background: linear-gradient(
+        135deg,
+        var(--azul),
+        var(--azul-escuro)
+    );
+
+    color: white;
+
+    font-size: 15px;
+    font-weight: 900;
+
+    box-shadow:
+        0 10px 25px rgba(33, 150, 224, 0.25);
+
+    transition: 0.25s;
+}
+
+#teste > a:hover,
+#teste > button:hover {
+    transform: translateY(-5px) scale(1.02);
+
+    box-shadow:
+        0 15px 30px rgba(33, 150, 224, 0.32);
+}
+
+
+/* =========================================================
+   SEÇÃO QUIZ DA HOME
+   ========================================================= */
+
+#quiz {
+    text-align: center;
+}
+
+#quiz h2 {
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+#quiz p {
+    max-width: 700px;
+    margin: 0 auto 25px;
+    color: var(--cinza);
+}
+
+
+/* BOTÃO QUIZ */
+
+#quiz > a,
+#quiz > button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 52px;
+
+    padding: 15px 30px;
+
+    border-radius: 16px;
+
+    border: none;
+
+    background: linear-gradient(
+        135deg,
+        var(--amarelo),
+        var(--laranja)
+    );
+
+    color: #553900;
+
+    font-size: 15px;
+    font-weight: 900;
+
+    box-shadow:
+        0 10px 25px rgba(255, 159, 67, 0.25);
+
+    transition: 0.25s;
+}
+
+#quiz > a:hover,
+#quiz > button:hover {
+    transform: translateY(-5px) rotate(-1deg);
+
+    box-shadow:
+        0 15px 30px rgba(255, 159, 67, 0.35);
+}
+
+
+/* =========================================================
+   SOBRE
+   ========================================================= */
+
+#sobre {
+    text-align: center;
+}
+
+#sobre h2 {
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+#sobre p {
+    max-width: 800px;
+    margin: auto;
+    color: var(--cinza);
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+    background: #102a3a;
+    color: white;
+
+    padding: 45px 30px;
+
+    text-align: center;
+}
+
+footer p {
+    color: #c8d6df;
+    font-size: 13px;
+    margin: 6px;
+}
+
+footer a {
+    color: white;
+    font-weight: 700;
+}
+
+footer a:hover {
+    color: var(--amarelo);
+}
+
+
+/* =========================================================
+   LOGIN E CADASTRO
+   ========================================================= */
+
+.pagina-login,
+.pagina-cadastro {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+
+    background:
+        radial-gradient(
+            circle at top left,
+            #e5f8ff,
+            transparent 40%
+        ),
+        radial-gradient(
+            circle at bottom right,
+            #e8fff1,
+            transparent 40%
+        ),
+        #f5f8fa;
+}
+
+.login-container,
+.cadastro-container {
+    width: 100%;
+    max-width: 450px;
 
     background: white;
 
-    color: var(--verde-escuro);
+    border-radius: 25px;
+
+    padding: 40px;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h1,
+.cadastro-container h1 {
+    text-align: center;
+    color: var(--azul-escuro);
+    margin-bottom: 10px;
+}
+
+.login-container > p,
+.cadastro-container > p {
+    text-align: center;
+    color: var(--cinza);
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 7px;
 
     font-size: 13px;
-
     font-weight: 800;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+
+    padding: 13px 15px;
+
+    border: 2px solid #e2e9ed;
+
+    border-radius: 12px;
+
+    outline: none;
 
     transition: 0.2s;
 }
 
-body:not(:has(main > aside)) > main > section:first-child a:hover {
-    transform: translateY(-2px);
+.form-group input:focus,
+.form-group select:focus {
+    border-color: var(--azul);
 
-    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    box-shadow:
+        0 0 0 4px rgba(33, 150, 224, 0.1);
+}
+
+.form-button {
+    width: 100%;
+
+    background: linear-gradient(
+        135deg,
+        var(--azul),
+        var(--azul-escuro)
+    );
+
+    color: white;
+
+    margin-top: 10px;
+}
+
+.login-link,
+.cadastro-link {
+    display: block;
+
+    text-align: center;
+
+    margin-top: 20px;
+
+    color: var(--azul-escuro);
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.login-link:hover,
+.cadastro-link:hover {
+    color: var(--verde);
 }
 
 
-/* ==========================================================
-   ILUSTRAÇÃO HERO
-   ========================================================== */
+/* =========================================================
+   =========================================================
+   TESTE DE NÍVEL
+   =========================================================
+   ========================================================= */
 
-body:not(:has(main > aside)) > main > section:first-child > div:last-child {
+body.pagina-teste {
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            #e6f8ff,
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 90%,
+            #eafff1,
+            transparent 30%
+        ),
+        #f6fafc;
+}
+
+
+/* HEADER DO TESTE */
+
+body.pagina-teste .teste-header {
+    width: 100%;
+
+    background: white;
+
+    box-shadow:
+        0 3px 20px rgba(0, 0, 0, 0.06);
+
+    padding: 20px 30px;
+
+    position: relative;
+    z-index: 10;
+}
+
+.teste-header h1 {
+    max-width: 1100px;
+    margin: auto;
+
+    color: var(--azul-escuro);
+
+    font-size: 24px;
+}
+
+
+/* CONTAINER */
+
+body.pagina-teste .teste-container {
+    width: 100%;
+    max-width: 900px;
+
+    margin: 0 auto;
+
+    padding: 60px 25px 80px;
+}
+
+
+/* INTRO */
+
+.teste-intro {
+    text-align: center;
+
+    margin-bottom: 35px;
+}
+
+.teste-icone {
+    width: 90px;
+    height: 90px;
+
+    margin: 0 auto 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 25px;
+
+    background: linear-gradient(
+        135deg,
+        var(--azul),
+        var(--verde)
+    );
+
+    font-size: 45px;
+
+    box-shadow:
+        0 12px 30px rgba(33, 150, 224, 0.2);
+
+    animation: flutuar 3s ease-in-out infinite;
+}
+
+@keyframes flutuar {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+.teste-tag {
+    display: inline-block;
+
+    padding: 7px 14px;
+
+    background: var(--verde-claro);
+    color: var(--verde-escuro);
+
+    border-radius: 50px;
+
+    font-size: 12px;
+    font-weight: 900;
+
+    margin-bottom: 12px;
+}
+
+.teste-intro h2 {
+    font-size: clamp(30px, 5vw, 45px);
+
+    line-height: 1.1;
+
+    margin-bottom: 15px;
+}
+
+.teste-intro p {
+    max-width: 650px;
+
+    margin: auto;
+
+    color: var(--cinza);
+}
+
+
+/* =========================================================
+   REGRAS
+   ========================================================= */
+
+.regras-teste {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+
+    margin: 30px 0;
+}
+
+.regra {
+    background: white;
+
+    padding: 20px;
+
+    border-radius: 18px;
+
+    box-shadow: var(--sombra);
+
+    text-align: center;
+
+    transition: 0.25s;
+}
+
+.regra:hover {
+    transform: translateY(-5px);
+}
+
+.regra span {
+    font-size: 28px;
+
+    display: block;
+
+    margin-bottom: 8px;
+}
+
+.regra p {
+    font-size: 13px;
+    color: var(--cinza);
+}
+
+
+/* BOTÃO PRINCIPAL */
+
+.btn-teste-principal {
+    display: flex;
+
+    margin: 25px auto;
+
+    background: linear-gradient(
+        135deg,
+        var(--verde),
+        var(--verde-escuro)
+    );
+
+    color: white;
+
+    box-shadow:
+        0 12px 28px rgba(53, 184, 107, 0.25);
+
+    min-width: 220px;
+}
+
+.btn-teste-principal:hover {
+    box-shadow:
+        0 18px 35px rgba(53, 184, 107, 0.35);
+}
+
+
+/* =========================================================
+   ÁREA DO TESTE
+   ========================================================= */
+
+.area-teste {
+    margin-top: 40px;
+}
+
+
+/* STATUS */
+
+.teste-status {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 12px;
+
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.teste-status span:last-child {
+    color: var(--azul);
+}
+
+
+/* BARRA */
+
+.barra-progresso {
+    width: 100%;
+    height: 12px;
+
+    background: #dfe9ee;
+
+    border-radius: 50px;
+
+    overflow: hidden;
+
+    margin-bottom: 30px;
+}
+
+.progresso-preenchido {
+    height: 100%;
+
+    width: 0%;
+
+    background: linear-gradient(
+        90deg,
+        var(--azul),
+        var(--verde)
+    );
+
+    border-radius: inherit;
+
+    transition: width 0.5s ease;
+}
+
+
+/* =========================================================
+   CARD DA PERGUNTA
+   ========================================================= */
+
+.pergunta-container {
+    background: white;
+
+    border-radius: 25px;
+
+    padding: 35px;
+
+    box-shadow:
+        0 15px 45px rgba(0, 0, 0, 0.08);
+
     position: relative;
 
-    z-index: 2;
+    overflow: hidden;
+}
 
-    min-height: 260px;
+.pergunta-container::before {
+    content: "";
+
+    position: absolute;
+
+    width: 120px;
+    height: 120px;
+
+    border-radius: 50%;
+
+    background: var(--azul-claro);
+
+    right: -40px;
+    top: -40px;
+}
+
+.categoria-pergunta {
+    display: inline-block;
+
+    padding: 7px 12px;
+
+    border-radius: 50px;
+
+    background: var(--verde-claro);
+    color: var(--verde-escuro);
+
+    font-size: 11px;
+
+    font-weight: 900;
+
+    margin-bottom: 15px;
+}
+
+.pergunta-container h3 {
+    position: relative;
+
+    font-size: clamp(20px, 3vw, 28px);
+
+    line-height: 1.3;
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================================================
+   ALTERNATIVAS
+   ========================================================= */
+
+.alternativas {
+    display: grid;
+
+    gap: 13px;
+}
+
+.alternativa {
+    width: 100%;
 
     display: flex;
 
-    flex-direction: column;
-
     align-items: center;
 
-    justify-content: center;
-}
+    gap: 14px;
 
-body:not(:has(main > aside)) > main > section:first-child > div:last-child > span {
-    font-size: 65px;
+    padding: 17px 18px;
 
-    margin: -5px;
+    border: 3px solid #e7eef2;
 
-    filter: drop-shadow(0 8px 10px rgba(0,0,0,0.08));
-}
+    border-radius: 16px;
 
-body:not(:has(main > aside)) > main > section:first-child > div:last-child p {
-    margin-top: 20px;
+    background: white;
 
-    text-align: center;
+    color: var(--cinza-escuro);
+
+    text-align: left;
 
     font-size: 14px;
 
     font-weight: 700;
 
-    color: white;
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
+.alternativa::before {
+    content: "";
 
-/* ==========================================================
-   SEÇÕES
-   ========================================================== */
+    width: 25px;
+    height: 25px;
 
-body:not(:has(main > aside)) > main > section:not(:first-child) {
-    margin-top: 65px;
-}
+    min-width: 25px;
 
-body:not(:has(main > aside)) > main > section:not(:first-child) > h2 {
-    font-size: 28px;
+    border-radius: 50%;
 
-    margin-bottom: 7px;
-}
-
-body:not(:has(main > aside)) > main > section:not(:first-child) > p {
-    color: var(--texto-secundario);
-
-    font-size: 14px;
-
-    margin-bottom: 25px;
-}
-
-
-/* ==========================================================
-   COMO FUNCIONA
-   ========================================================== */
-
-body:not(:has(main > aside)) > main > section:nth-child(2) {
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 20px;
-}
-
-body:not(:has(main > aside)) > main > section:nth-child(2) > h2,
-body:not(:has(main > aside)) > main > section:nth-child(2) > p {
-    grid-column: 1 / -1;
-}
-
-body:not(:has(main > aside)) > main > section:nth-child(2) article {
-    padding: 28px;
+    border: 3px solid #ccd9df;
 
     background: white;
 
-    border: 1px solid var(--borda);
-
-    border-radius: 19px;
-
-    box-shadow: 0 6px 22px rgba(16,72,61,0.05);
-
-    transition: 0.25s;
+    transition: 0.2s;
 }
 
-body:not(:has(main > aside)) > main > section:nth-child(2) article:hover {
-    transform: translateY(-6px);
+.alternativa:hover {
+    transform: translateX(5px);
 
-    box-shadow: var(--sombra);
+    border-color: var(--azul);
+
+    background: #f5fbff;
+
+    box-shadow:
+        0 6px 15px rgba(33, 150, 224, 0.08);
 }
 
-body:not(:has(main > aside)) > main > section:nth-child(2) article > span {
-    width: 45px;
-    height: 45px;
+.alternativa:hover::before {
+    border-color: var(--azul);
+}
+
+
+/* CORRETA */
+
+.alternativa.correta {
+    border-color: var(--verde);
+
+    background: var(--verde-claro);
+
+    color: var(--verde-escuro);
+
+    animation: respostaCorreta 0.4s ease;
+}
+
+.alternativa.correta::before {
+    content: "✓";
 
     display: flex;
 
     align-items: center;
     justify-content: center;
 
-    margin-bottom: 18px;
+    background: var(--verde);
 
-    border-radius: 12px;
+    border-color: var(--verde);
 
+    color: white;
+
+    font-size: 13px;
+
+    font-weight: 900;
+}
+
+
+/* INCORRETA */
+
+.alternativa.incorreta {
+    border-color: var(--vermelho);
+
+    background: #fff1f1;
+
+    color: #b52c29;
+
+    animation: respostaErrada 0.4s ease;
+}
+
+.alternativa.incorreta::before {
+    content: "×";
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: var(--vermelho);
+
+    border-color: var(--vermelho);
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: 900;
+}
+
+
+@keyframes respostaCorreta {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.02);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes respostaErrada {
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-6px);
+    }
+
+    75% {
+        transform: translateX(6px);
+    }
+}
+
+
+/* =========================================================
+   FEEDBACK
+   ========================================================= */
+
+.feedback {
+    margin-top: 20px;
+
+    padding: 15px 18px;
+
+    border-radius: 15px;
+
+    background: #f5f8fa;
+
+    font-size: 14px;
+
+    font-weight: 700;
+}
+
+.feedback.correto {
     background: var(--verde-claro);
-
     color: var(--verde-escuro);
-
-    font-size: 13px;
-
-    font-weight: 800;
 }
 
-body:not(:has(main > aside)) > main > section:nth-child(2) article h3 {
-    font-size: 18px;
-
-    margin-bottom: 8px;
-}
-
-body:not(:has(main > aside)) > main > section:nth-child(2) article p {
-    color: var(--texto-secundario);
-
-    font-size: 13px;
+.feedback.errado {
+    background: #fff1f1;
+    color: #b52c29;
 }
 
 
-/* ==========================================================
-   TESTE DE NÍVEL
-   ========================================================== */
+/* =========================================================
+   BOTÃO PRÓXIMA
+   ========================================================= */
 
-body:not(:has(main > aside)) > main > section#teste {
-    padding: 45px;
+.btn-proxima {
+    width: 100%;
 
-    border-radius: 25px;
+    margin-top: 22px;
 
-    background:
-        linear-gradient(
-            135deg,
-            #e5f5ff,
-            #f0fbff
-        );
+    background: linear-gradient(
+        135deg,
+        var(--azul),
+        var(--azul-escuro)
+    );
 
-    border: 1px solid #d6edf9;
+    color: white;
+
+    box-shadow:
+        0 10px 25px rgba(33, 150, 224, 0.2);
 }
 
-body:not(:has(main > aside)) > main > section#teste > span {
-    display: inline-block;
+.btn-proxima:hover {
+    box-shadow:
+        0 15px 30px rgba(33, 150, 224, 0.3);
+}
 
-    margin-bottom: 12px;
+
+/* =========================================================
+   RESULTADO
+   ========================================================= */
+
+.resultado-teste {
+    background: white;
+
+    border-radius: 30px;
+
+    padding: 45px 30px;
+
+    text-align: center;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.1);
+
+    animation: aparecerResultado 0.6s ease;
+}
+
+@keyframes aparecerResultado {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.resultado-teste h2 {
+    font-size: 32px;
+
+    margin-bottom: 10px;
+}
+
+.resultado-teste > p {
+    color: var(--cinza);
+
+    margin-bottom: 20px;
+}
+
+.pontuacao {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-width: 150px;
+    min-height: 90px;
+
+    padding: 15px 25px;
+
+    border-radius: 22px;
+
+    background: linear-gradient(
+        135deg,
+        var(--azul-claro),
+        var(--verde-claro)
+    );
 
     color: var(--azul-escuro);
 
-    font-size: 12px;
+    font-size: 32px;
 
-    font-weight: 800;
+    font-weight: 900;
+
+    margin: 15px auto;
 }
 
-body:not(:has(main > aside)) > main > section#teste > h2 {
-    max-width: 650px;
+.nivel-resultado {
+    margin: 15px auto 25px;
 
-    font-size: 30px;
+    padding: 16px 22px;
 
-    line-height: 1.2;
+    max-width: 550px;
+
+    border-radius: 18px;
+
+    background: #fff9df;
+
+    border: 2px solid var(--amarelo);
+
+    color: #765a00;
+
+    font-size: 18px;
+
+    font-weight: 900;
 }
 
-body:not(:has(main > aside)) > main > section#teste > p {
-    max-width: 700px;
+
+/* =========================================================
+   AÇÕES DO RESULTADO
+   ========================================================= */
+
+.acoes-resultado {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+    margin-top: 25px;
+}
+
+.btn-refazer {
+    background: white;
+
+    color: var(--azul-escuro);
+
+    border: 2px solid var(--azul);
+}
+
+.btn-continuar {
+    background: linear-gradient(
+        135deg,
+        var(--verde),
+        var(--verde-escuro)
+    );
+
+    color: white;
+
+    box-shadow:
+        0 10px 25px rgba(53, 184, 107, 0.2);
+}
+
+.btn-refazer:hover {
+    background: var(--azul-claro);
+}
+
+.btn-continuar:hover {
+    box-shadow:
+        0 15px 30px rgba(53, 184, 107, 0.3);
+}
+
+
+/* =========================================================
+   FOOTER DO TESTE
+   ========================================================= */
+
+body.pagina-teste .teste-footer {
+    margin-top: 0;
+
+    background: #102a3a;
+
+    color: white;
+
+    padding: 30px;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   ESCONDIDO
+   ========================================================= */
+
+.escondido {
+    display: none !important;
+}
+
+
+/* =========================================================
+   =========================================================
+   QUIZ
+   =========================================================
+   ========================================================= */
+
+body.pagina-quiz {
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            #fff5cf,
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 90%,
+            #e5fff0,
+            transparent 30%
+        ),
+        #f7fafb;
+}
+
+
+/* HEADER QUIZ */
+
+body.pagina-quiz .quiz-header {
+    background: white;
+
+    padding: 20px 30px;
+
+    box-shadow:
+        0 3px 20px rgba(0, 0, 0, 0.06);
+}
+
+.quiz-header h1 {
+    max-width: 1000px;
+
+    margin: auto;
+
+    color: var(--azul-escuro);
+}
+
+
+/* CONTAINER QUIZ */
+
+body.pagina-quiz .quiz-container {
+    width: 100%;
+
+    max-width: 900px;
+
+    margin: auto;
+
+    padding: 60px 25px 80px;
+}
+
+
+/* TÍTULO */
+
+.quiz-intro {
+    text-align: center;
+
+    margin-bottom: 35px;
+}
+
+.quiz-intro h2 {
+    font-size: clamp(32px, 5vw, 48px);
+
+    line-height: 1.1;
+
+    margin-bottom: 12px;
+}
+
+.quiz-intro p {
+    color: var(--cinza);
+}
+
+
+/* CARD QUIZ */
+
+.quiz-card {
+    background: white;
+
+    border-radius: 28px;
+
+    padding: 35px;
+
+    box-shadow:
+        0 15px 45px rgba(0, 0, 0, 0.08);
+}
+
+
+/* PERGUNTA QUIZ */
+
+.quiz-question {
+    font-size: 26px;
+
+    line-height: 1.3;
 
     margin-bottom: 25px;
 }
 
 
-/* Caixa do teste */
+/* OPÇÕES */
 
-body:not(:has(main > aside)) > main > section#teste > div {
-    max-width: 650px;
+.quiz-options {
+    display: grid;
 
-    padding: 25px;
+    gap: 13px;
+}
+
+.quiz-option {
+    width: 100%;
+
+    padding: 17px;
+
+    border: 3px solid #e6edf1;
+
+    border-radius: 16px;
 
     background: white;
 
-    border-radius: 18px;
+    color: var(--cinza-escuro);
 
-    box-shadow: 0 7px 25px rgba(20,90,120,0.07);
+    text-align: left;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition: 0.25s;
 }
 
-body:not(:has(main > aside)) > main > section#teste h3 {
-    font-size: 16px;
+.quiz-option:hover {
+    border-color: var(--laranja);
 
-    margin-bottom: 12px;
+    background: #fffaf0;
+
+    transform: translateX(5px);
 }
 
-body:not(:has(main > aside)) > main > section#teste ul {
-    display: grid;
+.quiz-option.correct {
+    background: var(--verde-claro);
 
-    grid-template-columns: 1fr 1fr;
+    border-color: var(--verde);
 
-    gap: 8px;
-
-    margin-bottom: 20px;
+    color: var(--verde-escuro);
 }
 
-body:not(:has(main > aside)) > main > section#teste li {
-    padding: 8px 10px;
+.quiz-option.wrong {
+    background: #fff1f1;
 
-    border-radius: 8px;
+    border-color: var(--vermelho);
 
-    background: #f5fafc;
-
-    color: #496c78;
-
-    font-size: 13px;
+    color: #b52c29;
 }
 
-body:not(:has(main > aside)) > main > section#teste button,
-body:not(:has(main > aside)) > main > section#quiz button {
-    border: none;
 
-    padding: 13px 20px;
+/* BOTÃO PRÓXIMO QUIZ */
 
-    border-radius: 11px;
+.quiz-next {
+    width: 100%;
+
+    margin-top: 22px;
+
+    background: linear-gradient(
+        135deg,
+        var(--laranja),
+        #f07820
+    );
+
+    color: white;
+}
+
+
+/* RESULTADO QUIZ */
+
+.quiz-result {
+    background: white;
+
+    border-radius: 30px;
+
+    padding: 45px 30px;
+
+    text-align: center;
+
+    box-shadow: var(--sombra-forte);
+}
+
+.quiz-result h2 {
+    font-size: 35px;
+
+    margin-bottom: 15px;
+}
+
+.quiz-result p {
+    color: var(--cinza);
+}
+
+
+/* =========================================================
+   BOTÃO VOLTAR AO TOPO
+   ========================================================= */
+
+#btn-topo {
+    position: fixed;
+
+    right: 20px;
+    bottom: 20px;
+
+    width: 48px;
+    height: 48px;
+
+    border-radius: 50%;
 
     background: var(--azul);
 
     color: white;
 
-    font-size: 13px;
+    box-shadow:
+        0 10px 25px rgba(33, 150, 224, 0.25);
 
-    font-weight: 800;
+    z-index: 100;
 
-    transition: 0.2s;
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 20px;
 }
 
-body:not(:has(main > aside)) > main > section#teste button:hover,
-body:not(:has(main > aside)) > main > section#quiz button:hover {
-    background: #147abf;
-
-    transform: translateY(-2px);
-}
-
-
-/* ==========================================================
-   QUIZ
-   ========================================================== */
-
-body:not(:has(main > aside)) > main > section#quiz {
-    padding: 45px;
-
-    border-radius: 25px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #fff9df,
-            #fffdf3
-        );
-
-    border: 1px solid #f5e9b8;
-}
-
-body:not(:has(main > aside)) > main > section#quiz > span {
-    color: #9b7600;
-
-    font-size: 12px;
-
-    font-weight: 800;
-}
-
-body:not(:has(main > aside)) > main > section#quiz > h2 {
-    margin-top: 10px;
-
-    font-size: 30px;
-}
-
-body:not(:has(main > aside)) > main > section#quiz > div {
-    max-width: 700px;
-
-    margin-top: 25px;
-
-    padding: 25px;
-
-    background: white;
-
-    border-radius: 18px;
-
-    box-shadow: 0 7px 25px rgba(100,80,20,0.07);
-}
-
-body:not(:has(main > aside)) > main > section#quiz > div > span {
-    font-size: 35px;
-}
-
-body:not(:has(main > aside)) > main > section#quiz > div h3 {
-    margin-top: 10px;
-
-    font-size: 18px;
-}
-
-
-/* ==========================================================
-   SOBRE
-   ========================================================== */
-
-body:not(:has(main > aside)) > main > section#sobre {
-    max-width: 850px;
-
-    padding: 35px;
-
-    background: white;
-
-    border: 1px solid var(--borda);
-
-    border-radius: 20px;
-}
-
-body:not(:has(main > aside)) > main > section#sobre p {
-    line-height: 1.8;
-}
-
-
-/* ==========================================================
-   FOOTER
-   ========================================================== */
-
-body:not(:has(main > aside)) > footer {
-    background: #123d39;
-
-    color: white;
-
-    padding: 50px 6% 25px;
-}
-
-body:not(:has(main > aside)) > footer > div:first-child {
-    max-width: 1200px;
-
-    margin: auto;
-
-    display: grid;
-
-    grid-template-columns: 1.4fr 0.7fr 0.9fr 1.2fr;
-
-    gap: 45px;
-}
-
-body:not(:has(main > aside)) > footer h2 {
-    font-size: 21px;
-
-    margin-bottom: 7px;
-}
-
-body:not(:has(main > aside)) > footer h3 {
-    font-size: 14px;
-
-    margin-bottom: 15px;
-}
-
-body:not(:has(main > aside)) > footer p {
-    color: rgba(255,255,255,0.62);
-
-    font-size: 12px;
-
-    line-height: 1.7;
-}
-
-body:not(:has(main > aside)) > footer a {
-    display: block;
-
-    margin-bottom: 8px;
-
-    color: rgba(255,255,255,0.68);
-
-    font-size: 12px;
-}
-
-body:not(:has(main > aside)) > footer a:hover {
-    color: white;
-}
-
-
-/* Parte final */
-
-body:not(:has(main > aside)) > footer > div:last-child {
-    max-width: 1200px;
-
-    margin: 40px auto 0;
-
-    padding-top: 20px;
-
+#btn-topo.mostrar {
     display: flex;
+}
 
-    justify-content: space-between;
+#btn-topo:hover {
+    background: var(--azul-escuro);
 
-    gap: 20px;
-
-    border-top: 1px solid rgba(255,255,255,0.1);
+    transform: translateY(-4px);
 }
 
 
-/* ==========================================================
-   RESPONSIVIDADE — TABLET
-   ========================================================== */
+/* =========================================================
+   CONFETES
+   ========================================================= */
+
+.confete {
+    position: fixed;
+
+    top: -20px;
+
+    width: 10px;
+    height: 10px;
+
+    z-index: 9999;
+
+    animation:
+        cairConfete 2.5s linear forwards;
+}
+
+@keyframes cairConfete {
+    to {
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+
+        opacity: 0;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE
+   ========================================================= */
 
 @media (max-width: 900px) {
 
-    main:has(> aside) {
-        width: 94%;
+    .hero {
+        flex-direction: column;
 
+        text-align: center;
+
+        padding-top: 50px;
+    }
+
+    .hero-content {
+        max-width: 750px;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .cards,
+    .cards-container {
         grid-template-columns: 1fr;
-
-        margin: 25px auto;
     }
 
-    main:has(> aside) > header {
-        grid-column: 1;
+    .hero-visual {
+        min-height: 250px;
     }
 
-    main:has(> aside) > section {
-        grid-column: 1;
-    }
-
-    main:has(> aside) > aside {
-        grid-column: 1;
-
-        grid-row: auto;
-
-        min-height: 300px;
-
-        padding: 45px;
-    }
-
-    body:not(:has(main > aside)) > header {
-        padding: 0 3%;
-    }
-
-    body:not(:has(main > aside)) > header nav {
-        display: none;
-    }
-
-    body:not(:has(main > aside)) > main > section:first-child {
+    .regras-teste {
         grid-template-columns: 1fr;
-
-    }
-
-    body:not(:has(main > aside)) > main > section:first-child > div:last-child {
-        display: none;
-    }
-
-    body:not(:has(main > aside)) > main > section:nth-child(2) {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    body:not(:has(main > aside)) > footer > div:first-child {
-        grid-template-columns: 1fr 1fr;
     }
 }
 
 
-/* ==========================================================
-   RESPONSIVIDADE — CELULAR
-   ========================================================== */
+/* =========================================================
+   TABLET
+   ========================================================= */
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
 
-    /* LOGIN */
-
-    main:has(> aside) {
-        width: 94%;
-
-        margin: 15px auto;
-
-        border-radius: 20px;
-    }
-
-    main:has(> aside) > header {
-        padding: 35px 25px 20px;
-    }
-
-    main:has(> aside) > section {
-        padding: 25px;
-    }
-
-    main:has(> aside) > section > h2 {
-        font-size: 24px;
-    }
-
-    main:has(> aside) > aside {
-        padding: 35px 25px;
-
-        min-height: 280px;
-    }
-
-    main:has(> aside) > aside h2 {
-        font-size: 29px;
-    }
-
-
-    /* HOME */
-
-    body:not(:has(main > aside)) > header {
-        height: 65px;
-
-        padding: 0 18px;
-    }
-
-    body:not(:has(main > aside)) > header h1 {
-        font-size: 19px;
-    }
-
-    body:not(:has(main > aside)) > header > div:last-child span {
-        display: none;
-    }
-
-    body:not(:has(main > aside)) > main {
-        width: 92%;
-
-        padding-top: 25px;
-    }
-
-    body:not(:has(main > aside)) > main > section:first-child {
-        padding: 30px 25px;
-
-        min-height: auto;
-
-        border-radius: 20px;
-    }
-
-    body:not(:has(main > aside)) > main > section:first-child h2 {
-        font-size: 30px;
-    }
-
-    body:not(:has(main > aside)) > main > section:first-child p {
-        font-size: 13px;
-    }
-
-    body:not(:has(main > aside)) > main > section:first-child > div:first-child > div {
+    header > div {
         flex-direction: column;
 
-        align-items: stretch;
+        text-align: center;
+
+        padding: 15px 20px;
     }
 
-    body:not(:has(main > aside)) > main > section:first-child a {
+    nav {
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        gap: 15px;
+    }
+
+    body:not(.pagina-teste):not(.pagina-quiz) > main > section {
+        padding: 60px 20px;
+    }
+
+    .hero h2 {
+        font-size: 40px;
+    }
+
+    .hero-visual::before,
+    .visual::before {
+        width: 220px;
+        height: 220px;
+    }
+
+    .pergunta-container,
+    .quiz-card {
+        padding: 25px 20px;
+    }
+
+    .teste-container,
+    .quiz-container {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .acoes-resultado {
+        flex-direction: column;
+    }
+
+    .acoes-resultado button,
+    .acoes-resultado a {
+        width: 100%;
+    }
+}
+
+
+/* =========================================================
+   CELULAR
+   ========================================================= */
+
+@media (max-width: 500px) {
+
+    .login-container,
+    .cadastro-container {
+        padding: 28px 20px;
+
+        border-radius: 20px;
+    }
+
+    .hero {
+        min-height: auto;
+    }
+
+    .hero h2 {
+        font-size: 34px;
+    }
+
+    .hero p {
+        font-size: 15px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+
         width: 100%;
     }
 
-
-    /* COMO FUNCIONA */
-
-    body:not(:has(main > aside)) > main > section:nth-child(2) {
-        grid-template-columns: 1fr;
+    .hero-buttons a {
+        width: 100%;
     }
 
-
-    /* TESTE */
-
-    body:not(:has(main > aside)) > main > section#teste,
-    body:not(:has(main > aside)) > main > section#quiz {
-        padding: 28px 22px;
+    #teste h2,
+    #quiz h2 {
+        font-size: 30px;
     }
 
-    body:not(:has(main > aside)) > main > section#teste > h2,
-    body:not(:has(main > aside)) > main > section#quiz > h2 {
-        font-size: 25px;
+    .teste-intro h2 {
+        font-size: 32px;
     }
 
-    body:not(:has(main > aside)) > main > section#teste ul {
-        grid-template-columns: 1fr;
+    .teste-icone {
+        width: 75px;
+        height: 75px;
+
+        font-size: 36px;
     }
 
-
-    /* FOOTER */
-
-    body:not(:has(main > aside)) > footer {
-        padding: 40px 25px 20px;
+    .teste-status {
+        font-size: 12px;
     }
 
-    body:not(:has(main > aside)) > footer > div:first-child {
-        grid-template-columns: 1fr;
-        gap: 30px;
+    .pergunta-container {
+        padding: 22px 16px;
     }
 
-    body:not(:has(main > aside)) > footer > div:last-child {
-        flex-direction: column;
+    .pergunta-container h3 {
+        font-size: 20px;
+    }
 
-        gap: 5px;
+    .alternativa {
+        padding: 14px;
+
+        font-size: 13px;
+    }
+
+    .alternativa::before {
+        width: 22px;
+        height: 22px;
+
+        min-width: 22px;
+    }
+
+    .resultado-teste {
+        padding: 35px 20px;
+    }
+
+    .resultado-teste h2 {
+        font-size: 27px;
+    }
+
+    .pontuacao {
+        font-size: 27px;
+
+        min-height: 75px;
+    }
+
+    .nivel-resultado {
+        font-size: 15px;
+    }
+
+    .quiz-question {
+        font-size: 21px;
+    }
+}
+
+
+/* =========================================================
+   ACESSIBILIDADE
+   ========================================================= */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 4px solid rgba(33, 150, 224, 0.25);
+
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   REDUZIR ANIMAÇÕES
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        scroll-behavior: auto !important;
+
+        transition-duration: 0.01ms !important;
     }
 }
