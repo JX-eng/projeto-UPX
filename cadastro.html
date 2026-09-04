@@ -52,7 +52,7 @@
             </p>
 
 
-            <form action="login.html" method="get">
+            <form id="form-cadastro">
 
 
                 <div>
@@ -61,11 +61,7 @@
                         Eu sou:
                     </label>
 
-                    <select
-                        id="tipo"
-                        name="tipo"
-                        required
-                    >
+                    <select id="tipo" name="tipo" required>
 
                         <option value="">
                             Selecione uma opção
@@ -94,13 +90,7 @@
                         Nome completo
                     </label>
 
-                    <input
-                        type="text"
-                        id="nome"
-                        name="nome"
-                        placeholder="Digite seu nome"
-                        required
-                    >
+                    <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
 
                 </div>
 
@@ -111,13 +101,7 @@
                         E-mail
                     </label>
 
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="Digite seu e-mail"
-                        required
-                    >
+                    <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
 
                 </div>
 
@@ -128,13 +112,7 @@
                         Senha
                     </label>
 
-                    <input
-                        type="password"
-                        id="senha"
-                        name="senha"
-                        placeholder="Crie uma senha"
-                        required
-                    >
+                    <input type="password" id="senha" name="senha" placeholder="Crie uma senha" required>
 
                 </div>
 
@@ -145,13 +123,8 @@
                         Confirmar senha
                     </label>
 
-                    <input
-                        type="password"
-                        id="confirmar-senha"
-                        name="confirmar-senha"
-                        placeholder="Digite a senha novamente"
-                        required
-                    >
+                    <input type="password" id="confirmar-senha" name="confirmar-senha"
+                        placeholder="Digite a senha novamente" required>
 
                 </div>
 
@@ -160,11 +133,7 @@
 
                     <label>
 
-                        <input
-                            type="checkbox"
-                            name="termos"
-                            required
-                        >
+                        <input type="checkbox" name="termos" required>
 
                         Aceito os termos de uso
 
@@ -179,6 +148,26 @@
 
             </form>
 
+            <div id="cadastro-sucesso" class="cadastro-sucesso escondido">
+
+                <div class="cadastro-sucesso-icone">
+                    🎉
+                </div>
+
+                <h2>
+                    Cadastro realizado!
+                </h2>
+
+                <p>
+                    Sua conta foi criada com sucesso.
+                    Agora você já pode entrar no EcoEnergia.
+                </p>
+
+                <a href="login.html" class="btn-voltar-login">
+                    Voltar para o login →
+                </a>
+
+            </div>
 
             <p>
 
