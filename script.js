@@ -318,3 +318,38 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 });
+
+// ========================================
+// 13. CADASTRO REALIZADO COM SUCESSO
+// ========================================
+
+const formularioCadastro = document.querySelector("#form-cadastro");
+const cadastroSucesso = document.querySelector("#cadastro-sucesso");
+
+if (formularioCadastro && cadastroSucesso) {
+
+    formularioCadastro.addEventListener("submit", function (evento) {
+
+        evento.preventDefault();
+
+        const senha = document.querySelector("#senha").value;
+        const confirmarSenha = document.querySelector("#confirmar-senha").value;
+
+        if (senha !== confirmarSenha) {
+            alert("As senhas não coincidem.");
+            return;
+        }
+
+        formularioCadastro.style.display = "none";
+
+        const textoJaPossuiConta = formularioCadastro.parentElement.querySelector(":scope > p");
+
+        if (textoJaPossuiConta) {
+            textoJaPossuiConta.style.display = "none";
+        }
+
+        cadastroSucesso.classList.remove("escondido");
+
+        cadastroSucesso.classList.add("cadastro-sucesso-aparecer");
+    });
+}
