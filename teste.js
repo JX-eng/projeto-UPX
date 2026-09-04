@@ -10,161 +10,210 @@
 
 const perguntas = [
 
+    /* =====================================
+       1 — MUITO FÁCIL
+    ===================================== */
+
     {
-        categoria: "💧 ECONOMIA DE ÁGUA",
+        categoria: "💧 MUITO FÁCIL • ECONOMIA DE ÁGUA",
 
         pergunta:
-            "Qual atitude ajuda a economizar água ao lavar roupas?",
+            "Qual atitude ajuda diretamente a economizar água durante o banho?",
 
         alternativas: [
-            "Lavar poucas peças por vez",
-            "Utilizar a máquina com a quantidade adequada de roupas",
-            "Repetir o ciclo de lavagem várias vezes",
-            "Deixar a máquina funcionando mesmo vazia"
+            "Deixar o chuveiro ligado enquanto ensaboa o corpo",
+            "Tomar banhos mais rápidos e fechar o chuveiro ao se ensaboar",
+            "Aumentar a pressão da água",
+            "Tomar dois banhos seguidos"
         ],
 
         correta: 1
     },
 
+
+    /* =====================================
+       2 — MUITO FÁCIL
+    ===================================== */
+
     {
-        categoria: "💧 ECONOMIA DE ÁGUA",
+        categoria: "⚡ MUITO FÁCIL • ECONOMIA DE ENERGIA",
 
         pergunta:
-            "Qual dispositivo pode ajudar a reduzir o consumo de água em torneiras?",
+            "Qual destas atitudes evita desperdício de energia elétrica?",
 
         alternativas: [
-            "Aquecedor elétrico",
-            "Filtro de ar",
-            "Arejador de torneira",
-            "Ventilador"
+            "Deixar as luzes acesas em cômodos vazios",
+            "Manter aparelhos ligados durante toda a noite",
+            "Desligar aparelhos quando eles não estão sendo utilizados",
+            "Deixar o carregador conectado mesmo sem o celular"
         ],
 
         correta: 2
     },
 
-    {
-        categoria: "⚡ ECONOMIA DE ENERGIA",
 
-        pergunta:
-            "Por que lâmpadas LED ajudam a economizar energia?",
-
-        alternativas: [
-            "Porque iluminam utilizando menos energia",
-            "Porque funcionam sem eletricidade",
-            "Porque produzem mais calor",
-            "Porque precisam ficar ligadas por mais tempo"
-        ],
-
-        correta: 0
-    },
+    /* =====================================
+       3 — MÉDIA
+    ===================================== */
 
     {
-        categoria: "💧 SUSTENTABILIDADE",
+        categoria: "💧 MÉDIA • CONSUMO DE ÁGUA",
 
         pergunta:
-            "Qual é uma utilização adequada para a água da chuva armazenada?",
+            "Por que um arejador instalado em uma torneira pode reduzir o consumo de água?",
 
         alternativas: [
-            "Beber sem nenhum tratamento",
-            "Usá-la para qualquer atividade sem cuidado",
-            "Utilizá-la em tarefas apropriadas, como limpeza e rega",
-            "Misturá-la diretamente à água potável"
-        ],
-
-        correta: 2
-    },
-
-    {
-        categoria: "⚡ ECONOMIA DE ENERGIA",
-
-        pergunta:
-            "Qual atitude pode ajudar a diminuir o consumo de energia do ar-condicionado?",
-
-        alternativas: [
-            "Deixar portas e janelas abertas",
-            "Utilizar uma temperatura adequada e manter o ambiente fechado",
-            "Ligar o aparelho com portas abertas",
-            "Configurar sempre na menor temperatura possível"
+            "Porque aumenta a temperatura da água",
+            "Porque mistura ar ao fluxo, mantendo uma sensação de vazão adequada com menor volume de água",
+            "Porque transforma água potável em água reutilizável",
+            "Porque impede completamente a saída de água"
         ],
 
         correta: 1
     },
 
-    {
-        categoria: "💧 ECONOMIA DE ÁGUA",
 
-        pergunta:
-            "Durante o preparo de alimentos, qual atitude ajuda a economizar água?",
-
-        alternativas: [
-            "Usar somente a quantidade necessária",
-            "Deixar a torneira aberta durante todo o preparo",
-            "Lavar os alimentos várias vezes sem necessidade",
-            "Usar água corrente para todas as etapas"
-        ],
-
-        correta: 0
-    },
+    /* =====================================
+       4 — MÉDIA
+    ===================================== */
 
     {
-        categoria: "⚡ CONSUMO CONSCIENTE",
+        categoria: "⚡ MÉDIA • EFICIÊNCIA ENERGÉTICA",
 
         pergunta:
-            "Qual atitude representa um uso consciente da energia elétrica?",
+            "Um aparelho elétrico possui potência de 1.000 W e permanece ligado durante 3 horas. Aproximadamente quanta energia ele consome nesse período?",
 
         alternativas: [
-            "Deixar aparelhos ligados durante toda a noite",
-            "Manter todas as luzes acesas",
-            "Desligar equipamentos quando não estão sendo utilizados",
-            "Deixar carregadores conectados sem necessidade"
+            "0,3 kWh",
+            "1 kWh",
+            "3 kWh",
+            "30 kWh"
         ],
 
         correta: 2
     },
 
+
+    /* =====================================
+       5 — DIFÍCIL
+    ===================================== */
+
     {
-        categoria: "💧 ECONOMIA DE ÁGUA",
+        categoria: "💧 DIFÍCIL • RECURSOS HÍDRICOS",
 
         pergunta:
-            "Por que é importante verificar torneiras, chuveiros e encanamentos regularmente?",
+            "O que representa o conceito de 'água virtual' associado a um produto?",
 
         alternativas: [
-            "Para aumentar a pressão da água",
-            "Para identificar e corrigir possíveis vazamentos",
-            "Para gastar mais água",
-            "Para deixar a água mais quente"
+            "A quantidade de água armazenada fisicamente dentro do produto",
+            "A água utilizada direta e indiretamente ao longo da produção de um bem ou serviço",
+            "A quantidade de água presente somente na embalagem",
+            "A água da chuva que caiu sobre o produto durante sua fabricação"
         ],
 
         correta: 1
     },
 
+
+    /* =====================================
+       6 — DIFÍCIL
+    ===================================== */
+
     {
-        categoria: "🌱 SUSTENTABILIDADE",
+        categoria: "⚡ DIFÍCIL • SISTEMAS ELÉTRICOS",
 
         pergunta:
-            "O que significa utilizar água e energia de forma consciente?",
+            "Por que corrigir um baixo fator de potência em uma instalação elétrica pode melhorar a eficiência do sistema?",
 
         alternativas: [
-            "Usar os recursos somente quando necessário",
-            "Evitar completamente qualquer utilização",
-            "Usar o máximo possível enquanto estiver disponível",
-            "Deixar aparelhos ligados para evitar desgaste"
+            "Porque aumenta automaticamente a tensão disponível para todos os aparelhos",
+            "Porque pode reduzir a circulação de corrente necessária para fornecer a mesma potência ativa, diminuindo perdas no sistema",
+            "Porque elimina completamente o consumo de energia ativa",
+            "Porque faz os equipamentos funcionarem sem corrente elétrica"
         ],
 
-        correta: 0
+        correta: 1
     },
 
+
+    /* =====================================
+       7 — IMPOSSÍVEL
+    ===================================== */
+
     {
-        categoria: "🌎 DESAFIO FINAL",
+        categoria: "🔥 IMPOSSÍVEL • HIDROLOGIA",
 
         pergunta:
-            "Uma família quer reduzir o consumo de água e energia ao mesmo tempo. Qual atitude é mais adequada?",
+            "Em uma bacia hidrográfica, qual efeito pode ocorrer quando uma grande área de vegetação nativa é substituída por superfícies impermeáveis?",
 
         alternativas: [
-            "Tomar banhos mais longos e apagar as luzes",
-            "Corrigir vazamentos e desligar equipamentos que não estão sendo usados",
-            "Deixar torneiras abertas e usar lâmpadas mais fortes",
-            "Lavar pequenas quantidades de roupa várias vezes"
+            "Aumento da infiltração e redução do escoamento superficial",
+            "Redução do escoamento superficial e aumento da recarga natural",
+            "Aumento do escoamento superficial, redução da infiltração e potencial aumento de picos de vazão",
+            "Nenhuma alteração relevante no comportamento hidrológico"
+        ],
+
+        correta: 2
+    },
+
+
+    /* =====================================
+       8 — IMPOSSÍVEL
+    ===================================== */
+
+    {
+        categoria: "🔥 IMPOSSÍVEL • ENERGIA SOLAR",
+
+        pergunta:
+            "Em um sistema fotovoltaico conectado à rede, qual situação normalmente provoca a redução da potência gerada por um conjunto de módulos mesmo quando a irradiância solar é elevada?",
+
+        alternativas: [
+            "Aumento da eficiência dos módulos",
+            "Sombreamento parcial de módulos ou células do conjunto",
+            "Redução da temperatura dos módulos",
+            "Limpeza adequada dos painéis"
+        ],
+
+        correta: 1
+    },
+
+
+    /* =====================================
+       9 — TÉCNICO AVANÇADO
+    ===================================== */
+
+    {
+        categoria: "🧠 TÉCNICO AVANÇADO • ENGENHARIA ENERGÉTICA",
+
+        pergunta:
+            "Em um sistema elétrico trifásico equilibrado, uma carga possui potência ativa de 15 kW, fator de potência 0,75 e tensão de linha de 380 V. Aproximadamente qual é a corrente de linha?",
+
+        alternativas: [
+            "15,2 A",
+            "30,4 A",
+            "45,6 A",
+            "57,0 A"
+        ],
+
+        correta: 1
+    },
+
+
+    /* =====================================
+       10 — TÉCNICO AVANÇADO
+    ===================================== */
+
+    {
+        categoria: "🧠 TÉCNICO AVANÇADO • EFICIÊNCIA HÍDRICA",
+
+        pergunta:
+            "Em um sistema de bombeamento de água, mantendo vazão e características do fluido constantes, qual alteração tende a reduzir significativamente o consumo de energia quando o sistema permite controle adequado da rotação da bomba?",
+
+        alternativas: [
+            "Aumentar a rotação da bomba acima da necessidade",
+            "Utilizar um inversor de frequência para ajustar a rotação conforme a demanda",
+            "Manter a bomba sempre operando em sua rotação máxima",
+            "Instalar uma válvula parcialmente fechada e manter a bomba em rotação máxima"
         ],
 
         correta: 1
@@ -245,7 +294,6 @@ function iniciarTeste() {
     areaTeste.classList.remove("escondido");
 
     mostrarPergunta();
-
 }
 
 
@@ -336,7 +384,6 @@ function mostrarPergunta() {
             );
 
             alternativasElemento.appendChild(botao);
-
         }
     );
 
@@ -354,7 +401,6 @@ function mostrarPergunta() {
     document
         .getElementById("pergunta-container")
         .classList.add("trocar-pergunta");
-
 }
 
 
@@ -380,9 +426,7 @@ function selecionarResposta(indiceEscolhido) {
     /* Desabilitar todos */
 
     botoes.forEach(botao => {
-
         botao.disabled = true;
-
     });
 
 
@@ -418,7 +462,6 @@ function selecionarResposta(indiceEscolhido) {
             false,
             "💡 Quase! A resposta correta foi destacada em verde."
         );
-
     }
 
 
@@ -439,9 +482,7 @@ function selecionarResposta(indiceEscolhido) {
 
         btnProxima.textContent =
             "Ver meu resultado 🏆";
-
     }
-
 }
 
 
@@ -459,7 +500,6 @@ function mostrarFeedback(acertou, mensagem) {
             : "feedback feedback-erro";
 
     feedbackElemento.innerHTML = mensagem;
-
 }
 
 
@@ -485,14 +525,12 @@ function proximaPergunta() {
         mostrarPergunta();
 
         return;
-
     }
 
 
     /* Acabaram as perguntas */
 
     finalizarTeste();
-
 }
 
 
@@ -557,7 +595,6 @@ function finalizarTeste() {
         acertos: acertos,
 
         total: perguntas.length
-
     };
 
 
@@ -572,9 +609,7 @@ function finalizarTeste() {
     if (typeof comemorar === "function") {
 
         comemorar();
-
     }
-
 }
 
 
@@ -596,9 +631,7 @@ function descobrirNivel(pontos) {
 
             descricao:
                 "Você está começando sua jornada! Continue aprendendo e descubra novas formas de cuidar da água e da energia."
-
         };
-
     }
 
 
@@ -614,9 +647,7 @@ function descobrirNivel(pontos) {
 
             descricao:
                 "Você já conhece alguns conceitos importantes. Agora é hora de explorar ainda mais o mundo da sustentabilidade!"
-
         };
-
     }
 
 
@@ -632,9 +663,7 @@ function descobrirNivel(pontos) {
 
             descricao:
                 "Muito bom! Você possui uma boa base sobre economia de água e energia. Continue praticando!"
-
         };
-
     }
 
 
@@ -650,9 +679,7 @@ function descobrirNivel(pontos) {
 
             descricao:
                 "Excelente! Você já possui bastante conhecimento sobre sustentabilidade e consumo consciente."
-
         };
-
     }
 
 
@@ -666,9 +693,7 @@ function descobrirNivel(pontos) {
 
         descricao:
             "Incrível! Você domina os principais conceitos de economia de água e energia. Agora pode encarar desafios ainda maiores!"
-
     };
-
 }
 
 
@@ -700,5 +725,4 @@ function refazerTeste() {
     /* Remover resultado salvo */
 
     localStorage.removeItem("ecoNivel");
-
 }
